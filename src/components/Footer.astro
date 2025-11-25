@@ -3,7 +3,12 @@ const today = new Date();
 ---
 
 <footer>
-	&copy; {today.getFullYear()} Your name here. All rights reserved.
+	<div class="footer-content">
+		<div class="footer-info">
+			<p>&copy; {today.getFullYear()} Philadelphia Area Jobs with Justice. All rights reserved.</p>
+			<p class="address">P.O. Box 15799, Philadelphia, PA 19103</p>
+		</div>
+	</div>
 	<div class="social-links">
 		<a href="https://m.webtoo.ls/@astro" target="_blank">
 			<span class="sr-only">Follow Astro on Mastodon</span>
@@ -42,9 +47,21 @@ const today = new Date();
 <style>
 	footer {
 		padding: 2em 1em 6em 1em;
-		background: linear-gradient(var(--gray-gradient)) no-repeat;
-		color: rgb(var(--gray));
+		background: var(--canary-yellow);
+		color: var(--deep-space-blue);
 		text-align: center;
+	}
+	.footer-content {
+		margin-bottom: 1em;
+	}
+	.footer-info {
+		margin-bottom: 1em;
+	}
+	.footer-info p {
+		margin: 0.5em 0;
+	}
+	.address {
+		font-size: 0.95em;
 	}
 	.social-links {
 		display: flex;
@@ -54,9 +71,9 @@ const today = new Date();
 	}
 	.social-links a {
 		text-decoration: none;
-		color: rgb(var(--gray));
+		color: var(--deep-space-blue);
 	}
 	.social-links a:hover {
-		color: rgb(var(--gray-dark));
+		color: var(--sky-surge);
 	}
 </style>

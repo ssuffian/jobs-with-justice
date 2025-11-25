@@ -1,0 +1,176 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Member organizations list
+// To add a logo: import it above and add it to the member object
+// Example: import aaupLogo from '../../assets/members/aaup-penn.png';
+// Then: { name: 'AAUP Penn', logo: aaupLogo }
+
+const members = [
+	{ name: 'AAUP Penn' },
+	{ name: 'AFSCME District Council 47' },
+	{ name: 'APALA Philly' },
+	{ name: 'APFA PHL' },
+	{ name: 'API PA' },
+	{ name: 'Faculty and Staff Federation of the Community College of Philadelphia' },
+	{ name: 'IUPAT District Council 21' },
+	{ name: 'Juntos' },
+	{ name: 'Movement Alliance Project' },
+	{ name: 'National Domestic Workers Alliance – PA Chapter' },
+	{ name: 'OnePA' },
+	{ name: 'PA Debt Collective' },
+	{ name: 'PA Stands Up' },
+	{ name: 'Penn for PILOTs' },
+	{ name: 'Penn GET-UP' },
+	{ name: 'Philadelphia Coalition for Affordable Communities' },
+	{ name: 'Philadelphia Council AFL-CIO' },
+	{ name: 'Philadelphia Joint Board Workers United' },
+	{ name: 'PhilaPOSH' },
+	{ name: 'POWER' },
+	{ name: 'Restaurant Opportunities Center PA' },
+	{ name: 'SAG-AFTRA Philadelphia' },
+	{ name: 'SEIU Healthcare PA' },
+	{ name: 'SEIU Local 668' },
+	{ name: 'TAUP AFT Local 4531' },
+	{ name: 'Teamsters Local 623' },
+	{ name: 'Teamsters Local 773' },
+	{ name: 'TUGSA AFT Local 6290' },
+	{ name: 'UAP AFT Local 9608' },
+	{ name: 'WGA Philly' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Our Coalition - ${SITE_TITLE}`} description="Philadelphia Area Jobs with Justice coalition members - labor unions, community organizations, and student groups working together for economic justice." />
+		<style>
+			main {
+				width: 100%;
+				max-width: 1200px;
+				margin: auto;
+				padding: 3em 1em;
+			}
+			.intro {
+				font-size: 1.2em;
+				line-height: 1.8;
+				margin-bottom: 3em;
+				max-width: 800px;
+			}
+			.members-section {
+				margin-top: 3em;
+			}
+			.members-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				gap: 2em;
+				margin-top: 2em;
+			}
+			.member-card {
+				background: var(--white);
+				border: 2px solid var(--silver);
+				border-radius: 8px;
+				padding: 1.5em;
+				text-align: center;
+				transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				justify-content: center;
+				min-height: 150px;
+			}
+			.member-card:hover {
+				transform: translateY(-4px);
+				box-shadow: var(--box-shadow);
+				border-color: var(--sky-surge);
+			}
+			.member-logo {
+				max-width: 100%;
+				max-height: 80px;
+				object-fit: contain;
+				margin-bottom: 1em;
+				display: block;
+			}
+			.member-name {
+				color: var(--deep-space-blue);
+				font-weight: 600;
+				font-size: 0.95em;
+				line-height: 1.4;
+				margin: 0;
+			}
+			.member-name-only {
+				color: var(--deep-space-blue);
+				font-weight: 600;
+				font-size: 0.95em;
+				line-height: 1.4;
+				margin: 0;
+			}
+			.no-logo {
+				color: var(--silver);
+				font-size: 0.85em;
+				margin-top: 0.5em;
+			}
+			@media (max-width: 768px) {
+				.members-grid {
+					grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
+					gap: 1.5em;
+				}
+				.member-card {
+					padding: 1em;
+					min-height: 120px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Our Coalition</h1>
+			
+			<div class="intro">
+				<p>
+					Philadelphia Area Jobs with Justice brings together a diverse coalition of labor unions, 
+					community organizations, student groups, and faith-based organizations. Together, we work 
+					to build power for working people and fight for economic justice in Philadelphia and beyond.
+				</p>
+				<p>
+					Our coalition members represent workers across industries—from healthcare and education to 
+					warehouse and service workers. We believe that by uniting across sectors and communities, 
+					we can build a stronger movement for workers' rights and social justice.
+				</p>
+				<p style="text-align: center; margin-top: 2em;">
+					<a href="/membership" style="display: inline-block; padding: 1em 2em; background: var(--canary-yellow); color: var(--deep-space-blue); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1em; transition: transform 0.2s, box-shadow 0.2s;">
+						Join Our Coalition →
+					</a>
+				</p>
+			</div>
+
+			<section class="members-section">
+				<h2>Our Members</h2>
+				<div class="members-grid">
+					{members.map((member) => (
+						<div class="member-card">
+							{member.logo ? (
+								<>
+									<Image src={member.logo} alt={member.name} class="member-logo" />
+									<p class="member-name">{member.name}</p>
+								</>
+							) : (
+								<p class="member-name-only">{member.name}</p>
+							)}
+						</div>
+					))}
+				</div>
+				<p style="margin-top: 2em; color: var(--silver); font-size: 0.9em; text-align: center;">
+					Logos for member organizations can be added to showcase our diverse coalition.
+				</p>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+

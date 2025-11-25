@@ -1,4 +1,6 @@
 ---
+import { Image } from 'astro:assets';
+import bannerImage from '../assets/banner.jpg';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
@@ -8,41 +10,270 @@ import { SITE_DESCRIPTION, SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={SITE_TITLE} description={SITE_DESCRIPTION} />
+		<BaseHead title="Philadelphia Area Jobs with Justice" description="A coalition of labor unions and student, community, and faith groups fighting for fair treatment of working people in Philadelphia." />
+		<style>
+			.banner {
+				width: 100%;
+				height: 500px;
+				overflow: hidden;
+				display: block;
+				position: relative;
+			}
+			.banner img {
+				width: 100%;
+				height: 100%;
+				object-fit: cover;
+				object-position: center;
+				display: block;
+			}
+			.banner-overlay {
+				position: absolute;
+				bottom: 0;
+				left: 0;
+				right: 0;
+				background: linear-gradient(to top, rgba(1, 47, 64, 0.9), transparent);
+				padding: 3em 2em 2em;
+				color: var(--white);
+			}
+			.banner-overlay h1 {
+				color: var(--white);
+				margin: 0;
+				font-size: 3.5em;
+				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+			}
+			.banner-overlay p {
+				color: var(--silver);
+				font-size: 1.3em;
+				margin-top: 0.5em;
+			}
+			main {
+				width: 100%;
+				max-width: 1200px;
+				margin: auto;
+				padding: 3em 1em;
+			}
+			.hero-section {
+				text-align: center;
+				margin-bottom: 4em;
+				padding: 2em 0;
+			}
+			.hero-section h2 {
+				color: var(--deep-space-blue);
+				font-size: 2.5em;
+				margin-bottom: 1em;
+			}
+			.hero-section p {
+				font-size: 1.2em;
+				max-width: 800px;
+				margin: 0 auto 2em;
+				line-height: 1.8;
+			}
+			.work-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+				gap: 2em;
+				margin: 3em 0;
+			}
+			.work-card {
+				background: var(--white);
+				border: 2px solid var(--silver);
+				border-radius: 8px;
+				padding: 2em;
+				transition: transform 0.2s, box-shadow 0.2s;
+			}
+			.work-card:hover {
+				transform: translateY(-4px);
+				box-shadow: var(--box-shadow);
+				border-color: var(--sky-surge);
+			}
+			.work-card h3 {
+				color: var(--sky-surge);
+				margin-top: 0;
+				font-size: 1.5em;
+			}
+			.work-card a {
+				color: var(--sky-surge);
+				text-decoration: none;
+				font-weight: 700;
+			}
+			.work-card a:hover {
+				color: var(--deep-space-blue);
+			}
+			.cta-section {
+				background: linear-gradient(135deg, var(--deep-space-blue), var(--sky-surge));
+				color: var(--white);
+				padding: 3em 2em;
+				border-radius: 12px;
+				text-align: center;
+				margin: 4em 0;
+			}
+			.cta-section h2 {
+				color: var(--white);
+				margin-bottom: 1em;
+			}
+			.cta-section p {
+				font-size: 1.2em;
+				margin-bottom: 2em;
+				color: var(--silver);
+			}
+			.cta-buttons {
+				display: flex;
+				gap: 1em;
+				justify-content: center;
+				flex-wrap: wrap;
+			}
+			.cta-button {
+				display: inline-block;
+				padding: 1em 2em;
+				background: var(--canary-yellow);
+				color: var(--deep-space-blue);
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 1.1em;
+				transition: transform 0.2s, box-shadow 0.2s;
+			}
+			.cta-button:hover {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			}
+			.cta-button.secondary {
+				background: transparent;
+				border: 2px solid var(--white);
+				color: var(--white);
+			}
+			.cta-button.secondary:hover {
+				background: var(--white);
+				color: var(--deep-space-blue);
+			}
+			.values-section {
+				background: var(--silver);
+				background: linear-gradient(to bottom, rgba(190, 202, 207, 0.2), transparent);
+				padding: 3em 2em;
+				border-radius: 12px;
+				margin: 3em 0;
+			}
+			.values-grid {
+				display: grid;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+				gap: 2em;
+				margin-top: 2em;
+			}
+			.value-item {
+				text-align: center;
+			}
+			.value-item h3 {
+				color: var(--sky-surge);
+				font-size: 1.3em;
+			}
+			@media (max-width: 768px) {
+				.banner-overlay h1 {
+					font-size: 2.5em;
+				}
+				.banner-overlay p {
+					font-size: 1.1em;
+				}
+				.work-grid {
+					grid-template-columns: 1fr;
+				}
+				.cta-buttons {
+					flex-direction: column;
+				}
+				.cta-button {
+					width: 100%;
+				}
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
+		<div class="banner">
+			<Image src={bannerImage} alt="Philadelphia Area Jobs with Justice" />
+			<div class="banner-overlay">
+				<h1>Philadelphia Area Jobs with Justice</h1>
+				<p>Fighting for fair treatment of working people through coalition building, organizing, and strategic action</p>
+			</div>
+		</div>
 		<main>
-			<h1>🧑‍🚀 Hello, Astronaut!</h1>
-			<p>
-				Welcome to the official <a href="https://astro.build/">Astro</a> blog starter template. This
-				template serves as a lightweight, minimally-styled starting point for anyone looking to build
-				a personal website, blog, or portfolio with Astro.
-			</p>
-			<p>
-				This template comes with a few integrations already configured in your
-				<code>astro.config.mjs</code> file. You can customize your setup with
-				<a href="https://astro.build/integrations">Astro Integrations</a> to add tools like Tailwind,
-				React, or Vue to your project.
-			</p>
-			<p>Here are a few ideas on how to get started with the template:</p>
-			<ul>
-				<li>Edit this page in <code>src/pages/index.astro</code></li>
-				<li>Edit the site header items in <code>src/components/Header.astro</code></li>
-				<li>Add your name to the footer in <code>src/components/Footer.astro</code></li>
-				<li>Check out the included blog posts in <code>src/content/blog/</code></li>
-				<li>Customize the blog post page layout in <code>src/layouts/BlogPost.astro</code></li>
-			</ul>
-			<p>
-				Have fun! If you get stuck, remember to
-				<a href="https://docs.astro.build/">read the docs</a>
-				or <a href="https://astro.build/chat">join us on Discord</a> to ask questions.
-			</p>
-			<p>
-				Looking for a blog template with a bit more personality? Check out
-				<a href="https://github.com/Charca/astro-blog-template">astro-blog-template</a>
-				by <a href="https://twitter.com/Charca">Maxi Ferreira</a>.
-			</p>
+			<section class="hero-section">
+				<h2>Building a Movement for Economic Justice</h2>
+				<p>
+					Philadelphia Area Jobs with Justice is a coalition of labor unions and student, community, and faith groups. 
+					Together, we fight for the fair treatment of working people, organizing in local communities and workplaces. 
+					We believe in long-term multi-issue coalition building, grassroots base-building, organizing, and strategic 
+					action as the foundation for building a movement for economic justice.
+				</p>
+				<p>
+					By engaging a broad community of allies, we work to ensure that when people act—whether striking, marching, 
+					or organizing—they are never alone.
+				</p>
+			</section>
+
+			<section>
+				<h2>Our Work</h2>
+				<div class="work-grid">
+					<div class="work-card">
+						<h3>Fair Warehouses</h3>
+						<p>Fighting for fair treatment and safe working conditions for warehouse and delivery workers across Philadelphia.</p>
+						<a href="https://fairwarehouses.org/" target="_blank" rel="noopener noreferrer">Learn more →</a>
+					</div>
+					<div class="work-card">
+						<h3>Amazon Campaign</h3>
+						<p>Holding Amazon accountable for worker rights, community impact, and fair labor practices in our region.</p>
+						<a href="/our-work/amazon">Learn more →</a>
+					</div>
+					<div class="work-card">
+						<h3>Strategic Support</h3>
+						<p>Providing rapid-response support for strikes, protests, and community actions through our Strategic Action Support Team.</p>
+						<a href="/our-work/strategic-support-for-peoples-actions">Learn more →</a>
+					</div>
+					<div class="work-card">
+						<h3>Organizer Training</h3>
+						<p>Building power through our Advanced Organizer Training Program, developing the next generation of labor and community organizers.</p>
+						<a href="/our-work/advanced-organizer-training-program">Learn more →</a>
+					</div>
+					<div class="work-card">
+						<h3>Coalition Building</h3>
+						<p>Bringing together unions, community groups, faith organizations, and students to build lasting solidarity.</p>
+						<a href="/our-work/our-coalition">Learn more →</a>
+					</div>
+					<div class="work-card">
+						<h3>Our History</h3>
+						<p>For decades, we've been at the forefront of labor and community organizing in Philadelphia.</p>
+						<a href="/about/history">Learn more →</a>
+					</div>
+				</div>
+			</section>
+
+			<section class="values-section">
+				<h2 style="text-align: center; margin-top: 0;">Our Values</h2>
+				<div class="values-grid">
+					<div class="value-item">
+						<h3>Solidarity</h3>
+						<p>We believe in mutual commitment across differences—labor, racial justice, housing rights, climate justice, and more.</p>
+					</div>
+					<div class="value-item">
+						<h3>Coalition Building</h3>
+						<p>Strong networks prevent burnout and enable powerful collective action. We build bridges between movements.</p>
+					</div>
+					<div class="value-item">
+						<h3>Action Readiness</h3>
+						<p>When people rise up, we must be ready—not just in principle, but in practice—with resources, strategy, and unity.</p>
+					</div>
+				</div>
+			</section>
+
+			<section class="cta-section">
+				<h2>Join the Movement</h2>
+				<p>
+					Whether you're a worker, student, community member, or ally, there's a place for you in our coalition. 
+					Together, we can build the support our movements deserve.
+				</p>
+				<div class="cta-buttons">
+					<a href="/get-updates" class="cta-button">Get Updates</a>
+					<a href="/donate" class="cta-button secondary">Donate</a>
+				</div>
+			</section>
 		</main>
 		<Footer />
 	</body>

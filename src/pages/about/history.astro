@@ -1,0 +1,189 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Our History - ${SITE_TITLE}`} description="Learn about our history" />
+		<style>
+			main {
+				width: 100%;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+			h1 {
+				text-align: center;
+				margin-bottom: 3em;
+				color: var(--deep-space-blue);
+			}
+			.timeline {
+				position: relative;
+				padding: 2em 0;
+			}
+			.timeline::before {
+				content: '';
+				position: absolute;
+				left: 50%;
+				top: 0;
+				bottom: 0;
+				width: 4px;
+				background: var(--sky-surge);
+				transform: translateX(-50%);
+			}
+			.timeline-item {
+				position: relative;
+				margin-bottom: 4em;
+				opacity: 0;
+				transform: translateY(50px);
+				transition: opacity 0.6s ease, transform 0.6s ease;
+			}
+			.timeline-item.visible {
+				opacity: 1;
+				transform: translateY(0);
+			}
+			.timeline-item:nth-child(odd) {
+				padding-right: calc(50% + 30px);
+			}
+			.timeline-item:nth-child(even) {
+				padding-left: calc(50% + 30px);
+			}
+			.timeline-year {
+				position: absolute;
+				left: 50%;
+				transform: translateX(-50%);
+				background: var(--canary-yellow);
+				color: var(--deep-space-blue);
+				padding: 0.5em 1em;
+				border-radius: 20px;
+				font-weight: 700;
+				font-size: 1.1em;
+				white-space: nowrap;
+				z-index: 2;
+				box-shadow: 0 2px 8px rgba(1, 47, 64, 0.2);
+			}
+			.timeline-content {
+				background: var(--white);
+				padding: 2.5em 2em 2em 2em;
+				border-radius: 8px;
+				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.1);
+				position: relative;
+				border-left: 4px solid var(--sky-surge);
+			}
+			.timeline-item:nth-child(even) .timeline-content {
+				border-left: none;
+				border-right: 4px solid var(--sky-surge);
+			}
+			.timeline-content p {
+				margin: 0;
+				line-height: 1.8;
+				color: var(--deep-space-blue);
+			}
+			.timeline-dot {
+				display: none;
+			}
+			@media (max-width: 768px) {
+				.timeline::before {
+					left: 30px;
+				}
+				.timeline-item {
+					padding-left: 80px !important;
+					padding-right: 0 !important;
+				}
+				.timeline-year {
+					left: 30px;
+					transform: translateX(-50%);
+				}
+				.timeline-dot {
+					left: 30px;
+					transform: translateX(-50%);
+				}
+				.timeline-content {
+					border-left: 4px solid var(--sky-surge) !important;
+					border-right: none !important;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Our History</h1>
+			<div class="timeline">
+				<div class="timeline-item">
+					<div class="timeline-year">1999</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<p>Philadelphia JwJ was founded in 1999 in order to build solidarity between local labor unions and community organizations to win victories through the media, on the ground, in picket lines, and at protests.</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-year">2004-2008</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<p>For four years, Philadelphia JwJ waged a sustained campaign called Philadelphia Officers and Workers Rising (POWR), defending the workplace rights of security guards in the City of Philadelphia. In the first two years, the POWR campaign won major victories including wage raises and paid sick days for guards at the Penn and Temple campuses, and at the Philadelphia Museum of Art. In 2008, Philadelphia JwJ began to work closely with officers at the museum as they organized to demand independent union recognition. In a historic election, the Allied Barton guards at the museum overwhelmingly voted to unionize under the Philadelphia Security Officers' Union (PSOU).</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-year">2010</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<p>In April 2010, we rallied alongside the nurses of PASNAP during their four-week strike at Temple Hospital, marching with the workers at rallies and pickets, sponsoring a fundraiser for the nurses and their families, and organizing three solidarity rallies and an educational "die-in" through the Temple chapter of our Student Labor Action Project.</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-year">2010-2011</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<p>In 2010 and 2011, we also served on the Executive Board of the Coalition for Essential Services (CES), a network of 90 community, labor, and social justice organizations fighting against tax breaks for big business as way of finding the money necessary to fund essential city services like domestic violence shelters, libraries, and afterschool programs for children. CES fights in City Hall, in the media, and on the streets for budget justice.</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-year">2012-2017</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<p>In 2012, Philadelphia Jobs with Justice responded to Philadelphia's public school funding crisis by launching the Good Neighbor Campaign to pressure the University of Pennsylvania, the city's largest private landowner, to contribute 0.01% of their operating budget to the School District. In 2017, recognizing the critical role of the 10 year tax abatement in our public school funding crisis, Philadelphia JwJ shifted focus and joined the Our City Our Schools Coalition to demand an end to the 10 year tax abatement.</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-year">2018-2019</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<p>In 2018, in collaboration with the National Domestic Workers Alliance, Philadelphia Jobs With Justice launched an autonomous domestic worker organizing project to build a broad membership base of domestic worker leaders in Philadelphia and win a Philadelphia Domestic Worker Bill of Rights. Passed in October 2019, the Domestic Workers Bill of Rights expanded labor protections to Philadelphia's 16,000 nannies, house cleaners, and caregivers for the first time. Following the passage of the bill, the Pennsylvania Domestic Workers Alliance transitioned from a project of Philadelphia Jobs With Justice to a chapter of the National Domestic Workers Alliance.</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-year">2020</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<p>In 2020, following the passage of a 10-Year Tax Abatement reform bill that inadequately addresses the funding needs of our public schools, our leadership recognized an opportunity to launch a new campaign for wealthy nonprofits to contribute their fair share of funding to our public schools. After a year of sustained pressure, our campaign member leaders won a $100 million commitment from the University of Pennsylvania to fund the remediation of lead and asbestos in our city's public schools.</p>
+					</div>
+				</div>
+			</div>
+		</main>
+		<Footer />
+		<script>
+			const observerOptions = {
+				threshold: 0.2,
+				rootMargin: '0px 0px -100px 0px'
+			};
+			
+			const observer = new IntersectionObserver((entries) => {
+				entries.forEach(entry => {
+					if (entry.isIntersecting) {
+						entry.target.classList.add('visible');
+					}
+				});
+			}, observerOptions);
+			
+			document.querySelectorAll('.timeline-item').forEach(item => {
+				observer.observe(item);
+			});
+		</script>
+	</body>
+</html>
+

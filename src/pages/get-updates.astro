@@ -1,0 +1,74 @@
+---
+import BaseHead from '../components/BaseHead.astro';
+import Footer from '../components/Footer.astro';
+import Header from '../components/Header.astro';
+import { SITE_TITLE } from '../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Get Updates - ${SITE_TITLE}`} description="Get updates from us" />
+		<style>
+			main {
+				width: 100%;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
+			h1 {
+				color: var(--deep-space-blue);
+				margin-bottom: 0.5em;
+			}
+			.calendar-container {
+				margin: 2em 0;
+				background: var(--white);
+				border-radius: 8px;
+				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.1);
+				overflow: hidden;
+				border: 2px solid var(--sky-surge);
+			}
+			.calendar-wrapper {
+				position: relative;
+				padding-bottom: 75%;
+				height: 0;
+				overflow: hidden;
+			}
+			.calendar-wrapper iframe {
+				position: absolute;
+				top: 0;
+				left: 0;
+				width: 100%;
+				height: 100%;
+				border: none;
+			}
+			@media (max-width: 768px) {
+				.calendar-wrapper {
+					padding-bottom: 100%;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Get Updates</h1>
+			<p>Stay connected with our events and activities. View our calendar below:</p>
+			<div class="calendar-container">
+				<div class="calendar-wrapper">
+					<iframe 
+						src="https://calendar.google.com/calendar/embed?src=en.usa%23holiday%40group.v.calendar.google.com&ctz=America%2FNew_York" 
+						style="border: 0" 
+						width="800" 
+						height="600" 
+						frameborder="0" 
+						scrolling="no"
+						title="Events Calendar">
+					</iframe>
+				</div>
+			</div>
+		</main>
+		<Footer />
+	</body>
+</html>
+
