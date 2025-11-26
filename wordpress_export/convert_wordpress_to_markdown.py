@@ -44,17 +44,10 @@ def get_posts_from_mysql(host='localhost', port=3306, user='root', password='roo
         print(f"Found {len(df)} published posts")
         
         # Debug: show column names and first row
-        if len(df) > 0:
-            print(f"Column names: {list(df.columns)}")
-            first_row = df.iloc[0]
-            print(f"First row keys: {list(first_row.keys())[:5]}...")
-            print(f"First row values (sample): {dict(list(first_row.items())[:3])}")
-            
-            # Check if values look like column names (indicates a problem)
-            if 'post_title' in df.columns:
-                first_title = first_row.get('post_title', '')
-                if first_title == 'post_title' or first_title in df.columns:
-                    print("WARNING: Values appear to be column names! This suggests a query issue.")
+        print(f"Column names: {list(df.columns)}")
+        first_row = df.iloc[0]
+        print(f"First row keys: {list(first_row.keys())[:5]}...")
+        print(f"First row values (sample): {dict(list(first_row.items())[:3])}")
         
         # Convert to list of dictionaries where keys are column names
         records = df.to_dict('records')

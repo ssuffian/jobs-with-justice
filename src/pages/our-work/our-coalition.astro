@@ -5,42 +5,70 @@ import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
 
-// Member organizations list
-// To add a logo: import it above and add it to the member object
-// Example: import aaupLogo from '../../assets/members/aaup-penn.png';
-// Then: { name: 'AAUP Penn', logo: aaupLogo }
+// Import logos
+import aaupPennLogo from '../../assets/members/aaup-penn.png';
+import afscmeLogo from '../../assets/members/afscme-district-council-47.png';
+import apalaLogo from '../../assets/members/apala-philly.png';
+import apfaLogo from '../../assets/members/apfa-phl.png';
+import apipaLogo from '../../assets/members/apipa.png';
+import debtCollectiveLogo from '../../assets/members/debtcollective.png';
+import facultyStaffLogo from '../../assets/members/faculty-and-staff-federation-of-the-community-college-of-philadelphia.png';
+import iupatLogo from '../../assets/members/iupat-district-council-21.png';
+import juntosLogo from '../../assets/members/juntos.webp';
+import mapLogo from '../../assets/members/map.png';
+import ndwaLogo from '../../assets/members/national-domestic-workers-alliance---pa-chapter.png';
+import onepaLogo from '../../assets/members/onepa.png';
+import paStandsUpLogo from '../../assets/members/pa-stands-up.png';
+import pcfacLogo from '../../assets/members/pcfac.jpg';
+import pennPilotsLogo from '../../assets/members/penn-for-pilots.png';
+import pennGetUpLogo from '../../assets/members/penn-get-up.png';
+import aflcioLogo from '../../assets/members/philadelphia-council-afl-cio.png';
+import workersUnitedLogo from '../../assets/members/philadelphia-joint-board-workers-united.png';
+import philaposhLogo from '../../assets/members/philaposh.jpg';
+import powerLogo from '../../assets/members/power.png';
+import rocLogo from '../../assets/members/roc.jpg';
+import sagaftraLogo from '../../assets/members/sag-aftra-philadelphia.png';
+import seiuHealthcareLogo from '../../assets/members/seiu-healthcare-pa.png';
+import seiuLocal668Logo from '../../assets/members/seiu-local-668.png';
+import taupLogo from '../../assets/members/taup-aft-local-4531.png';
+import teamsters623Logo from '../../assets/members/teamsters-local-623.png';
+import teamsters773Logo from '../../assets/members/teamsters-local-773.png';
+import tugsaLogo from '../../assets/members/tugsa-aft-local-6290.png';
+import uapLogo from '../../assets/members/uap-aft-local-9608.png';
+import wgaLogo from '../../assets/members/wga-philly.png';
 
+// Member organizations list with logos and websites
 const members = [
-	{ name: 'AAUP Penn' },
-	{ name: 'AFSCME District Council 47' },
-	{ name: 'APALA Philly' },
-	{ name: 'APFA PHL' },
-	{ name: 'API PA' },
-	{ name: 'Faculty and Staff Federation of the Community College of Philadelphia' },
-	{ name: 'IUPAT District Council 21' },
-	{ name: 'Juntos' },
-	{ name: 'Movement Alliance Project' },
-	{ name: 'National Domestic Workers Alliance – PA Chapter' },
-	{ name: 'OnePA' },
-	{ name: 'PA Debt Collective' },
-	{ name: 'PA Stands Up' },
-	{ name: 'Penn for PILOTs' },
-	{ name: 'Penn GET-UP' },
-	{ name: 'Philadelphia Coalition for Affordable Communities' },
-	{ name: 'Philadelphia Council AFL-CIO' },
-	{ name: 'Philadelphia Joint Board Workers United' },
-	{ name: 'PhilaPOSH' },
-	{ name: 'POWER' },
-	{ name: 'Restaurant Opportunities Center PA' },
-	{ name: 'SAG-AFTRA Philadelphia' },
-	{ name: 'SEIU Healthcare PA' },
-	{ name: 'SEIU Local 668' },
-	{ name: 'TAUP AFT Local 4531' },
-	{ name: 'Teamsters Local 623' },
-	{ name: 'Teamsters Local 773' },
-	{ name: 'TUGSA AFT Local 6290' },
-	{ name: 'UAP AFT Local 9608' },
-	{ name: 'WGA Philly' },
+	{ name: 'AAUP Penn', logo: aaupPennLogo, website: 'https://www.aaup.org' },
+	{ name: 'AFSCME District Council 47', logo: afscmeLogo, website: 'https://www.afscme.org' },
+	{ name: 'APALA Philly', logo: apalaLogo, website: 'https://www.apalanet.org' },
+	{ name: 'APFA PHL', logo: apfaLogo, website: 'https://www.apfa.org' },
+	{ name: 'API PA', logo: apipaLogo, website: 'https://www.apipennsylvania.org' },
+	{ name: 'Faculty and Staff Federation of the Community College of Philadelphia', logo: facultyStaffLogo, website: 'https://www.ccp.edu' },
+	{ name: 'IUPAT District Council 21', logo: iupatLogo, website: 'https://www.iupat.org' },
+	{ name: 'Juntos', logo: juntosLogo, website: 'https://www.juntos.org' },
+	{ name: 'Movement Alliance Project', logo: mapLogo, website: 'https://movementalliance.org' },
+	{ name: 'National Domestic Workers Alliance – PA Chapter', logo: ndwaLogo, website: 'https://www.domesticworkers.org' },
+	{ name: 'OnePA', logo: onepaLogo, website: 'https://www.onepa.org' },
+	{ name: 'PA Debt Collective', logo: debtCollectiveLogo, website: 'https://debtcollective.org' },
+	{ name: 'PA Stands Up', logo: paStandsUpLogo, website: 'https://www.pastandsup.org' },
+	{ name: 'Penn for PILOTs', logo: pennPilotsLogo, website: 'https://www.upenn.edu' },
+	{ name: 'Penn GET-UP', logo: pennGetUpLogo, website: 'https://www.upenn.edu' },
+	{ name: 'Philadelphia Coalition for Affordable Communities', logo: pcfacLogo, website: 'https://www.phillyaffordablecommunities.org' },
+	{ name: 'Philadelphia Council AFL-CIO', logo: aflcioLogo, website: 'https://www.aflcio.org' },
+	{ name: 'Philadelphia Joint Board Workers United', logo: workersUnitedLogo, website: 'https://www.workersunited.org' },
+	{ name: 'PhilaPOSH', logo: philaposhLogo, website: 'https://www.philaposh.org' },
+	{ name: 'POWER', logo: powerLogo, website: 'https://www.powerinterfaith.org' },
+	{ name: 'Restaurant Opportunities Center PA', logo: rocLogo, website: 'https://www.rocunited.org' },
+	{ name: 'SAG-AFTRA Philadelphia', logo: sagaftraLogo, website: 'https://www.sagaftra.org' },
+	{ name: 'SEIU Healthcare PA', logo: seiuHealthcareLogo, website: 'https://www.seiu.org' },
+	{ name: 'SEIU Local 668', logo: seiuLocal668Logo, website: 'https://www.seiu.org' },
+	{ name: 'TAUP AFT Local 4531', logo: taupLogo, website: 'https://www.aft.org' },
+	{ name: 'Teamsters Local 623', logo: teamsters623Logo, website: 'https://www.teamster.org' },
+	{ name: 'Teamsters Local 773', logo: teamsters773Logo, website: 'https://www.teamster.org' },
+	{ name: 'TUGSA AFT Local 6290', logo: tugsaLogo, website: 'https://www.aft.org' },
+	{ name: 'UAP AFT Local 9608', logo: uapLogo, website: 'https://www.aft.org' },
+	{ name: 'WGA Philly', logo: wgaLogo, website: 'https://www.wga.org' },
 ];
 ---
 
@@ -66,7 +94,7 @@ const members = [
 			}
 			.members-grid {
 				display: grid;
-				grid-template-columns: repeat(auto-fill, minmax(200px, 1fr));
+				grid-template-columns: repeat(4, 1fr);
 				gap: 2em;
 				margin-top: 2em;
 			}
@@ -74,14 +102,27 @@ const members = [
 				background: var(--white);
 				border: 2px solid var(--silver);
 				border-radius: 8px;
-				padding: 1.5em;
+				padding: 0.75em;
 				text-align: center;
 				transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
 				display: flex;
 				flex-direction: column;
 				align-items: center;
 				justify-content: center;
-				min-height: 150px;
+				aspect-ratio: 1;
+				width: 100%;
+			}
+			.member-card-link {
+				text-decoration: none;
+				color: inherit;
+				display: block;
+				width: 100%;
+				height: 100%;
+			}
+			.member-card-link:hover .member-card {
+				transform: translateY(-4px);
+				box-shadow: var(--box-shadow);
+				border-color: var(--sky-surge);
 			}
 			.member-card:hover {
 				transform: translateY(-4px);
@@ -89,24 +130,26 @@ const members = [
 				border-color: var(--sky-surge);
 			}
 			.member-logo {
-				max-width: 100%;
-				max-height: 80px;
+				max-width: 85%;
+				max-height: 50%;
+				width: auto;
+				height: auto;
 				object-fit: contain;
-				margin-bottom: 1em;
+				margin-bottom: 0.4em;
 				display: block;
 			}
 			.member-name {
 				color: var(--deep-space-blue);
 				font-weight: 600;
-				font-size: 0.95em;
-				line-height: 1.4;
+				font-size: 0.85em;
+				line-height: 1.2;
 				margin: 0;
 			}
 			.member-name-only {
 				color: var(--deep-space-blue);
 				font-weight: 600;
-				font-size: 0.95em;
-				line-height: 1.4;
+				font-size: 0.85em;
+				line-height: 1.2;
 				margin: 0;
 			}
 			.no-logo {
@@ -114,14 +157,19 @@ const members = [
 				font-size: 0.85em;
 				margin-top: 0.5em;
 			}
+			@media (max-width: 1024px) {
+				.members-grid {
+					grid-template-columns: repeat(3, 1fr);
+					gap: 1.5em;
+				}
+			}
 			@media (max-width: 768px) {
 				.members-grid {
-					grid-template-columns: repeat(auto-fill, minmax(150px, 1fr));
-					gap: 1.5em;
+					grid-template-columns: repeat(2, 1fr);
+					gap: 1em;
 				}
 				.member-card {
 					padding: 1em;
-					min-height: 120px;
 				}
 			}
 		</style>
@@ -153,21 +201,33 @@ const members = [
 				<h2>Our Members</h2>
 				<div class="members-grid">
 					{members.map((member) => (
-						<div class="member-card">
-							{member.logo ? (
-								<>
-									<Image src={member.logo} alt={member.name} class="member-logo" />
-									<p class="member-name">{member.name}</p>
-								</>
-							) : (
-								<p class="member-name-only">{member.name}</p>
-							)}
-						</div>
+						member.website ? (
+							<a href={member.website} target="_blank" rel="noopener noreferrer" class="member-card-link">
+								<div class="member-card">
+									{member.logo ? (
+										<>
+											<Image src={member.logo} alt={member.name} class="member-logo" />
+											<p class="member-name">{member.name}</p>
+										</>
+									) : (
+										<p class="member-name-only">{member.name}</p>
+									)}
+								</div>
+							</a>
+						) : (
+							<div class="member-card">
+								{member.logo ? (
+									<>
+										<Image src={member.logo} alt={member.name} class="member-logo" />
+										<p class="member-name">{member.name}</p>
+									</>
+								) : (
+									<p class="member-name-only">{member.name}</p>
+								)}
+							</div>
+						)
 					))}
 				</div>
-				<p style="margin-top: 2em; color: var(--silver); font-size: 0.9em; text-align: center;">
-					Logos for member organizations can be added to showcase our diverse coalition.
-				</p>
 			</section>
 		</main>
 		<Footer />

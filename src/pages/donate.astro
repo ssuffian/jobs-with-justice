@@ -8,13 +8,49 @@ import { SITE_TITLE } from '../consts';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Donate - ${SITE_TITLE}`} description="Support our work" />
+		<BaseHead title={`Donate - ${SITE_TITLE}`} description="Support our work with a donation" />
+		<style>
+			main {
+				width: 100%;
+				max-width: 900px;
+				margin: auto;
+				padding: 3em 1em;
+				text-align: center;
+			}
+			.donate-section {
+				margin: 3em 0;
+			}
+			.donate-button {
+				display: inline-block;
+				padding: 1.5em 3em;
+				background: var(--deep-space-blue);
+				color: var(--white);
+				text-decoration: none;
+				border-radius: 6px;
+				font-weight: 700;
+				font-size: 1.2em;
+				transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+				margin-top: 2em;
+			}
+			.donate-button:hover {
+				background: var(--sky-surge);
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			}
+		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Donate</h1>
-			<p>Support our work with a donation.</p>
+			<h1>Donate to Philly JWJ</h1>
+			<div class="donate-section">
+				<p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 1em;">
+					Your support allows us to continue to fight and win for working people in Philadelphia!
+				</p>
+				<a href="https://actionnetwork.org/fundraising/donate-to-philly-jwj-today?source=direct_link&" target="_blank" rel="noopener noreferrer" class="donate-button">
+					Donate Funds
+				</a>
+			</div>
 		</main>
 		<Footer />
 	</body>

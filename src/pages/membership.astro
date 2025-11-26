@@ -33,10 +33,11 @@ import { SITE_TITLE } from '../consts';
 				line-height: 1.8;
 			}
 			.membership-options {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-				gap: 2em;
-				margin: 3em 0;
+				display: flex;
+				flex-direction: column;
+				gap: 1.5em;
+				margin: 3em auto;
+				max-width: 600px;
 			}
 			.membership-card {
 				background: var(--white);
@@ -45,7 +46,9 @@ import { SITE_TITLE } from '../consts';
 				padding: 2em;
 				transition: transform 0.2s, box-shadow 0.2s;
 				display: flex;
-				flex-direction: column;
+				flex-direction: row;
+				align-items: center;
+				gap: 2em;
 			}
 			.membership-card:hover {
 				transform: translateY(-4px);
@@ -61,25 +64,37 @@ import { SITE_TITLE } from '../consts';
 				font-size: 2em;
 				font-weight: 700;
 				color: var(--deep-space-blue);
-				margin: 0.5em 0;
+				margin: 0;
+				flex-shrink: 0;
+				min-width: 120px;
 			}
-			.membership-card ul {
-				list-style: none;
-				padding: 0;
+			.membership-card p {
+				margin: 0;
+				line-height: 1.6;
+				flex: 1;
+			}
+			.payment-info {
+				background: linear-gradient(to bottom, rgba(190, 202, 207, 0.2), transparent);
+				padding: 2em;
+				border-radius: 12px;
+				margin: 3em 0;
+			}
+			.payment-info h2 {
+				color: var(--deep-space-blue);
+				margin-top: 0;
+			}
+			.payment-details {
+				background: var(--white);
+				padding: 1.5em;
+				border-radius: 8px;
+				border: 2px solid var(--silver);
+			}
+			.payment-details p {
 				margin: 1em 0;
-				flex-grow: 1;
+				line-height: 1.8;
 			}
-			.membership-card li {
-				padding: 0.5em 0;
-				padding-left: 1.5em;
-				position: relative;
-			}
-			.membership-card li:before {
-				content: "✓";
-				position: absolute;
-				left: 0;
-				color: var(--sky-surge);
-				font-weight: 700;
+			.payment-details strong {
+				color: var(--deep-space-blue);
 			}
 			.donate-button {
 				display: inline-block;
@@ -150,7 +165,15 @@ import { SITE_TITLE } from '../consts';
 					font-size: 2em;
 				}
 				.membership-options {
-					grid-template-columns: 1fr;
+					max-width: 100%;
+				}
+				.membership-card {
+					flex-direction: column;
+					align-items: flex-start;
+					text-align: left;
+				}
+				.membership-card .price {
+					min-width: auto;
 				}
 			}
 		</style>
@@ -159,83 +182,57 @@ import { SITE_TITLE } from '../consts';
 		<Header />
 		<main>
 			<section class="intro-section">
-				<h1>Join Our Coalition</h1>
-				<p>
-					Your membership and donations help us build power for working people in Philadelphia. 
-					Join our coalition and support our work fighting for fair treatment, safe workplaces, 
-					and economic justice.
-				</p>
-				<p>
-					Membership dues and donations directly fund our organizing, training programs, 
-					and strategic support for workers and communities in action.
-				</p>
+				<h1>2025 JWJ Suggested Membership Dues / Donation Scale</h1>
 			</section>
 
 			<section>
-				<h2>Membership Levels</h2>
 				<div class="membership-options">
 					<div class="membership-card">
-						<h3>Individual Member</h3>
-						<div class="price">$25/year</div>
-						<ul>
-							<li>Voting rights in coalition decisions</li>
-							<li>Access to member meetings and events</li>
-							<li>Newsletter and action alerts</li>
-							<li>Support for worker organizing</li>
-						</ul>
-						<a href="/donate" class="donate-button">Join Now</a>
+						<div class="price">$5,000</div>
+						<p>National/Local Unions/Orgs with over 10,000 members or budget over $10 million</p>
 					</div>
 					<div class="membership-card">
-						<h3>Sustaining Member</h3>
-						<div class="price">$50/year</div>
-						<ul>
-							<li>All Individual Member benefits</li>
-							<li>Priority access to training programs</li>
-							<li>Recognition in coalition materials</li>
-							<li>Additional support for campaigns</li>
-						</ul>
-						<a href="/donate" class="donate-button">Join Now</a>
+						<div class="price">$3,000</div>
+						<p>Locals/Orgs with 5,000–9,000 members or budget over $5 million</p>
 					</div>
 					<div class="membership-card">
-						<h3>Organizational Member</h3>
-						<div class="price">$100+/year</div>
-						<ul>
-							<li>All Sustaining Member benefits</li>
-							<li>Representation in coalition leadership</li>
-							<li>Coalition building support</li>
-							<li>Strategic partnership opportunities</li>
-						</ul>
-						<a href="/donate" class="donate-button">Join Now</a>
+						<div class="price">$2,000</div>
+						<p>Locals/Orgs with 1,000–4,999 members or budget over $1 million</p>
+					</div>
+					<div class="membership-card">
+						<div class="price">$1,000</div>
+						<p>Locals/Orgs with 100–500 members or budget over $250,000</p>
+					</div>
+					<div class="membership-card">
+						<div class="price">$500</div>
+						<p>Locals/Orgs with fewer than 100 members or budgets less than $250,000</p>
 					</div>
 				</div>
 			</section>
 
 			<section class="info-section">
-				<h2>Why Join?</h2>
 				<p>
-					Philadelphia Area Jobs with Justice brings together labor unions, community organizations, 
-					faith groups, and students to build lasting solidarity. When workers strike, when communities 
-					organize, when people take action—we ensure they're never alone.
+					As attacks on workers and communities grow and billionaires tighten their grip, we're standing our ground — and rising.
 				</p>
 				<p>
-					Your membership helps us:
+					In 2025, we're building power in our workplaces, neighborhoods, and streets. Your membership fuels this fight: training organizers, supporting workers, and confronting injustice.
 				</p>
-				<ul>
-					<li>Provide rapid-response support for strikes and actions</li>
-					<li>Train the next generation of organizers</li>
-					<li>Build coalitions across movements</li>
-					<li>Fight for fair treatment of working people</li>
-					<li>Hold corporations accountable</li>
-				</ul>
+				<p style="font-weight: 700; font-size: 1.1em; margin-top: 1.5em;">
+					This is more than a donation — it's a declaration: We will not back down.
+				</p>
 			</section>
 
-			<section class="cta-section">
-				<h2>Ready to Join the Movement?</h2>
-				<p>
-					Every member strengthens our coalition and amplifies our collective voice. 
-					Together, we can build the support our movements deserve.
-				</p>
-				<a href="/donate" class="cta-button">Become a Member</a>
+			<section class="payment-info">
+				<h2>Payment Information</h2>
+				<div class="payment-details">
+					<p><strong>Make Check Payable to:</strong> Philadelphia Area Jobs with Justice</p>
+					<p><strong>Bank Name:</strong> Philadelphia Federal Credit Union</p>
+					<p><strong>Routing #:</strong> 236084298</p>
+					<p><strong>ACH #:</strong> 1020000937232</p>
+					<a href="https://actionnetwork.org/fundraising/donate-to-philly-jwj-today?source=direct_link&" target="_blank" rel="noopener noreferrer" class="donate-button">
+						Donate Online
+					</a>
+				</div>
 			</section>
 		</main>
 		<Footer />
