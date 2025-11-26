@@ -10,6 +10,11 @@ import HeaderLink from './HeaderLink.astro';
 		<a href="/" class="logo-link">
 			<Image src={logoImage} alt={SITE_TITLE} />
 		</a>
+		<button class="mobile-menu-toggle" aria-label="Toggle menu" aria-expanded="false">
+			<span class="hamburger-line"></span>
+			<span class="hamburger-line"></span>
+			<span class="hamburger-line"></span>
+		</button>
 		<div class="internal-links">
 			<HeaderLink href="/">Home</HeaderLink>
 			<div class="dropdown">
@@ -71,11 +76,15 @@ import HeaderLink from './HeaderLink.astro';
 		padding: 0 1em;
 		background: var(--canary-yellow);
 		box-shadow: 0 2px 8px rgba(1, 47, 64, 0.1);
+		position: sticky;
+		top: 0;
+		z-index: 1000;
 	}
 	.logo-link {
 		display: flex;
 		align-items: center;
 		text-decoration: none;
+		z-index: 1001;
 	}
 	.logo-link img {
 		height: 40px;
@@ -86,6 +95,35 @@ import HeaderLink from './HeaderLink.astro';
 		display: flex;
 		align-items: center;
 		justify-content: space-between;
+		position: relative;
+	}
+	.mobile-menu-toggle {
+		display: none;
+		flex-direction: column;
+		justify-content: space-around;
+		width: 44px;
+		height: 44px;
+		background: transparent;
+		border: none;
+		cursor: pointer;
+		padding: 0;
+		z-index: 1001;
+	}
+	.hamburger-line {
+		width: 28px;
+		height: 3px;
+		background: var(--deep-space-blue);
+		border-radius: 2px;
+		transition: all 0.3s ease;
+	}
+	.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(1) {
+		transform: rotate(45deg) translate(8px, 8px);
+	}
+	.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(2) {
+		opacity: 0;
+	}
+	.mobile-menu-toggle[aria-expanded="true"] .hamburger-line:nth-child(3) {
+		transform: rotate(-45deg) translate(7px, -7px);
 	}
 	.internal-links {
 		display: flex;
@@ -97,6 +135,9 @@ import HeaderLink from './HeaderLink.astro';
 		color: var(--deep-space-blue);
 		border-bottom: 4px solid transparent;
 		text-decoration: none;
+		min-height: 44px;
+		display: flex;
+		align-items: center;
 	}
 	nav a:hover {
 		border-bottom-color: var(--sky-surge);
@@ -108,9 +149,20 @@ import HeaderLink from './HeaderLink.astro';
 	.dropdown {
 		position: relative;
 	}
-	.dropdown-toggle {
-		cursor: pointer;
-	}
+		.dropdown-toggle {
+			cursor: pointer;
+			position: relative;
+		}
+		.dropdown-toggle::after {
+			content: '▼';
+			font-size: 0.7em;
+			margin-left: 0.3em;
+			display: inline-block;
+			transition: transform 0.3s ease;
+		}
+		.dropdown.active .dropdown-toggle::after {
+			transform: rotate(180deg);
+		}
 	.dropdown-menu {
 		display: none;
 		position: absolute;
@@ -123,7 +175,7 @@ import HeaderLink from './HeaderLink.astro';
 		z-index: 1000;
 		flex-direction: column;
 	}
-	.dropdown:hover .dropdown-menu {
+	.dropdown.active .dropdown-menu {
 		display: flex;
 	}
 	.dropdown-menu a {
@@ -131,6 +183,7 @@ import HeaderLink from './HeaderLink.astro';
 		white-space: nowrap;
 		border-bottom: none;
 		color: var(--deep-space-blue) !important;
+		min-height: 44px;
 	}
 	.dropdown-menu a:hover {
 		background: var(--sky-surge);
@@ -152,14 +205,155 @@ import HeaderLink from './HeaderLink.astro';
 	.social-links a {
 		display: flex;
 	}
-	@media (max-width: 720px) {
+	@media (max-width: 768px) {
+		.mobile-menu-toggle {
+			display: flex;
+		}
 		.social-links {
 			display: none;
+		}
+		.internal-links {
+			position: fixed;
+			top: 0;
+			right: -100%;
+			width: 80%;
+			max-width: 320px;
+			height: 100vh;
+			background: var(--canary-yellow);
+			flex-direction: column;
+			align-items: stretch;
+			padding: 5em 1.5em 2em;
+			box-shadow: -2px 0 8px rgba(1, 47, 64, 0.2);
+			transition: right 0.3s ease;
+			overflow-y: auto;
+			gap: 0;
+		}
+		.internal-links.mobile-open {
+			right: 0;
+		}
+		.internal-links > * {
+			width: 100%;
+		}
+		nav a {
+			padding: 1em;
+			border-bottom: 1px solid rgba(1, 47, 64, 0.1);
+			border-left: 4px solid transparent;
+			justify-content: flex-start;
+		}
+		nav a:hover,
+		nav a.active {
+			border-left-color: var(--sky-surge);
+			border-bottom-color: rgba(1, 47, 64, 0.1);
+		}
+		.dropdown {
+			width: 100%;
 		}
 		.dropdown-menu {
 			position: static;
 			box-shadow: none;
-			border-top: 1px solid var(--silver);
+			border-top: 1px solid rgba(1, 47, 64, 0.1);
+			background: rgba(255, 255, 255, 0.3);
+			margin-top: 0;
+			padding: 0;
+			min-width: auto;
+			display: none;
+		}
+		.dropdown.active .dropdown-menu {
+			display: flex;
+		}
+		.dropdown-menu a {
+			padding-left: 2em;
+		}
+		.donate-link {
+			margin-top: 1em;
+			text-align: center;
 		}
 	}
 </style>
+<script>
+	document.addEventListener('DOMContentLoaded', () => {
+		const toggle = document.querySelector('.mobile-menu-toggle');
+		const menu = document.querySelector('.internal-links');
+		const dropdowns = document.querySelectorAll('.dropdown');
+		
+		if (toggle && menu) {
+			toggle.addEventListener('click', () => {
+				const isOpen = toggle.getAttribute('aria-expanded') === 'true';
+				toggle.setAttribute('aria-expanded', !isOpen);
+				menu.classList.toggle('mobile-open');
+				document.body.style.overflow = !isOpen ? 'hidden' : '';
+			});
+			
+			// Close menu when clicking outside
+			document.addEventListener('click', (e) => {
+				if (menu.classList.contains('mobile-open') && 
+					!menu.contains(e.target) && 
+					!toggle.contains(e.target)) {
+					toggle.setAttribute('aria-expanded', 'false');
+					menu.classList.remove('mobile-open');
+					document.body.style.overflow = '';
+				}
+			});
+			
+		// Handle dropdown toggles - click to expand/collapse
+		dropdowns.forEach(dropdown => {
+			const toggle = dropdown.querySelector('.dropdown-toggle');
+			if (toggle) {
+				toggle.addEventListener('click', (e) => {
+					// On mobile, always toggle
+					if (window.innerWidth <= 768) {
+						e.preventDefault();
+						e.stopPropagation();
+						dropdown.classList.toggle('active');
+					} else {
+						// On desktop, toggle on click (in addition to hover)
+						e.preventDefault();
+						e.stopPropagation();
+						dropdown.classList.toggle('active');
+					}
+				});
+			}
+		});
+		
+		// Close dropdowns when clicking outside on desktop
+		document.addEventListener('click', (e) => {
+			if (window.innerWidth > 768) {
+				dropdowns.forEach(dropdown => {
+					if (!dropdown.contains(e.target)) {
+						dropdown.classList.remove('active');
+					}
+				});
+			}
+		});
+			
+		// Close menu when a non-dropdown link is clicked (but not dropdown toggles)
+		menu.querySelectorAll('a:not(.dropdown-toggle)').forEach(link => {
+			// Only close if it's not inside a dropdown menu
+			if (!link.closest('.dropdown-menu')) {
+				link.addEventListener('click', () => {
+					if (window.innerWidth <= 768) {
+						toggle.setAttribute('aria-expanded', 'false');
+						menu.classList.remove('mobile-open');
+						document.body.style.overflow = '';
+						// Also close all dropdowns
+						dropdowns.forEach(d => d.classList.remove('active'));
+					}
+				});
+			}
+		});
+		
+		// Close menu when a dropdown menu link is clicked
+		menu.querySelectorAll('.dropdown-menu a').forEach(link => {
+			link.addEventListener('click', () => {
+				if (window.innerWidth <= 768) {
+					toggle.setAttribute('aria-expanded', 'false');
+					menu.classList.remove('mobile-open');
+					document.body.style.overflow = '';
+					// Close all dropdowns
+					dropdowns.forEach(d => d.classList.remove('active'));
+				}
+			});
+		});
+		}
+	});
+</script>

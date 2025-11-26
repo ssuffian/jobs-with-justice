@@ -10,21 +10,26 @@ import { SITE_TITLE } from '../../consts';
 	<head>
 		<BaseHead title={`Our History - ${SITE_TITLE}`} description="Learn about our history" />
 		<style>
-			main {
-				width: 100%;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 3em 1em;
-			}
+		main {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3em 1em;
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
 			h1 {
 				text-align: center;
 				margin-bottom: 3em;
 				color: var(--deep-space-blue);
 			}
-			.timeline {
-				position: relative;
-				padding: 2em 0;
-			}
+		.timeline {
+			position: relative;
+			padding: 2em 0;
+			width: 100%;
+			max-width: 100%;
+			box-sizing: border-box;
+		}
 			.timeline::before {
 				content: '';
 				position: absolute;
@@ -66,14 +71,17 @@ import { SITE_TITLE } from '../../consts';
 				z-index: 2;
 				box-shadow: 0 2px 8px rgba(1, 47, 64, 0.2);
 			}
-			.timeline-content {
-				background: var(--white);
-				padding: 2.5em 2em 2em 2em;
-				border-radius: 8px;
-				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.1);
-				position: relative;
-				border-left: 4px solid var(--sky-surge);
-			}
+		.timeline-content {
+			background: var(--white);
+			padding: 2.5em 2em 2em 2em;
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(1, 47, 64, 0.1);
+			position: relative;
+			border-left: 4px solid var(--sky-surge);
+			box-sizing: border-box;
+			width: 100%;
+			max-width: 100%;
+		}
 			.timeline-item:nth-child(even) .timeline-content {
 				border-left: none;
 				border-right: 4px solid var(--sky-surge);
@@ -86,30 +94,49 @@ import { SITE_TITLE } from '../../consts';
 			.timeline-dot {
 				display: none;
 			}
-			@media (max-width: 768px) {
-				.timeline::before {
-					left: 30px;
-				}
-				.timeline-item {
-					padding-left: 80px !important;
-					padding-right: 0 !important;
-				}
-				.timeline-year {
-					left: 30px;
-					transform: translateX(-50%);
-				}
-				.timeline-dot {
-					left: 30px;
-					transform: translateX(-50%);
-				}
-				.timeline-content {
-					border-left: 4px solid var(--sky-surge) !important;
-					border-right: none !important;
-				}
+		@media (max-width: 768px) {
+			main {
+				padding: 2em 1em;
 			}
+			.timeline {
+				padding: 2em 0;
+			}
+			.timeline::before {
+				left: 50%;
+				transform: translateX(-50%);
+			}
+			.timeline-item {
+				padding-left: 0 !important;
+				padding-right: 0 !important;
+				text-align: center;
+				width: 100%;
+				max-width: 100%;
+				box-sizing: border-box;
+			}
+			.timeline-year {
+				position: relative;
+				left: auto;
+				transform: none;
+				display: inline-block;
+				margin-bottom: 1em;
+			}
+			.timeline-dot {
+				display: none;
+			}
+			.timeline-content {
+				border-left: none !important;
+				border-right: none !important;
+				border-top: 4px solid var(--sky-surge);
+				margin: 0 auto;
+				width: 100%;
+				max-width: 100%;
+				box-sizing: border-box;
+				padding: 1.5em 1em;
+			}
+		}
 		</style>
 	</head>
-	<body>
+	<body style="overflow-x: hidden;">
 		<Header />
 		<main>
 			<h1>Our History</h1>

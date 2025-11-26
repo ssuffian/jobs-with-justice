@@ -11,47 +11,88 @@ import Header from '../components/Header.astro';
 	<head>
 		<BaseHead title="Philadelphia Area Jobs with Justice" description="A coalition of labor unions and student, community, and faith groups fighting for fair treatment of working people in Philadelphia." />
 		<style>
+		.banner {
+			width: 100%;
+			height: 500px;
+			overflow: hidden;
+			display: block;
+			position: relative;
+		}
+		.banner img {
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			object-position: center;
+			display: block;
+		}
+		.banner-overlay {
+			position: absolute;
+			bottom: 0;
+			left: 0;
+			right: 0;
+			background: linear-gradient(to top, rgba(1, 47, 64, 0.9), transparent);
+			padding: 3em 2em 2em;
+			color: var(--white);
+		}
+		.banner-overlay h1 {
+			color: var(--white);
+			margin: 0;
+			font-size: 3.5em;
+			text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+		}
+		.banner-overlay p {
+			color: var(--silver);
+			font-size: 1.3em;
+			margin-top: 0.5em;
+		}
+		@media (max-width: 768px) {
 			.banner {
-				width: 100%;
-				height: 500px;
-				overflow: hidden;
-				display: block;
-				position: relative;
-			}
-			.banner img {
-				width: 100%;
-				height: 100%;
-				object-fit: cover;
-				object-position: center;
-				display: block;
+				height: 350px;
 			}
 			.banner-overlay {
-				position: absolute;
-				bottom: 0;
-				left: 0;
-				right: 0;
-				background: linear-gradient(to top, rgba(1, 47, 64, 0.9), transparent);
-				padding: 3em 2em 2em;
-				color: var(--white);
+				padding: 2em 1.5em 1.5em;
 			}
 			.banner-overlay h1 {
-				color: var(--white);
-				margin: 0;
-				font-size: 3.5em;
-				text-shadow: 2px 2px 4px rgba(0, 0, 0, 0.5);
+				font-size: 2em;
 			}
 			.banner-overlay p {
-				color: var(--silver);
-				font-size: 1.3em;
-				margin-top: 0.5em;
+				font-size: 1em;
 			}
+		}
+		@media (max-width: 480px) {
+			.banner {
+				height: 300px;
+			}
+			.banner-overlay {
+				padding: 1.5em 1em 1em;
+			}
+			.banner-overlay h1 {
+				font-size: 1.6em;
+			}
+			.banner-overlay p {
+				font-size: 0.9em;
+			}
+		}
+		main {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3em 1em;
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
+		@media (max-width: 768px) {
 			main {
-				width: 100%;
-				max-width: 1200px;
-				margin: auto;
-				padding: 3em 1em;
+				padding: 2em 1em;
 			}
-			.hero-section {
+		}
+		main > section {
+			width: 100%;
+			max-width: 100%;
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
+		.hero-section {
 				text-align: center;
 				margin-bottom: 4em;
 				padding: 2em 0;
@@ -67,19 +108,49 @@ import Header from '../components/Header.astro';
 				margin: 0 auto 2em;
 				line-height: 1.8;
 			}
+		.work-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 2em;
+			margin: 3em 0;
+			width: 100%;
+			box-sizing: border-box;
+			min-width: 0;
+		}
+		@media (max-width: 900px) {
 			.work-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-				gap: 2em;
-				margin: 3em 0;
+				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
 			}
+		}
+		@media (max-width: 768px) {
+			.work-grid {
+				grid-template-columns: 1fr;
+				gap: 1.5em;
+				margin: 2em 0;
+			}
+		}
+		@media (max-width: 600px) {
+			.work-grid {
+				grid-template-columns: 1fr;
+			}
+		}
+		.work-card {
+			background: var(--white);
+			border: 2px solid var(--silver);
+			border-radius: 8px;
+			padding: 2em;
+			transition: transform 0.2s, box-shadow 0.2s;
+			box-sizing: border-box;
+			width: 100%;
+			max-width: 100%;
+			min-width: 0;
+			overflow: hidden;
+		}
+		@media (max-width: 768px) {
 			.work-card {
-				background: var(--white);
-				border: 2px solid var(--silver);
-				border-radius: 8px;
-				padding: 2em;
-				transition: transform 0.2s, box-shadow 0.2s;
+				padding: 1.5em;
 			}
+		}
 			.work-card:hover {
 				transform: translateY(-4px);
 				box-shadow: var(--box-shadow);
@@ -98,14 +169,21 @@ import Header from '../components/Header.astro';
 			.work-card a:hover {
 				color: var(--deep-space-blue);
 			}
+		.cta-section {
+			background: linear-gradient(135deg, var(--deep-space-blue), var(--sky-surge));
+			color: var(--white);
+			padding: 3em 2em;
+			border-radius: 12px;
+			text-align: center;
+			margin: 4em 0;
+		}
+		@media (max-width: 768px) {
 			.cta-section {
-				background: linear-gradient(135deg, var(--deep-space-blue), var(--sky-surge));
-				color: var(--white);
-				padding: 3em 2em;
-				border-radius: 12px;
-				text-align: center;
-				margin: 4em 0;
+				padding: 2em 1.5em;
+				margin: 3em 0;
+				border-radius: 8px;
 			}
+		}
 			.cta-section h2 {
 				color: var(--white);
 				margin-bottom: 1em;
@@ -115,23 +193,30 @@ import Header from '../components/Header.astro';
 				margin-bottom: 2em;
 				color: var(--silver);
 			}
-			.cta-buttons {
-				display: flex;
-				gap: 1em;
-				justify-content: center;
-				flex-wrap: wrap;
-			}
-			.cta-button {
-				display: inline-block;
-				padding: 1em 2em;
-				background: var(--canary-yellow);
-				color: var(--deep-space-blue);
-				text-decoration: none;
-				border-radius: 6px;
-				font-weight: 700;
-				font-size: 1.1em;
-				transition: transform 0.2s, box-shadow 0.2s;
-			}
+		.cta-buttons {
+			display: flex;
+			gap: 1em;
+			justify-content: center;
+			flex-wrap: wrap;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.cta-button {
+			display: inline-flex;
+			align-items: center;
+			justify-content: center;
+			padding: 1em 2em;
+			background: var(--canary-yellow);
+			color: var(--deep-space-blue);
+			text-decoration: none;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 1.1em;
+			transition: transform 0.2s, box-shadow 0.2s;
+			min-height: 44px;
+			min-width: 0;
+			box-sizing: border-box;
+		}
 			.cta-button:hover {
 				transform: translateY(-2px);
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
@@ -145,19 +230,35 @@ import Header from '../components/Header.astro';
 				background: var(--white);
 				color: var(--deep-space-blue);
 			}
+		.values-section {
+			background: var(--silver);
+			background: linear-gradient(to bottom, rgba(190, 202, 207, 0.2), transparent);
+			padding: 3em 2em;
+			border-radius: 12px;
+			margin: 3em 0;
+		}
+		.values-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(min(250px, 100%), 1fr));
+			gap: 2em;
+			margin-top: 2em;
+		}
+		@media (max-width: 900px) {
+			.values-grid {
+				grid-template-columns: repeat(auto-fit, minmax(min(200px, 100%), 1fr));
+			}
+		}
+		@media (max-width: 768px) {
 			.values-section {
-				background: var(--silver);
-				background: linear-gradient(to bottom, rgba(190, 202, 207, 0.2), transparent);
-				padding: 3em 2em;
-				border-radius: 12px;
-				margin: 3em 0;
+				padding: 2em 1.5em;
+				margin: 2em 0;
+				border-radius: 8px;
 			}
 			.values-grid {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				gap: 2em;
-				margin-top: 2em;
+				grid-template-columns: 1fr;
+				gap: 1.5em;
 			}
+		}
 			.value-item {
 				text-align: center;
 			}
@@ -165,26 +266,37 @@ import Header from '../components/Header.astro';
 				color: var(--sky-surge);
 				font-size: 1.3em;
 			}
-			@media (max-width: 768px) {
-				.banner-overlay h1 {
-					font-size: 2.5em;
-				}
-				.banner-overlay p {
-					font-size: 1.1em;
-				}
-				.work-grid {
-					grid-template-columns: 1fr;
-				}
-				.cta-buttons {
-					flex-direction: column;
-				}
-				.cta-button {
-					width: 100%;
-				}
+		@media (max-width: 768px) {
+			.hero-section {
+				padding: 1.5em 0;
+				margin-bottom: 2em;
 			}
+			.hero-section h2 {
+				font-size: 1.8em;
+			}
+			.hero-section p {
+				font-size: 1em;
+			}
+			.cta-buttons {
+				flex-direction: column;
+				gap: 0.75em;
+				width: 100%;
+			}
+			.cta-button {
+				width: 100%;
+				padding: 0.875em 1.5em;
+				font-size: 1em;
+			}
+		}
+		@media (max-width: 480px) {
+			.cta-button {
+				padding: 0.75em 1em;
+				font-size: 0.95em;
+			}
+		}
 		</style>
 	</head>
-	<body>
+	<body style="overflow-x: hidden;">
 		<Header />
 		<div class="banner">
 			<Image src={bannerImage} alt="Philadelphia Area Jobs with Justice" />

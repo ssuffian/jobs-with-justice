@@ -10,24 +10,29 @@ import { SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={`Get Updates - ${SITE_TITLE}`} description="Get updates from us" />
 		<style>
-			main {
-				width: 100%;
-				max-width: 1200px;
-				margin: 0 auto;
-				padding: 3em 1em;
-			}
+		main {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3em 1em;
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
 			h1 {
 				color: var(--deep-space-blue);
 				margin-bottom: 0.5em;
 			}
-			.calendar-container {
-				margin: 2em 0;
-				background: var(--white);
-				border-radius: 8px;
-				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.1);
-				overflow: hidden;
-				border: 2px solid var(--sky-surge);
-			}
+		.calendar-container {
+			margin: 2em 0;
+			background: var(--white);
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(1, 47, 64, 0.1);
+			overflow: hidden;
+			border: 2px solid var(--sky-surge);
+			width: 100%;
+			max-width: 100%;
+			box-sizing: border-box;
+		}
 			.calendar-wrapper {
 				position: relative;
 				padding-bottom: 75%;

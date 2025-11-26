@@ -72,8 +72,33 @@ const today = new Date();
 	.social-links a {
 		text-decoration: none;
 		color: var(--deep-space-blue);
+		display: flex;
+		align-items: center;
+		justify-content: center;
+		min-width: 44px;
+		min-height: 44px;
+		transition: transform 0.2s;
 	}
 	.social-links a:hover {
 		color: var(--sky-surge);
+		transform: scale(1.1);
+	}
+	@media (max-width: 768px) {
+		footer {
+			padding: 2em 1em 4em 1em;
+		}
+		.footer-info p {
+			font-size: 0.9em;
+		}
+		.address {
+			font-size: 0.85em;
+		}
+		.social-links {
+			gap: 0.75em;
+		}
+		.social-links svg {
+			width: 28px;
+			height: 28px;
+		}
 	}
 </style>

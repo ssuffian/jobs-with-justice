@@ -10,12 +10,14 @@ import { SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={`Membership & Donation - ${SITE_TITLE}`} description="Join our coalition and support our work through membership and donations" />
 		<style>
-			main {
-				width: 100%;
-				max-width: 900px;
-				margin: auto;
-				padding: 3em 1em;
-			}
+		main {
+			width: 100%;
+			max-width: 900px;
+			margin: auto;
+			padding: 3em 1em;
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
 			.intro-section {
 				text-align: center;
 				margin-bottom: 3em;
@@ -32,24 +34,30 @@ import { SITE_TITLE } from '../consts';
 				margin: 0 auto 1em;
 				line-height: 1.8;
 			}
-			.membership-options {
-				display: flex;
-				flex-direction: column;
-				gap: 1.5em;
-				margin: 3em auto;
-				max-width: 600px;
-			}
-			.membership-card {
-				background: var(--white);
-				border: 2px solid var(--silver);
-				border-radius: 8px;
-				padding: 2em;
-				transition: transform 0.2s, box-shadow 0.2s;
-				display: flex;
-				flex-direction: row;
-				align-items: center;
-				gap: 2em;
-			}
+		.membership-options {
+			display: flex;
+			flex-direction: column;
+			gap: 1.5em;
+			margin: 3em auto;
+			max-width: 600px;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.membership-card {
+			background: var(--white);
+			border: 2px solid var(--silver);
+			border-radius: 8px;
+			padding: 2em;
+			transition: transform 0.2s, box-shadow 0.2s;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 2em;
+			box-sizing: border-box;
+			width: 100%;
+			max-width: 100%;
+			min-width: 0;
+		}
 			.membership-card:hover {
 				transform: translateY(-4px);
 				box-shadow: var(--box-shadow);
