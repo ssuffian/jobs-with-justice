@@ -1,8 +1,12 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+// Import organizing photos
+import organizing24 from '../../assets/organizing/24.jpg';
+import organizing27 from '../../assets/organizing/27.jpg';
 ---
 
 <!doctype html>
@@ -166,6 +170,11 @@ import { SITE_TITLE } from '../../consts';
 			</div>
 			
 			<p><strong>Partners:</strong> Philly JWJ, People's Kitchen, SBWU, Unite Here 274, AFL-CIO, Federal Unionist Network, etc.</p>
+			
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5em; margin: 2em 0;">
+				<Image src={organizing24} alt="Strategic support and organizing" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(1, 47, 64, 0.15);" />
+				<Image src={organizing27} alt="Community action and solidarity" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(1, 47, 64, 0.15);" />
+			</div>
 
 			<div class="section-outline">
 				<h3>Page Sections</h3>

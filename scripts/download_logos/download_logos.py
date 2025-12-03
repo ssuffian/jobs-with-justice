@@ -47,6 +47,14 @@ ORGANIZATION_DOMAINS = {
     "TUGSA AFT Local 6290": "aft.org",  # Temple University Graduate Students Association
     "UAP AFT Local 9608": "aft.org",  # University of Pennsylvania
     "WGA Philly": "wga.org",
+    # Power School organizations
+    "National Jobs With Justice": "jwj.org",
+    "Little Sis": "littlesis.org",
+    "The Organizing Center": "organizingcenter.org",
+    "W.E.B. Du Bois Movement School": None,  # May need manual lookup
+    "UNITE HERE Local 274": "unitehere.org",
+    "Starbucks Workers United": "sbworkersunited.org",
+    "Labor Network for Sustainability": "labor4sustainability.org",
 }
 
 # Define all member organizations

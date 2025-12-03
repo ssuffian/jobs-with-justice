@@ -1,0 +1,653 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Import available logos
+import phillyJwjLogo from '../../assets/logo-transparent.png';
+import afscmeLogo from '../../assets/members/afscme-district-council-47.png';
+import littleSisLogo from '../../assets/members/LittleSis_logo_color.png';
+import nationalJwjLogo from '../../assets/members/national_jobs_with_justice.png';
+import aflcioLogo from '../../assets/members/philadelphia-council-afl-cio.png';
+import laborNetworkLogo from '../../assets/other_orgs/labornetwork_logo.png';
+import phillyUniteHereLogo from '../../assets/other_orgs/philly_unite_here.webp';
+import starbucksWorkersUnitedLogo from '../../assets/other_orgs/starbucks_workers_united.png';
+import theOrganizingCenterLogo from '../../assets/other_orgs/the_organizing_center.png';
+import webDuboisLogo from '../../assets/other_orgs/web_dubois_movement_school.png';
+// Import organizing photos
+import organizing35 from '../../assets/organizing/35.jpg';
+import organizing43 from '../../assets/organizing/43.jpg';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Power School - ${SITE_TITLE}`} description="Learn about Power School" />
+		<style>
+			main {
+				padding-left: 0.5em !important;
+				padding-right: 0.5em !important;
+				max-width: 100% !important;
+				position: relative;
+			}
+			main h1 {
+				font-size: 2em;
+				text-align: center;
+			}
+			main h2 {
+				font-size: 1.5em;
+			}
+			main h3 {
+				font-size: 1.2em;
+			}
+			@media (max-width: 768px) {
+				main {
+					padding-left: 0.5em !important;
+					padding-right: 0.5em !important;
+				}
+			}
+			.program-outline ul {
+				list-style: none;
+			}
+			.program-outline {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 2em 0;
+				box-shadow: 0 2px 8px rgba(1, 47, 64, 0.1);
+				font-size: 0.9em;
+			}
+			.program-outline thead {
+				background: #c41e3a;
+			}
+			.program-outline th {
+				padding: 0.75em 0.5em;
+				text-align: center;
+				font-weight: 700;
+				color: var(--white);
+				border-bottom: 2px solid var(--white);
+				border-right: 1px solid rgba(255, 255, 255, 0.3);
+			}
+			.program-outline th:last-child {
+				border-right: none;
+			}
+			.program-outline td {
+				padding: 1em 0.75em;
+				border-right: 1px solid var(--silver);
+				vertical-align: top;
+				width: 20%;
+			}
+			.program-outline td:last-child {
+				border-right: none;
+			}
+			main ul {
+				list-style: none;
+				padding-left: 0;
+			}
+			.program-outline ul {
+				margin: 0;
+				padding-left: 0;
+				font-size: 0.95em;
+				list-style: none;
+			}
+			.program-outline li {
+				margin-bottom: 0.5em;
+				line-height: 1.4;
+				border-bottom: 1px dashed var(--silver);
+				padding-bottom: 0.5em;
+			}
+			.program-outline li:last-child {
+				border-bottom: none;
+				padding-bottom: 0;
+			}
+			.program-outline ul ul {
+				margin-top: 0.3em;
+				margin-bottom: 0.3em;
+				font-size: 0.9em;
+			}
+			section {
+				margin-bottom: 1em;
+			}
+			section > details {
+				border: 1px solid var(--silver);
+				border-radius: 4px;
+				overflow: hidden;
+				margin-bottom: 0.75em;
+			}
+			/* Overview - Teal/Cyan (softer) */
+			section:nth-of-type(1) > details > summary {
+				background: #5eead4;
+			}
+			section:nth-of-type(1) > details > summary:hover {
+				background: #2dd4bf;
+			}
+			/* Program Details - Purple (softer) */
+			section:nth-of-type(2) > details > summary {
+				background: #a78bfa;
+			}
+			section:nth-of-type(2) > details > summary:hover {
+				background: #8b5cf6;
+			}
+			/* Timeline - Orange (softer) */
+			section:nth-of-type(3) > details > summary {
+				background: #fb923c;
+			}
+			section:nth-of-type(3) > details > summary:hover {
+				background: #f97316;
+			}
+			/* Program Outline - Green (softer) */
+			section:nth-of-type(4) > details > summary {
+				background: #34d399;
+			}
+			section:nth-of-type(4) > details > summary:hover {
+				background: #10b981;
+			}
+			/* What We Expect - Indigo (softer) */
+			section:nth-of-type(5) > details > summary {
+				background: #818cf8;
+			}
+			section:nth-of-type(5) > details > summary:hover {
+				background: #6366f1;
+			}
+			/* What You Can Expect - Rose (softer) */
+			section:nth-of-type(6) > details > summary {
+				background: #f472b6;
+			}
+			section:nth-of-type(6) > details > summary:hover {
+				background: #ec4899;
+			}
+			/* FAQ - Amber (softer) */
+			section:nth-of-type(7) > details > summary {
+				background: #fbbf24;
+			}
+			section:nth-of-type(7) > details > summary:hover {
+				background: #f59e0b;
+			}
+			/* Base styles for all summaries */
+			section > details > summary {
+				padding: 1em;
+				color: var(--deep-space-blue);
+				font-weight: 700;
+				cursor: pointer;
+				list-style: none;
+				user-select: none;
+				transition: background 0.2s;
+				font-size: 1.2em;
+				position: relative;
+				overflow: hidden;
+			}
+			/* Add white fist image to the right of each section */
+			section > details > summary::marker {
+				display: none;
+			}
+			section > details > summary::-webkit-details-marker {
+				display: none;
+			}
+			section > details > summary::before {
+				content: '+ ';
+				display: inline-block;
+				margin-right: 0.5em;
+				font-weight: 700;
+			}
+			section > details[open] > summary::before {
+				content: '− ';
+			}
+			section > details > .section-content {
+				padding: 1em;
+				background: var(--white);
+			}
+			.faq-container {
+				margin: 1.5em 0;
+			}
+			.faq-item {
+				margin-bottom: 0.75em;
+				border: 1px solid var(--silver);
+				border-radius: 4px;
+				overflow: hidden;
+			}
+			.faq-question {
+				padding: 1em;
+				background: #c41e3a;
+				color: var(--white);
+				font-weight: 700;
+				cursor: pointer;
+				list-style: none;
+				user-select: none;
+				transition: background 0.2s;
+			}
+			.faq-question:hover {
+				background: #a0172e;
+			}
+			.faq-question::marker {
+				display: none;
+			}
+			.faq-question::-webkit-details-marker {
+				display: none;
+			}
+			.faq-question::before {
+				content: '+ ';
+				display: inline-block;
+				margin-right: 0.5em;
+				font-weight: 700;
+			}
+			.faq-item[open] .faq-question::before {
+				content: '− ';
+			}
+			.faq-answer {
+				padding: 1em;
+				background: var(--white);
+			}
+			.faq-answer p {
+				margin: 0;
+			}
+			.header-with-logos {
+				display: grid;
+				grid-template-columns: auto 1fr auto;
+				grid-template-rows: auto 1fr auto;
+				gap: 0.25em;
+				margin: 1em 0 2em 0;
+				align-items: center;
+				justify-items: center;
+			}
+			.logos-top {
+				grid-column: 1 / -1;
+				grid-row: 1;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5em;
+				flex-wrap: wrap;
+			}
+			.logos-left {
+				grid-column: 1;
+				grid-row: 2;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.5em;
+			}
+			.logos-right {
+				grid-column: 3;
+				grid-row: 2;
+				display: flex;
+				flex-direction: column;
+				align-items: center;
+				gap: 0.5em;
+			}
+			.logos-bottom {
+				grid-column: 1 / -1;
+				grid-row: 3;
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				gap: 0.5em;
+				flex-wrap: wrap;
+			}
+			.header-content {
+				grid-column: 2;
+				grid-row: 2;
+				text-align: center;
+				padding: 0;
+				margin: 0;
+			}
+			.header-content h1 {
+				margin: 0;
+				line-height: 1.1;
+			}
+			.header-content p {
+				margin: 0.1em 0 0 0;
+			}
+			.training-partners-logos {
+				display: none;
+			}
+			.partner-logo-item {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.5em;
+				height: 60px;
+				width: auto;
+				flex-shrink: 0;
+				text-decoration: none;
+				transition: opacity 0.2s;
+			}
+			.partner-logo-item:hover {
+				opacity: 0.8;
+			}
+			.partner-logo-item img {
+				max-width: 80px;
+				max-height: 50px;
+				width: auto;
+				height: auto;
+				object-fit: contain;
+				border-radius: 0;
+			}
+			.partner-logo-item .partner-name {
+				display: none;
+			}
+			.partner-logo-item.no-logo {
+				display: flex;
+				align-items: center;
+				justify-content: center;
+				padding: 0.5em 1em;
+				height: 60px;
+				width: auto;
+				flex-shrink: 0;
+			}
+			.partner-logo-item.no-logo .partner-name {
+				display: block;
+				font-size: 0.75em;
+				color: var(--silver);
+				font-style: italic;
+				white-space: nowrap;
+			}
+			@media (max-width: 768px) {
+				.header-with-logos {
+					grid-template-columns: 1fr;
+					grid-template-rows: auto auto auto auto auto;
+				}
+				.logos-top,
+				.logos-bottom {
+					grid-column: 1;
+				}
+				.logos-left,
+				.logos-right {
+					grid-column: 1;
+					flex-direction: row;
+					justify-content: center;
+					flex-wrap: wrap;
+				}
+				.header-content {
+					grid-column: 1;
+					grid-row: 3;
+				}
+				.logos-top {
+					grid-row: 1;
+				}
+				.logos-left {
+					grid-row: 2;
+				}
+				.logos-right {
+					grid-row: 4;
+				}
+				.logos-bottom {
+					grid-row: 5;
+				}
+				.partner-logo-item {
+					height: 50px;
+				}
+				.partner-logo-item img {
+					max-width: 60px;
+					max-height: 40px;
+				}
+			}
+			@media (max-width: 768px) {
+				.program-outline {
+					display: block;
+					font-size: 0.85em;
+				}
+				.program-outline thead {
+					display: none;
+				}
+				.program-outline tbody {
+					display: block;
+				}
+				.program-outline tr {
+					display: block;
+					margin-bottom: 2em;
+					border: 2px solid var(--silver);
+					border-radius: 8px;
+					overflow: hidden;
+				}
+				.program-outline td {
+					display: block;
+					width: 100% !important;
+					padding: 1em;
+					border-right: none;
+					border-bottom: 1px solid var(--silver);
+				}
+				.program-outline td:last-child {
+					border-bottom: none;
+				}
+				.program-outline td::before {
+					content: attr(data-day);
+					display: block;
+					font-weight: 700;
+					color: var(--white);
+					background: #c41e3a;
+					padding: 0.75em;
+					margin: -1em -1em 0.75em -1em;
+					text-align: center;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<div class="header-with-logos">
+				<div class="logos-top">
+					<a href="https://www.afscme.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={afscmeLogo} alt="AFSCME DC 47" />
+					</a>
+					<a href="https://aflcio.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={aflcioLogo} alt="AFLCIO Philadelphia" />
+					</a>
+					<a href="https://jwj.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={nationalJwjLogo} alt="National Jobs With Justice" />
+					</a>
+				</div>
+				<div class="logos-left">
+					<a href="https://littlesis.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={littleSisLogo} alt="Little Sis" />
+					</a>
+					<a href="https://organizingcenter.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={theOrganizingCenterLogo} alt="The Organizing Center" />
+					</a>
+				</div>
+				<div class="header-content">
+					<h1>Power School</h1>
+					<p><strong>Organizer Training Program</strong></p>
+				</div>
+				<div class="logos-right">
+					<a href="/" class="partner-logo-item">
+						<Image src={phillyJwjLogo} alt="Philadelphia Jobs With Justice" />
+					</a>
+					<a href="https://abolitionschool.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={webDuboisLogo} alt="W.E.B. Du Bois Movement School" />
+					</a>
+				</div>
+				<div class="logos-bottom">
+					<a href="https://unitehere.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={phillyUniteHereLogo} alt="UNITE HERE Local 274" />
+					</a>
+					<a href="https://sbworkersunited.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={starbucksWorkersUnitedLogo} alt="Starbucks Workers United" />
+					</a>
+					<a href="https://labor4sustainability.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={laborNetworkLogo} alt="Labor Network for Sustainability" />
+					</a>
+				</div>
+			</div>
+			<p>People Power School is a visionary advanced training program for community and labor organizers & leaders, who are committed to building lasting working-class power. This program equips participants with the tools, skills, and strategic analysis necessary to build power and resist rising authoritarianism.</p>
+			
+			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5em; margin: 2em 0;">
+				<Image src={organizing35} alt="Power School organizing training" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(1, 47, 64, 0.15);" />
+				<Image src={organizing43} alt="Community organizing and training" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(1, 47, 64, 0.15);" />
+			</div>
+			
+			<section>
+				<details>
+					<summary>Overview</summary>
+					<div class="section-content">
+						<p>People Power School creates a rare opportunity to bridge divides between labor and community organizing while deepening the capacity of organizers to take on bigger and bolder fights. It is designed for labor unions and community base-building organizations that are committed to developing skilled organizers—and to building and winning power for everyday Philadelphians by prioritizing people and planet over profit.</p>
+					</div>
+				</details>
+			</section>
+
+			<section>
+				<details>
+					<summary>Program Details</summary>
+					<div class="section-content">
+						<p><strong>Dates:</strong> Monday–Friday, first quarter of every year (2026 dates TBD)</p>
+						<p><strong>Times:</strong> 9:30 AM–6:00 PM daily</p>
+						<p><strong>Location:</strong> Philadelphia</p>
+						<p><strong>Format:</strong></p>
+						<ul>
+							<li>Week-long, in-person intensive</li>
+							<li>Advanced skill-building for organizers</li>
+							<li>Strategic research and campaign development</li>
+							<li>Participants select specialized sessions based on interest</li>
+						</ul>
+						<p><strong>Training Partners:</strong> National JWJ, LittleSis, AFL-CIO, PBWP, The Organizing Center, W.E.B. Du Bois Movement School, UNITE HERE Local 274, Starbucks Workers United, Labor Network for Sustainability, Reclaim Philadelphia, and others.</p>
+					</div>
+				</details>
+			</section>
+
+			<section>
+				<details>
+					<summary>Timeline</summary>
+					<div class="section-content">
+						<ul>
+							<li><strong>Program Announcement:</strong> December 15, 2025</li>
+							<li><strong>Recruitment:</strong> November–January</li>
+							<li><strong>Program Dates:</strong> February/March 2026</li>
+						</ul>
+					</div>
+				</details>
+			</section>
+
+			<section>
+				<details>
+					<summary>Program Outline</summary>
+					<div class="section-content">
+						<table class="program-outline">
+					<thead>
+						<tr>
+							<th>Day 1</th>
+							<th>Day 2</th>
+							<th>Day 3</th>
+							<th>Day 4</th>
+							<th>Day 5</th>
+						</tr>
+					</thead>
+					<tbody>
+						<tr>
+							<td data-day="Day 1">
+								<ul>
+									<li>Labor & Community Solidarity: where it works and where it falls short</li>
+									<li>Understanding the Roots of the Crisis – Part I</li>
+								</ul>
+							</td>
+							<td data-day="Day 2">
+								<ul>
+									<li>Understanding the Roots of the Crisis – Part II</li>
+									<li>Organizing Under Authoritarianism: lessons for the fight ahead</li>
+									<li>Navigating Conflict and Tending to Self</li>
+								</ul>
+							</td>
+							<td data-day="Day 3">
+								<ul>
+									<li>Troubleshooting Advanced Organizing Challenges</li>
+									<li>Finding Leaders Who Can Meet the Moment</li>
+									<li>Navigating Movement Heartbreak & Strengthening Your Organizing Practice</li>
+									<li>Designing & Testing Structures: building membership and leadership inside and outside the workplace</li>
+									<li>Direct Action Training</li>
+								</ul>
+							</td>
+							<td data-day="Day 4">
+								<ul>
+									<li>Campaigning for Power: understanding leverage and pillars of support</li>
+									<li>Philadelphia Power Analysis</li>
+									<li>Strategic Research for Effective Campaigns, focused on:
+										<ul>
+											<li>Corporations</li>
+											<li>Nonprofits</li>
+											<li>Politicians</li>
+										</ul>
+									</li>
+									<li>Campaign Design</li>
+									<li>Hands-on Research Lab</li>
+								</ul>
+							</td>
+							<td data-day="Day 5">
+								<ul>
+									<li>Introduction to Salting: key components and how to use it as an organizing tactic</li>
+									<li>Case Studies (Starbucks, Amazon, UNITE HERE)</li>
+									<li>Closing Celebration</li>
+								</ul>
+							</td>
+						</tr>
+					</tbody>
+				</table>
+					</div>
+				</details>
+			</section>
+
+			<section>
+				<details>
+					<summary>What We Expect from You</summary>
+					<div class="section-content">
+						<ul>
+							<li><strong>A high level of rigor:</strong> Be present and engaged. Please reserve calls and texts for breaks or after sessions.</li>
+							<li><strong>A full commitment:</strong> Arrange your schedule to attend all sessions in their entirety.</li>
+							<li><strong>An open mind:</strong> Be ready to learn from a range of perspectives, including fellow participants.</li>
+							<li><strong>Principled feedback:</strong> Offer feedback aimed at strengthening the program and one another. Be willing to receive grounded, thoughtful feedback in return.</li>
+							<li><strong>Naming your needs:</strong> We may miss things; we ask participants to proactively communicate needs so we can address them together.</li>
+						</ul>
+					</div>
+				</details>
+			</section>
+
+			<section>
+				<details>
+					<summary>What You Can Expect from Us</summary>
+					<div class="section-content">
+						<ul>
+							<li><strong>High-quality training:</strong> Sessions led by seasoned organizers, practitioners, and campaigners, designed to meet a variety of learning styles.</li>
+							<li><strong>Commitment to equity:</strong> A structured environment that acknowledges and navigates power dynamics across race, age, gender, and experience.</li>
+							<li><strong>Responsiveness:</strong> Openness to feedback and a willingness to make adjustments to support participant success.</li>
+							<li><strong>Care for participants:</strong> Dedicated time for breaks and relationship-building. Breakfast (with coffee and tea) and lunch are provided daily.</li>
+						</ul>
+					</div>
+				</details>
+			</section>
+
+			<section>
+				<details>
+					<summary>FAQ</summary>
+					<div class="section-content">
+						<div class="faq-container">
+					<details class="faq-item">
+						<summary class="faq-question">What training partners are involved?</summary>
+						<div class="faq-answer">
+							<p>National JWJ, Little Sis, AFLCIO, The Organizing Center, W.E DU Bois Movement School, Unite Here 274, Starbucks Workers United,Philadelphia Jobs With Justice,  Labor Network for Sustainability, and others</p>
+						</div>
+					</details>
+
+					<details class="faq-item">
+						<summary class="faq-question">Can participants choose one or more  sessions of the program to attend?</summary>
+						<div class="faq-answer">
+							<p>We encourage participants to attend all 5 days of training. However, If participants can only one day they are open to.</p>
+						</div>
+					</details>
+
+					<details class="faq-item">
+						<summary class="faq-question">What does it cost to attend Power School?</summary>
+						<div class="faq-answer">
+							<p>The program itself is offered at no cost. Participants are asked to contribute $50 per day to help cover meals, space rental, and essential materials. No one will be turned away for lack of funds.</p>
+						</div>
+					</details>
+						</div>
+
+						<p>Feel free to reach out to <a href="mailto:Muzammal@phillyjwj.org">Muzammal@phillyjwj.org</a> if you have any questions or thoughts!</p>
+					</div>
+				</details>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
+
+
