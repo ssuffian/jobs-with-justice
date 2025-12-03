@@ -178,7 +178,7 @@ import Header from '../components/Header.astro';
 			text-decoration: underline;
 		}
 		.cta-section {
-			background: linear-gradient(135deg, var(--deep-space-blue), var(--sky-surge));
+			background: linear-gradient(to bottom, var(--deep-space-blue), var(--sky-surge));
 			color: var(--white);
 			padding: 1em 2em;
 			border-radius: 8px;
@@ -380,7 +380,7 @@ import Header from '../components/Header.astro';
 						<a href="/our-work/strategic-support-for-peoples-actions">Learn more →</a>
 					</div>
 					<div class="work-card">
-						<Image src={organizing3} alt="Power School organizing" />
+						<Image src={organizingAction1} alt="Power School organizing" />
 						<h3>Power School</h3>
 						<p>Building power through Power School, developing the next generation of labor and community organizers.</p>
 						<a href="/our-work/power-school">Learn more →</a>
@@ -398,7 +398,7 @@ import Header from '../components/Header.astro';
 						<a href="/about/history">Learn more →</a>
 					</div>
 					<div class="work-card">
-						<Image src={organizingAction1} alt="Get updates and stay connected" />
+						<Image src={organizingAction5} alt="Get updates and stay connected" />
 						<h3>Get Updates</h3>
 						<p>Stay informed about our campaigns, events, and ways to take action. Join our email list and never miss an opportunity to make a difference.</p>
 						<a href="/get-updates">Learn more →</a>
@@ -475,40 +475,38 @@ import Header from '../components/Header.astro';
 			import Swiper from 'https://cdn.jsdelivr.net/npm/swiper@11/swiper-bundle.min.mjs';
 			
 			document.addEventListener('DOMContentLoaded', () => {
-				new Swiper('#organizingSwiper', {
-					slidesPerView: 3,
-					spaceBetween: 20,
-					loop: true,
-					speed: 20000,
-					autoplay: {
-						delay: 1,
-						disableOnInteraction: false,
-						pauseOnMouseEnter: true,
-					},
-					allowTouchMove: false,
-					navigation: {
-						nextEl: '.swiper-button-next',
-						prevEl: '.swiper-button-prev',
-					},
-					pagination: {
-						el: '.swiper-pagination',
-						clickable: true,
-					},
-					breakpoints: {
-						320: {
-							slidesPerView: 1,
-							spaceBetween: 10,
+				const swiperEl = document.querySelector('#organizingSwiper');
+				if (swiperEl) {
+					new Swiper('#organizingSwiper', {
+						slidesPerView: 3,
+						spaceBetween: 20,
+						loop: true,
+						speed: 300,
+						allowTouchMove: false,
+						navigation: {
+							nextEl: swiperEl.querySelector('.swiper-button-next'),
+							prevEl: swiperEl.querySelector('.swiper-button-prev'),
 						},
-						640: {
-							slidesPerView: 2,
-							spaceBetween: 15,
+						pagination: {
+							el: swiperEl.querySelector('.swiper-pagination'),
+							clickable: true,
 						},
-						1024: {
-							slidesPerView: 3,
-							spaceBetween: 20,
+						breakpoints: {
+							320: {
+								slidesPerView: 1,
+								spaceBetween: 10,
+							},
+							640: {
+								slidesPerView: 2,
+								spaceBetween: 15,
+							},
+							1024: {
+								slidesPerView: 3,
+								spaceBetween: 20,
+							},
 						},
-					},
-				});
+					});
+				}
 			});
 		</script>
 	</body>
