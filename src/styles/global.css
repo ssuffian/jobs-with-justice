@@ -79,12 +79,13 @@ h6 {
 	margin: 0 0 0.5rem 0;
 	color: var(--deep-space-blue);
 	line-height: 1.2;
+	text-align: center;
 }
 h1 {
-	font-size: 3.052em;
+	font-size: 2em;
 }
 h2 {
-	font-size: 2.441em;
+	font-size: 1.5em;
 }
 h3 {
 	font-size: 1.953em;
@@ -97,10 +98,10 @@ h5 {
 }
 @media (max-width: 768px) {
 	h1 {
-		font-size: 2.2em;
+		font-size: 2em;
 	}
 	h2 {
-		font-size: 1.8em;
+		font-size: 1.4em;
 	}
 	h3 {
 		font-size: 1.5em;
