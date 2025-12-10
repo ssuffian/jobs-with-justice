@@ -1,0 +1,528 @@
+---
+import { Image } from 'astro:assets';
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+
+// Import logos for JWJ Coalition members
+import aaupPennLogo from '../../assets/members/aaup-penn.png';
+import afscmeLogo from '../../assets/members/afscme-district-council-47.png';
+import apalaLogo from '../../assets/members/apala-philly.png';
+import apfaLogo from '../../assets/members/apfa-phl.png';
+import apipaLogo from '../../assets/members/apipa.png';
+import debtCollectiveLogo from '../../assets/members/debtcollective.png';
+import facultyStaffLogo from '../../assets/members/faculty-and-staff-federation-of-the-community-college-of-philadelphia.png';
+import iupatLogo from '../../assets/members/iupat-district-council-21.png';
+import juntosLogo from '../../assets/members/juntos.webp';
+import mapLogo from '../../assets/members/map.png';
+import ndwaLogo from '../../assets/members/national-domestic-workers-alliance---pa-chapter.png';
+import onepaLogo from '../../assets/members/onepa.png';
+import paStandsUpLogo from '../../assets/members/pa-stands-up.png';
+import pcfacLogo from '../../assets/members/pcfac.jpg';
+import pennPilotsLogo from '../../assets/members/penn-for-pilots.png';
+import pennGetUpLogo from '../../assets/members/penn-get-up.png';
+import aflcioLogo from '../../assets/members/philadelphia-council-afl-cio.png';
+import workersUnitedLogo from '../../assets/members/philadelphia-joint-board-workers-united.png';
+import philaposhLogo from '../../assets/members/philaposh.jpg';
+import powerLogo from '../../assets/members/power.png';
+import rocLogo from '../../assets/members/roc.jpg';
+import sagaftraLogo from '../../assets/members/sag-aftra-philadelphia.png';
+import seiuHealthcareLogo from '../../assets/members/seiu-healthcare-pa.png';
+import seiuLocal668Logo from '../../assets/members/seiu-local-668.png';
+import taupLogo from '../../assets/members/taup-aft-local-4531.png';
+import teamsters623Logo from '../../assets/members/teamsters-local-623.png';
+import teamsters773Logo from '../../assets/members/teamsters-local-773.png';
+import tugsaLogo from '../../assets/members/tugsa-aft-local-6290.png';
+import uapLogo from '../../assets/members/uap-aft-local-9608.png';
+import wgaLogo from '../../assets/members/wga-philly.png';
+
+// JWJ Coalition members
+const jwjMembers = [
+	{ name: 'AAUP Penn', logo: aaupPennLogo, website: 'https://www.aaup.org' },
+	{ name: 'AFSCME District Council 47', logo: afscmeLogo, website: 'https://www.afscme.org' },
+	{ name: 'APALA Philly', logo: apalaLogo, website: 'https://www.apalanet.org' },
+	{ name: 'APFA PHL', logo: apfaLogo, website: 'https://www.apfa.org' },
+	{ name: 'API PA', logo: apipaLogo, website: 'https://www.apipennsylvania.org' },
+	{ name: 'Faculty and Staff Federation of the Community College of Philadelphia', logo: facultyStaffLogo, website: 'https://www.ccp.edu' },
+	{ name: 'IUPAT District Council 21', logo: iupatLogo, website: 'https://www.iupat.org' },
+	{ name: 'Juntos', logo: juntosLogo, website: 'https://www.juntos.org' },
+	{ name: 'Movement Alliance Project', logo: mapLogo, website: 'https://movementalliance.org' },
+	{ name: 'National Domestic Workers Alliance – PA Chapter', logo: ndwaLogo, website: 'https://www.domesticworkers.org' },
+	{ name: 'OnePA', logo: onepaLogo, website: 'https://www.onepa.org' },
+	{ name: 'PA Debt Collective', logo: debtCollectiveLogo, website: 'https://debtcollective.org' },
+	{ name: 'PA Stands Up', logo: paStandsUpLogo, website: 'https://www.pastandsup.org' },
+	{ name: 'Penn for PILOTs', logo: pennPilotsLogo, website: 'https://www.upenn.edu' },
+	{ name: 'Penn GET-UP', logo: pennGetUpLogo, website: 'https://www.upenn.edu' },
+	{ name: 'Philadelphia Coalition for Affordable Communities', logo: pcfacLogo, website: 'https://www.phillyaffordablecommunities.org' },
+	{ name: 'Philadelphia Council AFL-CIO', logo: aflcioLogo, website: 'https://www.aflcio.org' },
+	{ name: 'Philadelphia Joint Board Workers United', logo: workersUnitedLogo, website: 'https://www.workersunited.org' },
+	{ name: 'PhilaPOSH', logo: philaposhLogo, website: 'https://www.philaposh.org' },
+	{ name: 'POWER', logo: powerLogo, website: 'https://www.powerinterfaith.org' },
+	{ name: 'Restaurant Opportunities Center PA', logo: rocLogo, website: 'https://www.rocunited.org' },
+	{ name: 'SAG-AFTRA Philadelphia', logo: sagaftraLogo, website: 'https://www.sagaftra.org' },
+	{ name: 'SEIU Healthcare PA', logo: seiuHealthcareLogo, website: 'https://www.seiu.org' },
+	{ name: 'SEIU Local 668', logo: seiuLocal668Logo, website: 'https://www.seiu.org' },
+	{ name: 'TAUP AFT Local 4531', logo: taupLogo, website: 'https://www.aft.org' },
+	{ name: 'Teamsters Local 623', logo: teamsters623Logo, website: 'https://www.teamster.org' },
+	{ name: 'Teamsters Local 773', logo: teamsters773Logo, website: 'https://www.teamster.org' },
+	{ name: 'TUGSA AFT Local 6290', logo: tugsaLogo, website: 'https://www.aft.org' },
+	{ name: 'UAP AFT Local 9608', logo: uapLogo, website: 'https://www.aft.org' },
+	{ name: 'WGA Philly', logo: wgaLogo, website: 'https://www.wga.org' },
+];
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Coalitions - ${SITE_TITLE}`} description="Philadelphia Area Jobs with Justice coalitions - building power for working people through diverse partnerships." />
+		<style>
+		main {
+			width: 100%;
+			max-width: 1200px;
+			margin: auto;
+			padding: 3em 1em;
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
+		.coalition-section {
+			margin: 3em 0;
+		}
+		.coalition-section h2 {
+			color: var(--deep-space-blue);
+			margin-bottom: 1em;
+		}
+		.coalition-blurb {
+			font-size: 1em;
+			line-height: 1.6;
+			margin: 0 auto 2em auto;
+			max-width: 800px;
+			text-align: center;
+		}
+		.coalition-logo {
+			max-width: 300px;
+			max-height: 150px;
+			width: auto;
+			height: auto;
+			object-fit: contain;
+			margin: 0 auto 1.5em;
+			display: block;
+		}
+		.intro {
+			font-size: 1em;
+			line-height: 1.6;
+			margin: 0 auto 1em auto;
+			max-width: 800px;
+			text-align: center;
+		}
+		.intro p {
+			margin: 0;
+			padding: 0;
+		}
+		.intro a:hover {
+			background: var(--sky-surge) !important;
+		}
+		.intro a {
+			display: inline-block;
+		}
+		.members-section {
+			margin-top: 1em;
+		}
+		.members-grid {
+			display: grid;
+			grid-template-columns: repeat(4, 1fr);
+			gap: 1em;
+			margin-top: 2em;
+			width: 100%;
+			box-sizing: border-box;
+		}
+		.member-card {
+			background: var(--white);
+			border: 2px solid var(--silver);
+			border-radius: 8px;
+			padding: 0.4em;
+			text-align: center;
+			transition: transform 0.2s, box-shadow 0.2s, border-color 0.2s;
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			aspect-ratio: 1;
+			width: 100%;
+			box-sizing: border-box;
+			max-width: 100%;
+			min-width: 0;
+		}
+		.member-card-link {
+			text-decoration: none;
+			color: inherit;
+			display: block;
+			width: 100%;
+			height: 100%;
+		}
+		.member-card-link:hover .member-card {
+			transform: translateY(-4px);
+			box-shadow: var(--box-shadow);
+			border-color: var(--sky-surge);
+		}
+		.member-card:hover {
+			transform: translateY(-4px);
+			box-shadow: var(--box-shadow);
+			border-color: var(--sky-surge);
+		}
+		.member-logo {
+			max-width: 85%;
+			max-height: 50%;
+			width: auto;
+			height: auto;
+			object-fit: contain;
+			margin-bottom: 0.2em;
+			display: block;
+		}
+		.member-name {
+			color: var(--deep-space-blue);
+			font-weight: 600;
+			font-size: 0.85em;
+			line-height: 1.2;
+			margin: 0;
+		}
+		.member-name-only {
+			color: var(--deep-space-blue);
+			font-weight: 600;
+			font-size: 0.85em;
+			line-height: 1.2;
+			margin: 0;
+		}
+		.no-logo {
+			color: var(--silver);
+			font-size: 0.85em;
+			margin-top: 0.5em;
+		}
+		.membership-info {
+			margin: 2em 0;
+		}
+		.membership-item {
+			margin-bottom: 1em;
+			border: 1px solid var(--silver);
+			border-radius: 4px;
+			overflow: hidden;
+			background: var(--white);
+		}
+		.membership-item summary {
+			padding: 1em 1.5em;
+			cursor: pointer;
+			list-style: none;
+			user-select: none;
+			display: flex;
+			justify-content: space-between;
+			align-items: center;
+			background: var(--white);
+			transition: background 0.2s;
+			font-weight: 700;
+			color: var(--deep-space-blue);
+			font-size: 1.1em;
+		}
+		.membership-item summary:hover {
+			background: rgba(190, 202, 207, 0.2);
+		}
+		.membership-item summary::marker {
+			display: none;
+		}
+		.membership-item summary::-webkit-details-marker {
+			display: none;
+		}
+		.membership-item summary::after {
+			content: '+';
+			font-size: 1.5em;
+			color: var(--sky-surge);
+			font-weight: 300;
+		}
+		.membership-item[open] summary::after {
+			content: '−';
+		}
+		.membership-content {
+			padding: 1.5em;
+			background: var(--white);
+			color: var(--deep-space-blue);
+			line-height: 1.6;
+		}
+		.membership-content p {
+			margin: 0 0 1em 0;
+		}
+		.membership-content p:last-child {
+			margin-bottom: 0;
+		}
+		.membership-options {
+			display: flex;
+			flex-direction: column;
+			gap: 0.75em;
+			margin: 1.5em 0;
+		}
+		.membership-card {
+			background: var(--white);
+			border: 1px solid var(--silver);
+			border-radius: 6px;
+			padding: 1em 1.25em;
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			gap: 1.25em;
+		}
+		.membership-card .price {
+			font-size: 1.4em;
+			font-weight: 700;
+			color: var(--deep-space-blue);
+			margin: 0;
+			flex-shrink: 0;
+			min-width: 90px;
+		}
+		.membership-card p {
+			margin: 0;
+			line-height: 1.5;
+			flex: 1;
+			font-size: 0.95em;
+		}
+		.membership-content h3 {
+			font-size: 1.2em;
+			margin-top: 0;
+			margin-bottom: 1em;
+			color: var(--deep-space-blue);
+			font-weight: 700;
+		}
+		.membership-content h4 {
+			font-size: 1.1em;
+			margin-top: 0;
+			margin-bottom: 0.75em;
+			color: var(--deep-space-blue);
+			font-weight: 700;
+		}
+		.payment-details {
+			background: rgba(190, 202, 207, 0.1);
+			padding: 1.5em;
+			border-radius: 8px;
+			margin: 1.5em 0;
+		}
+		.payment-details p {
+			margin: 0.75em 0;
+		}
+		.payment-details strong {
+			color: var(--deep-space-blue);
+		}
+		.donate-button {
+			display: inline-block;
+			padding: 0.75em 1.5em;
+			background: var(--canary-yellow);
+			color: var(--deep-space-blue);
+			text-decoration: none;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 1em;
+			transition: transform 0.2s, box-shadow 0.2s;
+			margin-top: 1em;
+		}
+		.donate-button:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+		}
+		@media (max-width: 768px) {
+			.membership-card {
+				flex-direction: column;
+				align-items: flex-start;
+			}
+			.membership-card .price {
+				min-width: auto;
+			}
+		}
+		@media (max-width: 1024px) {
+			.members-grid {
+				grid-template-columns: repeat(3, 1fr);
+				gap: 1em;
+			}
+		}
+		@media (max-width: 768px) {
+			main {
+				padding: 2em 1em;
+			}
+			.members-grid {
+				grid-template-columns: repeat(2, 1fr);
+				gap: 0.75em;
+			}
+			.member-card {
+				padding: 0.4em;
+			}
+			.member-logo {
+				max-width: 80%;
+				max-height: 45%;
+			}
+			.member-name,
+			.member-name-only {
+				font-size: 0.75em;
+			}
+		}
+		</style>
+	</head>
+	<body style="overflow-x: hidden;">
+		<Header />
+		<main>
+			<h1>Coalitions</h1>
+			
+			<!-- JWJ Coalition Section -->
+			<section class="coalition-section">
+				<h2>JWJ Coalition</h2>
+				<p style="text-align: center; max-width: 800px; margin: 0 auto 2em; line-height: 1.6; color: var(--deep-space-blue);">
+					Philadelphia Area Jobs with Justice brings together a diverse coalition of labor unions, 
+					community organizations, student groups, and faith-based organizations working to build 
+					power for working people and fight for economic justice in Philadelphia and beyond.
+				</p>
+
+				<div class="membership-info">
+					<details class="membership-item">
+						<summary>Services to Our Members</summary>
+						<div class="membership-content">
+							<p>Content about services to members will go here.</p>
+						</div>
+					</details>
+
+					<details class="membership-item">
+						<summary>How to Join our Membership</summary>
+						<div class="membership-content">
+							<div style="background: rgba(190, 202, 207, 0.1); padding: 1.5em; border-radius: 8px; margin: 0 0 1.5em 0;">
+								<p>
+									As attacks on workers and communities grow and billionaires tighten their grip, we're standing our ground — and rising.
+								</p>
+								<p>
+									In 2025, we're building power in our workplaces, neighborhoods, and streets. Your membership fuels this fight: training organizers, supporting workers, and confronting injustice.
+								</p>
+								<p style="font-weight: 700; font-size: 1.1em; margin-top: 1.5em; margin-bottom: 0;">
+									This is more than a donation — it's a declaration: We will not back down.
+								</p>
+							</div>
+
+							<div class="payment-details">
+								<h4>Payment Information</h4>
+								<p><strong>Make Check Payable to:</strong> Philadelphia Area Jobs with Justice</p>
+								<p><strong>Bank Name:</strong> Philadelphia Federal Credit Union</p>
+								<p><strong>Routing #:</strong> 236084298</p>
+								<p><strong>ACH #:</strong> 1020000937232</p>
+								<a href="https://actionnetwork.org/fundraising/donate-to-philly-jwj-today?source=direct_link&" target="_blank" rel="noopener noreferrer" class="donate-button">
+									Donate Online
+								</a>
+							</div>
+						</div>
+					</details>
+
+					<details class="membership-item">
+						<summary>Membership Dues Structure</summary>
+						<div class="membership-content">
+							<h3>2025 JWJ Suggested Membership Dues / Donation Scale</h3>
+							
+							<div class="membership-options">
+								<div class="membership-card">
+									<div class="price">$5,000</div>
+									<p>National/Local Unions/Orgs with over 10,000 members or budget over $10 million</p>
+								</div>
+								<div class="membership-card">
+									<div class="price">$3,000</div>
+									<p>Locals/Orgs with 5,000–9,000 members or budget over $5 million</p>
+								</div>
+								<div class="membership-card">
+									<div class="price">$2,000</div>
+									<p>Locals/Orgs with 1,000–4,999 members or budget over $1 million</p>
+								</div>
+								<div class="membership-card">
+									<div class="price">$1,000</div>
+									<p>Locals/Orgs with 100–500 members or budget over $250,000</p>
+								</div>
+								<div class="membership-card">
+									<div class="price">$500</div>
+									<p>Locals/Orgs with fewer than 100 members or budgets less than $250,000</p>
+								</div>
+							</div>
+
+						</div>
+					</details>
+				</div>
+
+				<section class="members-section">
+					<div class="members-grid">
+						{jwjMembers.map((member) => (
+							member.website ? (
+								<a href={member.website} target="_blank" rel="noopener noreferrer" class="member-card-link">
+									<div class="member-card">
+										{member.logo ? (
+											<>
+												<Image src={member.logo} alt={member.name} class="member-logo" />
+												<p class="member-name">{member.name}</p>
+											</>
+										) : (
+											<p class="member-name-only">{member.name}</p>
+										)}
+									</div>
+								</a>
+							) : (
+								<div class="member-card">
+									{member.logo ? (
+										<>
+											<Image src={member.logo} alt={member.name} class="member-logo" />
+											<p class="member-name">{member.name}</p>
+										</>
+									) : (
+										<p class="member-name-only">{member.name}</p>
+									)}
+								</div>
+							)
+						))}
+					</div>
+				</section>
+
+				<div style="text-align: center; margin-top: 3em; margin-bottom: 2em;">
+					<a href="/membership" class="join-coalition-button" style="display: inline-block; padding: 0.75em 1.5em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1em; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;">
+						Join Our Coalition →
+					</a>
+				</div>
+			</section>
+
+			<!-- Alliance For A Just Philadelphia Section -->
+			<section class="coalition-section">
+				<h2>Alliance For A Just Philadelphia</h2>
+				<div class="coalition-blurb">
+					<p>
+						The Alliance For A Just Philadelphia is a coalition of community organizations, labor unions, 
+						and advocacy groups working together to advance economic and social justice in Philadelphia. 
+						Through coordinated campaigns and collective action, the Alliance fights for fair wages, 
+						affordable housing, quality public services, and policies that prioritize working families 
+						and marginalized communities.
+					</p>
+				</div>
+				<!-- Logo placeholder - add actual logo when available -->
+				<div style="text-align: center; margin: 2em 0; padding: 2em; background: rgba(190, 202, 207, 0.1); border-radius: 8px;">
+					<p style="color: var(--silver); font-size: 0.9em;">Logo coming soon</p>
+				</div>
+			</section>
+
+			<!-- Athena Coalition Section -->
+			<section class="coalition-section">
+				<h2>Athena Coalition</h2>
+				<div class="coalition-blurb">
+					<p>
+						The Athena Coalition brings together workers, community organizations, and advocates to 
+						challenge corporate power and fight for economic democracy. Named after the Greek goddess 
+						of wisdom and strategic warfare, the coalition organizes around issues of corporate accountability, 
+						worker rights, and building alternative economic models that prioritize people over profit.
+					</p>
+				</div>
+				<!-- Logo placeholder - add actual logo when available -->
+				<div style="text-align: center; margin: 2em 0; padding: 2em; background: rgba(190, 202, 207, 0.1); border-radius: 8px;">
+					<p style="color: var(--silver); font-size: 0.9em;">Logo coming soon</p>
+				</div>
+			</section>
+		</main>
+		<Footer />
+		<style>
+			.join-coalition-button:hover {
+				background: var(--sky-surge) !important;
+			}
+		</style>
+	</body>
+</html>
+

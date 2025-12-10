@@ -1,0 +1,171 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Board - ${SITE_TITLE}`} description="Meet our board members" />
+		<style>
+			main {
+				width: 100%;
+				max-width: 1200px;
+				margin: 0 auto;
+				padding: 3em 1em;
+				box-sizing: border-box;
+			}
+			h1 {
+				color: var(--deep-space-blue);
+				margin-bottom: 0.5em;
+			}
+			.board-table {
+				width: 100%;
+				border-collapse: collapse;
+				margin: 2em 0;
+				background: var(--white);
+				box-shadow: 0 2px 8px rgba(1, 47, 64, 0.1);
+				border-radius: 8px;
+				overflow: hidden;
+			}
+			.board-table thead {
+				background: var(--deep-space-blue);
+				color: var(--white);
+			}
+			.board-table th {
+				padding: 1em;
+				text-align: left;
+				font-weight: 700;
+				font-size: 1em;
+			}
+			.board-table td {
+				padding: 1em;
+				border-bottom: 1px solid rgba(1, 47, 64, 0.1);
+				color: var(--deep-space-blue);
+			}
+			.board-table tbody tr:hover {
+				background: rgba(190, 202, 207, 0.2);
+			}
+			.board-table tbody tr:last-child td {
+				border-bottom: none;
+			}
+			.board-name {
+				font-weight: 600;
+			}
+			.board-position {
+				color: var(--sky-surge);
+			}
+			@media (max-width: 768px) {
+				.board-table {
+					display: block;
+					overflow-x: auto;
+				}
+				.board-table thead,
+				.board-table tbody,
+				.board-table tr,
+				.board-table td,
+				.board-table th {
+					display: block;
+				}
+				.board-table thead {
+					display: none;
+				}
+				.board-table tr {
+					margin-bottom: 1em;
+					border: 1px solid rgba(1, 47, 64, 0.1);
+					border-radius: 4px;
+					padding: 0.5em;
+				}
+				.board-table td {
+					border-bottom: none;
+					padding: 0.5em 0;
+				}
+				.board-table td:before {
+					content: attr(data-label) ": ";
+					font-weight: 700;
+					color: var(--deep-space-blue);
+					display: inline-block;
+					width: 100px;
+				}
+			}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Board</h1>
+			<p>Our board members guide the organization's mission and strategic direction.</p>
+			
+			<table class="board-table">
+				<thead>
+					<tr>
+						<th>Name</th>
+						<th>Position</th>
+						<th>Affiliation</th>
+					</tr>
+				</thead>
+				<tbody>
+					<tr>
+						<td class="board-name" data-label="Name">Valerie Braman</td>
+						<td class="board-position" data-label="Position">Chair</td>
+						<td data-label="Affiliation">SEIU-CIR</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">John Braxton</td>
+						<td class="board-position" data-label="Position">Founder, Treasurer Emeritus</td>
+						<td data-label="Affiliation">Founder Philly JWJ / Philadelphia Community College Union</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Zakia Elliott</td>
+						<td class="board-position" data-label="Position">Secretary</td>
+						<td data-label="Affiliation">Soil Generation</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Devan Spear</td>
+						<td class="board-position" data-label="Position">Treasurer</td>
+						<td data-label="Affiliation">PowerSwitch Action</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Mary Summers</td>
+						<td class="board-position" data-label="Position">At-Large</td>
+						<td data-label="Affiliation">Penn for PILOTs</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Nicole Fuller</td>
+						<td class="board-position" data-label="Position">At-Large</td>
+						<td data-label="Affiliation">PhilaPOSH</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Danielle Newsome</td>
+						<td class="board-position" data-label="Position">At-Large</td>
+						<td data-label="Affiliation">The NewsGuild-CWA</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Jana Korn</td>
+						<td class="board-position" data-label="Position">At-Large</td>
+						<td data-label="Affiliation">AFLCIO</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Robert Harris</td>
+						<td class="board-position" data-label="Position">At-Large</td>
+						<td data-label="Affiliation">AFSCME</td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Daniella De Lean</td>
+						<td class="board-position" data-label="Position">At-Large</td>
+						<td data-label="Affiliation"></td>
+					</tr>
+					<tr>
+						<td class="board-name" data-label="Name">Pat O'Connor</td>
+						<td class="board-position" data-label="Position">At-Large</td>
+						<td data-label="Affiliation">IUPAT District Council 21</td>
+					</tr>
+				</tbody>
+			</table>
+		</main>
+		<Footer />
+	</body>
+</html>
+
