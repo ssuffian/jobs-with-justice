@@ -1,0 +1,135 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Our Mission and Values - ${SITE_TITLE}`} description="Learn about our mission and core values" />
+		<style>
+		main {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3em 1em;
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
+		h1 {
+			text-align: center;
+			margin-bottom: 0.5em;
+			color: var(--deep-space-blue);
+		}
+		.mission-section {
+			background: var(--white);
+			padding: 2.5em 2em;
+			border-radius: 8px;
+			box-shadow: 0 4px 12px rgba(1, 47, 64, 0.1);
+			margin: 2em 0;
+			border-left: 4px solid var(--sky-surge);
+		}
+		.mission-section h2 {
+			color: var(--deep-space-blue);
+			margin-top: 0;
+			margin-bottom: 1em;
+			font-size: 1.8em;
+		}
+		.mission-section p {
+			color: var(--deep-space-blue);
+			line-height: 1.8;
+			font-size: 1.1em;
+			margin: 0;
+		}
+		.values-section {
+			background: linear-gradient(to bottom, rgba(190, 202, 207, 0.2), transparent);
+			padding: 2.5em 2em;
+			border-radius: 12px;
+			margin: 2em 0;
+		}
+		.values-section h2 {
+			text-align: center;
+			margin-top: 0;
+			margin-bottom: 1.5em;
+			color: var(--deep-space-blue);
+			font-size: 2em;
+		}
+		.values-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(min(300px, 100%), 1fr));
+			gap: 2em;
+			margin-top: 1em;
+		}
+		.value-item {
+			background: var(--white);
+			padding: 2em;
+			border-radius: 8px;
+			box-shadow: 0 2px 8px rgba(1, 47, 64, 0.1);
+			text-align: center;
+		}
+		.value-item h3 {
+			color: var(--sky-surge);
+			font-size: 1.5em;
+			margin-top: 0;
+			margin-bottom: 1em;
+		}
+		.value-item p {
+			color: var(--deep-space-blue);
+			line-height: 1.8;
+			margin: 0;
+		}
+		@media (max-width: 768px) {
+			main {
+				padding: 2em 1em;
+			}
+			.mission-section {
+				padding: 1.5em 1.5em;
+			}
+			.values-section {
+				padding: 1.5em 1.5em;
+			}
+			.values-grid {
+				grid-template-columns: 1fr;
+				gap: 1.5em;
+			}
+			.value-item {
+				padding: 1.5em;
+			}
+		}
+		</style>
+	</head>
+	<body style="overflow-x: hidden;">
+		<Header />
+		<main>
+			<h1>Our Mission and Values</h1>
+			
+			<section class="mission-section">
+				<h2>Our Mission</h2>
+				<p>
+                    Philadelphia Area Jobs with Justice is a coalition of labor unions and student, community, and faith groups. Together, we fight for the fair treatment of working people, organizing in local communities and workplaces. We believe in long-term multi-issue coalition building, grassroots base-building, organizing, and strategic action as the foundation for building a movement for economic justice, and we believe that by engaging a broad community of allies, we can win bigger victories.
+				</p>
+			</section>
+
+			<section class="values-section">
+				<h2>Our Values</h2>
+				<div class="values-grid">
+					<div class="value-item">
+						<h3>Solidarity</h3>
+						<p>We believe in mutual commitment across differences—labor, racial justice, housing rights, climate justice, and more. Our strength comes from standing together across movements and communities.</p>
+					</div>
+					<div class="value-item">
+						<h3>Coalition Building</h3>
+						<p>Strong networks prevent burnout and enable powerful collective action. We build bridges between movements, creating spaces where unions, community groups, and activists can coordinate strategy and support each other.</p>
+					</div>
+					<div class="value-item">
+						<h3>Action Readiness</h3>
+						<p>When people rise up, we must be ready—not just in principle, but in practice—with resources, strategy, and unity. We maintain infrastructure to provide rapid-response support for strikes, protests, and community actions.</p>
+					</div>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>

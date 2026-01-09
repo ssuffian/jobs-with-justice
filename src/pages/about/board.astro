@@ -1,4 +1,11 @@
 ---
+import { Image } from 'astro:assets';
+import phillyJwjLogo from '../../assets/logo-transparent.png';
+import afscmeLogo from '../../assets/members/afscme-district-council-47.png';
+import iupatLogo from '../../assets/members/iupat-district-council-21.png';
+import aflcioLogo from '../../assets/members/philadelphia-council-afl-cio.png';
+import philaposhLogo from '../../assets/members/philaposh.jpg';
+import seiuLogo from '../../assets/members/seiu-healthcare-pa.png';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
@@ -44,6 +51,17 @@ import { SITE_TITLE } from '../../consts';
 				padding: 1em;
 				border-bottom: 1px solid rgba(1, 47, 64, 0.1);
 				color: var(--deep-space-blue);
+			}
+			.affiliation-cell {
+				display: flex;
+				align-items: center;
+				gap: 0.75em;
+			}
+			.affiliation-logo {
+				width: 40px;
+				height: 40px;
+				object-fit: contain;
+				flex-shrink: 0;
 			}
 			.board-table tbody tr:hover {
 				background: rgba(190, 202, 207, 0.2);
@@ -110,12 +128,22 @@ import { SITE_TITLE } from '../../consts';
 					<tr>
 						<td class="board-name" data-label="Name">Valerie Braman</td>
 						<td class="board-position" data-label="Position">Chair</td>
-						<td data-label="Affiliation">SEIU-CIR</td>
+						<td data-label="Affiliation">
+							<div class="affiliation-cell">
+								<Image src={seiuLogo} alt="SEIU" class="affiliation-logo" />
+								<span>SEIU-CIR</span>
+							</div>
+						</td>
 					</tr>
 					<tr>
 						<td class="board-name" data-label="Name">John Braxton</td>
 						<td class="board-position" data-label="Position">Founder, Treasurer Emeritus</td>
-						<td data-label="Affiliation">Founder Philly JWJ / Philadelphia Community College Union</td>
+						<td data-label="Affiliation">
+							<div class="affiliation-cell">
+								<Image src={phillyJwjLogo} alt="Philadelphia Jobs with Justice" class="affiliation-logo" />
+								<span>Founder Philly JWJ / Philadelphia Community College Union</span>
+							</div>
+						</td>
 					</tr>
 					<tr>
 						<td class="board-name" data-label="Name">Zakia Elliott</td>
@@ -128,14 +156,14 @@ import { SITE_TITLE } from '../../consts';
 						<td data-label="Affiliation">PowerSwitch Action</td>
 					</tr>
 					<tr>
-						<td class="board-name" data-label="Name">Mary Summers</td>
-						<td class="board-position" data-label="Position">At-Large</td>
-						<td data-label="Affiliation">Penn for PILOTs</td>
-					</tr>
-					<tr>
 						<td class="board-name" data-label="Name">Nicole Fuller</td>
 						<td class="board-position" data-label="Position">At-Large</td>
-						<td data-label="Affiliation">PhilaPOSH</td>
+						<td data-label="Affiliation">
+							<div class="affiliation-cell">
+								<Image src={philaposhLogo} alt="PhilaPOSH" class="affiliation-logo" />
+								<span>PhilaPOSH</span>
+							</div>
+						</td>
 					</tr>
 					<tr>
 						<td class="board-name" data-label="Name">Danielle Newsome</td>
@@ -145,12 +173,22 @@ import { SITE_TITLE } from '../../consts';
 					<tr>
 						<td class="board-name" data-label="Name">Jana Korn</td>
 						<td class="board-position" data-label="Position">At-Large</td>
-						<td data-label="Affiliation">AFLCIO</td>
+						<td data-label="Affiliation">
+							<div class="affiliation-cell">
+								<Image src={aflcioLogo} alt="Philadelphia Council AFL-CIO" class="affiliation-logo" />
+								<span>Philly AFLCIO</span>
+							</div>
+						</td>
 					</tr>
 					<tr>
 						<td class="board-name" data-label="Name">Robert Harris</td>
 						<td class="board-position" data-label="Position">At-Large</td>
-						<td data-label="Affiliation">AFSCME</td>
+						<td data-label="Affiliation">
+							<div class="affiliation-cell">
+								<Image src={afscmeLogo} alt="AFSCME District Council 47" class="affiliation-logo" />
+								<span>AFSCME DC47</span>
+							</div>
+						</td>
 					</tr>
 					<tr>
 						<td class="board-name" data-label="Name">Daniella De Lean</td>
@@ -160,7 +198,12 @@ import { SITE_TITLE } from '../../consts';
 					<tr>
 						<td class="board-name" data-label="Name">Pat O'Connor</td>
 						<td class="board-position" data-label="Position">At-Large</td>
-						<td data-label="Affiliation">IUPAT District Council 21</td>
+						<td data-label="Affiliation">
+							<div class="affiliation-cell">
+								<Image src={iupatLogo} alt="IUPAT District Council 21" class="affiliation-logo" />
+								<span>IUPAT District Council 21</span>
+							</div>
+						</td>
 					</tr>
 				</tbody>
 			</table>

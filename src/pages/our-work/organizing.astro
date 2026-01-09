@@ -1,0 +1,227 @@
+---
+import BaseHead from '../../components/BaseHead.astro';
+import Footer from '../../components/Footer.astro';
+import Header from '../../components/Header.astro';
+import { SITE_TITLE } from '../../consts';
+---
+
+<!doctype html>
+<html lang="en">
+	<head>
+		<BaseHead title={`Organizing - ${SITE_TITLE}`} description="Learn about our organizing work and campaigns" />
+		<style>
+		main {
+			width: 100%;
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3em 1em;
+			box-sizing: border-box;
+			overflow-x: hidden;
+		}
+		h1 {
+			color: var(--deep-space-blue);
+			margin-bottom: 0.5em;
+		}
+		.section {
+			margin: 3em 0;
+		}
+		.section h2 {
+			color: var(--deep-space-blue);
+			font-size: 2em;
+			margin-bottom: 1em;
+			border-bottom: 3px solid var(--sky-surge);
+			padding-bottom: 0.5em;
+		}
+		.section h3 {
+			color: var(--deep-space-blue);
+			font-size: 1.5em;
+			margin-top: 2em;
+			margin-bottom: 1em;
+		}
+		.section h4 {
+			color: var(--sky-surge);
+			font-size: 1.2em;
+			margin-top: 1.5em;
+			margin-bottom: 0.75em;
+		}
+		.section p {
+			line-height: 1.8;
+			color: var(--deep-space-blue);
+			margin-bottom: 1em;
+		}
+		.section ul {
+			line-height: 1.8;
+			color: var(--deep-space-blue);
+			margin-bottom: 1em;
+			padding-left: 1.5em;
+		}
+		.section li {
+			margin-bottom: 0.5em;
+		}
+		.campaign-link {
+			display: inline-block;
+			padding: 0.75em 1.5em;
+			background: var(--sky-surge);
+			color: var(--white);
+			text-decoration: none;
+			border-radius: 6px;
+			font-weight: 700;
+			margin-top: 1em;
+			transition: background 0.2s, transform 0.2s;
+		}
+		.campaign-link:hover {
+			background: var(--deep-space-blue);
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(1, 47, 64, 0.2);
+		}
+		.highlight-box {
+			background: linear-gradient(to bottom, rgba(190, 202, 207, 0.15), transparent);
+			padding: 2em;
+			border-radius: 8px;
+			margin: 2em 0;
+			border-left: 4px solid var(--sky-surge);
+		}
+		.highlight-box p {
+			margin-bottom: 0.5em;
+		}
+		.highlight-box p:last-child {
+			margin-bottom: 0;
+		}
+		@media (max-width: 768px) {
+			main {
+				padding: 2em 1em;
+			}
+			.section h2 {
+				font-size: 1.5em;
+			}
+			.section h3 {
+				font-size: 1.3em;
+			}
+		}
+		</style>
+	</head>
+	<body>
+		<Header />
+		<main>
+			<h1>Organizing</h1>
+			
+			<section class="section">
+				<h2>Current Campaigns</h2>
+				<p>Learn about our active organizing campaigns:</p>
+				<a href="https://fairwarehouses.org/" target="_blank" rel="noopener noreferrer" class="campaign-link">
+					Philly Fair Warehouses →
+				</a>
+			</section>
+
+			<section class="section">
+				<h2>Start a Campaign</h2>
+				
+				<div class="highlight-box">
+					<p><strong>We Build Power From the Ground Up</strong></p>
+					<p>Are you wanting to organize your workplace, your community, or an issue campaign? You don't have to do it alone—come get in touch with us.</p>
+				</div>
+
+				<p>We exist to support workers and community members who are ready to organize—but who should never have to do it alone.</p>
+
+				<p>Organizing a workplace or a community is not a single action. It is a process of learning, relationship-building, strategy, courage, and collective care. We provide hands-on support at every stage, meeting people where they are and helping them build lasting power together.</p>
+
+				<h3>What We Mean by "Support at Every Stage"</h3>
+
+				<p>Organizing is often portrayed as a single moment—a strike, petition, a vote, a protest. In reality, it is a series of deliberate steps. We support each of them.</p>
+
+				<h4>1. From the First Conversation to Collective Vision</h4>
+				<p>We help workers and community members:</p>
+				<ul>
+					<li>Identify shared concerns and injustices</li>
+					<li>Turn individual frustration into collective understanding</li>
+					<li>Develop a clear vision of what change looks like</li>
+					<li>Build confidence to talk openly with coworkers and neighbors</li>
+				</ul>
+				<p>We believe organizing starts with listening, not slogans.</p>
+
+				<h4>2. Building Trust, Leadership, and Collective Capacity</h4>
+				<p>Strong organizations are built on relationships and trust—not saviors or spokespeople.</p>
+				<p>We provide guidance on:</p>
+				<ul>
+					<li>Mapping your workplace or community</li>
+					<li>Identifying natural leaders and organizers</li>
+					<li>Building democratic decision-making structures</li>
+					<li>Developing leadership skills among new organizers</li>
+					<li>Creating inclusive spaces rooted in solidarity and accountability</li>
+				</ul>
+				<p>Our goal is not dependency—it is self-sustaining collective power.</p>
+
+				<h4>3. Strategy, Planning, and Organizing Skills</h4>
+				<p>Revolutionary spirit requires strategy. We help groups:</p>
+				<ul>
+					<li>Analyze power structures and decision-makers</li>
+					<li>Set clear, achievable demands</li>
+					<li>Develop organizing plans and timelines</li>
+					<li>Learn effective outreach, one-on-one conversations, and escalation tactics</li>
+					<li>Prepare for employer, landlord, or institutional pushback</li>
+				</ul>
+				<p>We believe preparation is a form of care.</p>
+
+				<h4>4. Legal, Structural, and Practical Support</h4>
+				<p>New organizers are often blocked not by lack of passion, but by lack of information. We provide support navigating:</p>
+				<ul>
+					<li>Workers' rights and organizing protections</li>
+					<li>Community governance and accountability structures</li>
+					<li>Risk assessment and safety planning</li>
+					<li>Documentation, communications, and coordination tools</li>
+				</ul>
+				<p>We demystify the process so people can move forward with confidence instead of fear.</p>
+
+				<h4>5. Collective Action and Sustained Struggle</h4>
+				<p>Organizing does not end with a single action—it deepens. We support groups through:</p>
+				<ul>
+					<li>Campaign launches and public actions</li>
+					<li>Strike preparation and mutual aid coordination</li>
+					<li>Media strategy and narrative control</li>
+					<li>Internal conflict resolution and collective care</li>
+					<li>Long-term sustainability beyond immediate wins</li>
+				</ul>
+				<p>We believe victories matter—but lasting organization matters more.</p>
+
+				<h3>Organizing Rooted in Solidarity and Liberation</h3>
+				<p>Our work is grounded in the understanding that:</p>
+				<ul>
+					<li>Workers' struggles are inseparable from community struggles</li>
+					<li>Economic justice, racial justice, gender justice, and liberation are interconnected</li>
+					<li>No one is disposable</li>
+					<li>Collective liberation requires collective action</li>
+				</ul>
+				<p>We reject top-down models that extract energy from communities without building real power. Instead, we commit to movement-building, not moment-chasing.</p>
+
+				<h3>Who We Organize With</h3>
+				<p>We work with:</p>
+				<ul>
+					<li>First-time organizers</li>
+					<li>Workers in unorganized workplaces</li>
+					<li>Tenant groups and neighborhood collectives</li>
+					<li>Mutual aid groups seeking long-term power</li>
+					<li>Community members fighting exploitation, displacement, or neglect</li>
+				</ul>
+				<p>If people are ready to organize, we are ready to support.</p>
+
+				<h3>Our Commitment</h3>
+				<p>We commit to:</p>
+				<ul>
+					<li>Standing with organizers during both victories and setbacks</li>
+					<li>Sharing knowledge openly, not hoarding expertise</li>
+					<li>Prioritizing democracy, transparency, and accountability</li>
+					<li>Acting with urgency and care</li>
+					<li>Building a future where working people and communities control their own lives</li>
+				</ul>
+
+				<div class="highlight-box">
+					<p><strong>This is not charity.</strong></p>
+					<p><strong>This is not advocacy on behalf of others.</strong></p>
+					<p><strong>This is solidarity in action.</strong></p>
+					<p style="margin-top: 1em; font-size: 1.1em;"><strong>Together, we build power. Together, We Win!</strong></p>
+				</div>
+			</section>
+		</main>
+		<Footer />
+	</body>
+</html>
