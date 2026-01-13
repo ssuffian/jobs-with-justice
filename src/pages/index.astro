@@ -303,6 +303,18 @@ import Header from '../components/Header.astro';
 			margin: 0;
 			flex: 1;
 		}
+		.learn-more-button {
+			display: inline-block;
+			margin-top: 1em;
+			padding: 0.5em 1em;
+			background: #7DD3F0;
+			color: var(--deep-space-blue);
+			border-radius: 4px;
+			font-size: 0.9em;
+			font-weight: 600;
+			text-align: center;
+			align-self: flex-end;
+		}
 		@media (max-width: 1024px) {
 			.our-work-grid {
 				grid-template-columns: repeat(2, 1fr);
@@ -333,6 +345,8 @@ import Header from '../components/Header.astro';
 			.our-work-card {
 				min-height: auto;
 				padding: 1.25em 1em;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.15);
 			}
 		}
 		@media (max-width: 768px) {
@@ -342,6 +356,17 @@ import Header from '../components/Header.astro';
 			}
 			.work-card {
 				padding: 1.5em 1em;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.2);
+			}
+			.work-card-mission {
+				background: rgba(220, 38, 38, 0.05);
+			}
+			.work-card-history {
+				background: rgba(22, 163, 74, 0.05);
+			}
+			.work-card-join {
+				background: rgba(37, 99, 235, 0.05);
 			}
 			.work-card-content h3 {
 				font-size: 1.3em;
@@ -479,6 +504,12 @@ import Header from '../components/Header.astro';
 				width: 100%;
 				padding: 0.875em 1.5em;
 				font-size: 1em;
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			}
+			.cta-button.secondary {
+				background: var(--white);
+				color: var(--deep-space-blue);
 			}
 		}
 		@media (max-width: 480px) {
@@ -536,12 +567,61 @@ import Header from '../components/Header.astro';
 			display: block;
 			margin-bottom: -50px;
 		}
+		@media (max-width: 1024px) {
+			.instagram-embed {
+				height: 700px;
+			}
+			.instagram-embed iframe {
+				height: 700px;
+			}
+		}
 		@media (max-width: 768px) {
 			.instagram-embed {
 				padding: 0.5em;
+				height: 600px;
+			}
+			.instagram-embed iframe {
+				height: 600px;
+			}
+		}
+		@media (max-width: 600px) {
+			.instagram-embed {
+				height: 550px;
+			}
+			.instagram-embed iframe {
+				height: 550px;
+			}
+		}
+		@media (max-width: 525px) {
+			.instagram-embed {
+				height: 500px;
 			}
 			.instagram-embed iframe {
 				height: 500px;
+			}
+		}
+		@media (max-width: 475px) {
+			.instagram-embed {
+				height: 475px;
+			}
+			.instagram-embed iframe {
+				height: 475px;
+			}
+		}
+		@media (max-width: 400px) {
+			.instagram-embed {
+				height: 450px;
+			}
+			.instagram-embed iframe {
+				height: 450px;
+			}
+		}
+		@media (max-width: 335px) {
+			.instagram-embed {
+				height: 350px;
+			}
+			.instagram-embed iframe {
+				height: 350px;
 			}
 		}
 		.swiper-slide {
@@ -551,17 +631,16 @@ import Header from '../components/Header.astro';
 		}
 		.banner .scroll-controls {
 			position: absolute;
-			left: 1em;
-			top: 50%;
-			transform: translateY(-50%);
+			right: 1em;
+			bottom: 1em;
 			z-index: 10;
 			pointer-events: none;
 		}
 		.banner .scroll-button {
 			color: var(--white);
 			background: rgba(255, 255, 255, 0.2);
-			width: 44px;
-			height: 44px;
+			width: 36px;
+			height: 36px;
 			border-radius: 50%;
 			box-shadow: 0 2px 8px rgba(0, 0, 0, 0.3);
 			border: none;
@@ -570,7 +649,7 @@ import Header from '../components/Header.astro';
 			display: flex;
 			align-items: center;
 			justify-content: center;
-			font-size: 20px;
+			font-size: 16px;
 			font-weight: 700;
 			transition: background 0.2s;
 		}
@@ -681,18 +760,22 @@ import Header from '../components/Header.astro';
 					<a href="/our-work/power-school" class="our-work-card">
 						<h3>Power School</h3>
 						<p>Building power through Power School, developing the next generation of labor and community organizers with advanced training and strategic analysis.</p>
+						<span class="learn-more-button">Learn more →</span>
 					</a>
-					<a href="/our-work/strategic-support-for-peoples-actions" class="our-work-card">
+					<a href="/coming-soon" class="our-work-card">
 						<h3>Organizing</h3>
-						<p>Supporting workers and communities through strategic organizing, building capacity for strikes, protests, and collective action.</p>
+						<p>Supporting workers and communities through strategic organizing and capacity building for collective bargaining and action.</p>
+						<span class="learn-more-button">Learn more →</span>
 					</a>
-					<a href="/our-work/strategic-support-for-peoples-actions" class="our-work-card">
+					<a href="/coming-soon" class="our-work-card">
 						<h3>Mutual Aid</h3>
-						<p>Providing rapid-response support for strikes, protests, and community actions through our Strategic Action Support Team and People's Action Fund.</p>
+						<p>Providing rapid-response support for people's actions, such as strikes, protests, and community actions.</p>
+						<span class="learn-more-button">Learn more →</span>
 					</a>
-					<a href="/our-work/coalitions" class="our-work-card">
+					<a href="/coming-soon" class="our-work-card">
 						<h3>Coalition</h3>
 						<p>Bringing together unions, community groups, faith organizations, and students to build lasting solidarity and win victories for working people.</p>
+						<span class="learn-more-button">Learn more →</span>
 					</a>
 				</div>
 			</section>
@@ -726,6 +809,9 @@ import Header from '../components/Header.astro';
 					</div>
 					<div class="contact-section">
 						<h3>Contact Us</h3>
+						<p>
+							<a href="mailto:info@phillyjwj.org">info@phillyjwj.org</a>
+						</p>
 						<p>
 							<a href="mailto:muzammal@phillyjwj.org">muzammal@phillyjwj.org</a>
 						</p>

@@ -1,11 +1,8 @@
 ---
-import { Image } from 'astro:assets';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
 import { SITE_TITLE } from '../consts';
-import organizingAction1 from '../assets/organizing/organizing-action-1.jpg';
-import organizingAction2 from '../assets/organizing/organizing-action-2.jpg';
 ---
 
 <!doctype html>
@@ -91,6 +88,17 @@ import organizingAction2 from '../assets/organizing/organizing-action-2.jpg';
 				height: 500px;
 			}
 		}
+		.join-buttons a:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			background: var(--sky-surge) !important;
+		}
+		@media (max-width: 768px) {
+			.join-buttons a {
+				transform: translateY(-2px);
+				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			}
+		}
 		</style>
 	</head>
 	<body>
@@ -98,6 +106,15 @@ import organizingAction2 from '../assets/organizing/organizing-action-2.jpg';
 		<main>
 			<h1>Join The Movement</h1>
 			<p>Stay connected with our events and activities.</p>
+			
+			<div class="join-buttons" style="display: flex; gap: 1em; margin: 2em 0; flex-wrap: wrap;">
+				<a href="https://docs.google.com/forms/d/1OQLVSofjHVyG5FDtF6tlruzIfZhlXUChEvo-f8Z0qt8/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 200px; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1em; text-align: center; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
+					Individuals
+				</a>
+				<a href="/coming-soon" style="flex: 1; min-width: 200px; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1em; text-align: center; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
+					Organizations
+				</a>
+			</div>
 			
 			<div style="text-align: center; margin: 2em 0; padding: 2em; background: linear-gradient(to bottom, rgba(190, 202, 207, 0.2), transparent); border-radius: 12px;">
 				<h2 style="color: var(--deep-space-blue); margin-bottom: 1em;">Subscribe to Our Emails</h2>

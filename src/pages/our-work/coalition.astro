@@ -75,7 +75,7 @@ const jwjMembers = [
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Coalitions - ${SITE_TITLE}`} description="Philadelphia Area Jobs with Justice coalitions - building power for working people through diverse partnerships." />
+		<BaseHead title={`Coalition - ${SITE_TITLE}`} description="Philadelphia Area Jobs with Justice coalition - building power for working people through diverse partnerships." />
 		<style>
 		main {
 			width: 100%;
@@ -364,11 +364,9 @@ const jwjMembers = [
 	<body style="overflow-x: hidden;">
 		<Header />
 		<main>
-			<h1>Coalitions</h1>
-			
 			<!-- JWJ Coalition Section -->
 			<section class="coalition-section">
-				<h2>JWJ Coalition</h2>
+				<h2>Jobs with Justice Coalition</h2>
 				<p style="text-align: center; max-width: 800px; margin: 0 auto 2em; line-height: 1.6; color: var(--deep-space-blue);">
 					Philadelphia Area Jobs with Justice brings together a diverse coalition of labor unions, 
 					community organizations, student groups, and faith-based organizations working to build 
@@ -443,6 +441,12 @@ const jwjMembers = [
 					</details>
 				</div>
 
+				<div style="text-align: center; margin-top: 3em; margin-bottom: 2em;">
+					<a href="/membership" class="join-coalition-button" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.2em; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;">
+						Join Our Coalition →
+					</a>
+				</div>
+
 				<section class="members-section">
 					<div class="members-grid">
 						{jwjMembers.map((member) => (
@@ -476,44 +480,9 @@ const jwjMembers = [
 				</section>
 
 				<div style="text-align: center; margin-top: 3em; margin-bottom: 2em;">
-					<a href="/membership" class="join-coalition-button" style="display: inline-block; padding: 0.75em 1.5em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1em; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;">
+					<a href="/membership" class="join-coalition-button" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.2em; transition: background 0.2s, transform 0.2s, box-shadow 0.2s;">
 						Join Our Coalition →
 					</a>
-				</div>
-			</section>
-
-			<!-- Alliance For A Just Philadelphia Section -->
-			<section class="coalition-section">
-				<h2>Alliance For A Just Philadelphia</h2>
-				<div class="coalition-blurb">
-					<p>
-						The Alliance For A Just Philadelphia is a coalition of community organizations, labor unions, 
-						and advocacy groups working together to advance economic and social justice in Philadelphia. 
-						Through coordinated campaigns and collective action, the Alliance fights for fair wages, 
-						affordable housing, quality public services, and policies that prioritize working families 
-						and marginalized communities.
-					</p>
-				</div>
-				<!-- Logo placeholder - add actual logo when available -->
-				<div style="text-align: center; margin: 2em 0; padding: 2em; background: rgba(190, 202, 207, 0.1); border-radius: 8px;">
-					<p style="color: var(--silver); font-size: 0.9em;">Logo coming soon</p>
-				</div>
-			</section>
-
-			<!-- Athena Coalition Section -->
-			<section class="coalition-section">
-				<h2>Athena Coalition</h2>
-				<div class="coalition-blurb">
-					<p>
-						The Athena Coalition brings together workers, community organizations, and advocates to 
-						challenge corporate power and fight for economic democracy. Named after the Greek goddess 
-						of wisdom and strategic warfare, the coalition organizes around issues of corporate accountability, 
-						worker rights, and building alternative economic models that prioritize people over profit.
-					</p>
-				</div>
-				<!-- Logo placeholder - add actual logo when available -->
-				<div style="text-align: center; margin: 2em 0; padding: 2em; background: rgba(190, 202, 207, 0.1); border-radius: 8px;">
-					<p style="color: var(--silver); font-size: 0.9em;">Logo coming soon</p>
 				</div>
 			</section>
 		</main>
