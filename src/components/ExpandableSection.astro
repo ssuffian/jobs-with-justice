@@ -1,0 +1,114 @@
+---
+interface Props {
+	title: string;
+	open?: boolean;
+	color?: 'teal' | 'purple' | 'orange' | 'green' | 'indigo' | 'rose' | 'amber' | 'blue' | 'grey';
+}
+
+const { title, open = false, color = 'grey' } = Astro.props;
+
+const colorMap = {
+	teal: { bg: '#5eead4', hover: '#2dd4bf' },
+	purple: { bg: '#a78bfa', hover: '#8b5cf6' },
+	orange: { bg: '#fb923c', hover: '#f97316' },
+	green: { bg: '#34d399', hover: '#10b981' },
+	indigo: { bg: '#818cf8', hover: '#6366f1' },
+	rose: { bg: '#f472b6', hover: '#ec4899' },
+	amber: { bg: '#fbbf24', hover: '#f59e0b' },
+	blue: { bg: 'var(--sky-surge)', hover: '#15A5CC' },
+	grey: { bg: '#d1d5db', hover: '#9ca3af' }
+};
+
+const selectedColor = colorMap[color] || colorMap.grey;
+---
+
+<details class="expandable-section" open={open} style={`--summary-bg: ${selectedColor.bg}; --summary-hover: ${selectedColor.hover};`}>
+	<summary><span class="plus-icon"></span>{title}</summary>
+	<div class="section-content">
+		<slot />
+	</div>
+</details>
+
+<style>
+	.expandable-section {
+		border: 1px solid var(--silver);
+		border-radius: 4px;
+		overflow: hidden;
+		margin-bottom: 0.75em;
+	}
+	.expandable-section summary {
+		padding: 1em;
+		color: var(--deep-space-blue);
+		font-weight: 700;
+		cursor: pointer;
+		list-style: none;
+		user-select: none;
+		transition: background 0.2s;
+		font-size: 1.2em;
+		position: relative;
+		overflow: hidden;
+		background: var(--summary-bg);
+	}
+	.expandable-section summary:hover {
+		background: var(--summary-hover);
+	}
+	.expandable-section summary::marker {
+		display: none;
+	}
+	.expandable-section summary::-webkit-details-marker {
+		display: none;
+	}
+	.plus-icon {
+		display: inline-block;
+		margin-right: 0.5em;
+		font-weight: 700;
+	}
+	.plus-icon::before {
+		content: '+';
+	}
+	.expandable-section[open] .plus-icon::before {
+		content: '−';
+	}
+	.section-content {
+		padding: 1em;
+		background: var(--white);
+		color: var(--deep-space-blue);
+		line-height: 1.7;
+	}
+	.section-content :global(p) {
+		margin: 0 0 1em 0;
+	}
+	.section-content :global(p:last-child) {
+		margin-bottom: 0;
+	}
+	.section-content :global(a) {
+		color: var(--sky-surge);
+		text-decoration: underline;
+	}
+	.section-content :global(a:hover) {
+		color: var(--deep-space-blue);
+	}
+	.section-content :global(ul) {
+		margin: 0.5em 0;
+		padding-left: 1.5em;
+	}
+	.section-content :global(li) {
+		margin-bottom: 0.5em;
+		line-height: 1.6;
+	}
+	.section-content :global(li:last-child) {
+		margin-bottom: 0;
+	}
+	.section-content :global(strong) {
+		color: var(--deep-space-blue);
+	}
+	@media (max-width: 768px) {
+		.expandable-section summary {
+			padding: 0.75em 1em;
+			font-size: 1.1em;
+		}
+		.section-content {
+			padding: 0.75em 1em;
+		}
+	}
+</style>

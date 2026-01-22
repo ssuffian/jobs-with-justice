@@ -2,26 +2,27 @@
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
 import { SITE_TITLE } from '../../consts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Our Mission and Values - ${SITE_TITLE}`} description="Learn about our mission and core values" />
+		<BaseHead title={`Mission & Values | Worker Justice Philadelphia - ${SITE_TITLE}`} description="Philadelphia Jobs with Justice's mission is building people power and working class power through solidarity. Our labor-community coalition fights for worker justice through organizer training, Power School, and collective action." keywords="worker justice mission Philadelphia, people power, working class power, solidarity, labor-community coalition values, jobs with justice mission" />
 		<style>
 		main {
-			width: 100%;
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 3em 1em;
+			width: 100% !important;
+			max-width: 100% !important;
+			margin: 0;
+			padding: 0 !important;
 			box-sizing: border-box;
 			overflow-x: hidden;
 		}
-		h1 {
-			text-align: center;
-			margin-bottom: 0.5em;
-			color: var(--deep-space-blue);
+		.content-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3em 1em;
 		}
 		.mission-section {
 			background: var(--white);
@@ -103,8 +104,8 @@ import { SITE_TITLE } from '../../consts';
 	<body style="overflow-x: hidden;">
 		<Header />
 		<main>
-			<h1>Our Mission and Values</h1>
-			
+			<Hero title="Our Mission and Values" subtitle="Fighting for the fair treatment of working people" />
+			<div class="content-container">
 			<section class="mission-section">
 				<h2>Our Mission</h2>
 				<p>
@@ -129,6 +130,7 @@ import { SITE_TITLE } from '../../consts';
 					</div>
 				</div>
 			</section>
+			</div>
 		</main>
 		<Footer />
 	</body>

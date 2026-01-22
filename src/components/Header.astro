@@ -20,6 +20,7 @@ import HeaderLink from './HeaderLink.astro';
 			<div class="dropdown">
 				<HeaderLink href="/about" class="dropdown-toggle">About</HeaderLink>
 				<div class="dropdown-menu">
+					<HeaderLink href="/about/mission_and_values">Mission & Values</HeaderLink>
 					<HeaderLink href="/about/history">History & Impact</HeaderLink>
 					<HeaderLink href="/about/staff">Staff</HeaderLink>
 					<HeaderLink href="/about/board">Board</HeaderLink>
@@ -28,10 +29,16 @@ import HeaderLink from './HeaderLink.astro';
 			<div class="dropdown">
 				<HeaderLink href="/our-work" class="dropdown-toggle">Our Work</HeaderLink>
 				<div class="dropdown-menu">
-					<HeaderLink href="/coming-soon">Organizing</HeaderLink>
+					<HeaderLink href="https://fairwarehouses.org" target="_blank" rel="noopener noreferrer" class="external-link">
+						Our Organizing Work
+						<svg width="12" height="12" viewBox="0 0 12 12" fill="none" xmlns="http://www.w3.org/2000/svg" aria-hidden="true">
+							<path d="M10.5 1.5L1.5 10.5M10.5 1.5H4.5M10.5 1.5V7.5" stroke="currentColor" stroke-width="1.5" stroke-linecap="round" stroke-linejoin="round"/>
+						</svg>
+					</HeaderLink>
+					<HeaderLink href="/our-work/organizing">New Organizing</HeaderLink>
 					<HeaderLink href="/coming-soon">Coalition</HeaderLink>
 					<HeaderLink href="/our-work/power-school">Power School</HeaderLink>
-					<HeaderLink href="/coming-soon">Strike Ready</HeaderLink>
+					<HeaderLink href="/our-work/strike-ready">Strike Ready</HeaderLink>
 				</div>
 			</div>
 			<HeaderLink href="/blog">Media</HeaderLink>
@@ -166,10 +173,20 @@ import HeaderLink from './HeaderLink.astro';
 		border-bottom: none;
 		color: var(--deep-space-blue) !important;
 		min-height: 44px;
+		display: flex;
+		align-items: center;
+		gap: 0.4em;
+	}
+	.dropdown-menu a.external-link svg {
+		flex-shrink: 0;
+		opacity: 0.7;
 	}
 	.dropdown-menu a:hover {
 		background: var(--sky-surge);
 		color: var(--white) !important;
+	}
+	.dropdown-menu a.external-link:hover svg {
+		opacity: 1;
 	}
 	.donate-link {
 		background: var(--deep-space-blue);

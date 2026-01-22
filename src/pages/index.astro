@@ -18,7 +18,7 @@ import Header from '../components/Header.astro';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title="Philadelphia Area Jobs with Justice" description="A coalition of labor unions and student, community, and faith groups fighting for fair treatment of working people in Philadelphia." />
+		<BaseHead title="Philadelphia Jobs with Justice | Worker Justice & Labor-Community Coalition" description="Philadelphia Area Jobs with Justice builds people power and working class power through solidarity. A labor-community coalition of unions, students, community and faith groups fighting for worker justice in Philadelphia." keywords="Philadelphia, worker justice, labor-community coalition, solidarity, people power, working class power, jobs with justice, Power School, organizer training program, labor organizing Philadelphia" />
 		<style>
 		.banner {
 			width: 100%;
@@ -178,31 +178,36 @@ import Header from '../components/Header.astro';
 			text-decoration: none;
 			background: var(--white);
 			text-align: center;
-		}
-		.work-card-mission {
-			border-color: #DC2626;
-			color: #DC2626;
-		}
-		.work-card-history {
-			border-color: #16A34A;
-			color: #16A34A;
-		}
-		.work-card-join {
-			border-color: #2563EB;
-			color: #2563EB;
-		}
-		.work-card:hover {
 			transform: translateY(-2px);
 			box-shadow: 0 4px 12px rgba(1, 47, 64, 0.2);
 		}
+		.work-card-mission {
+			border-color: var(--canary-yellow);
+			color: var(--deep-space-blue);
+			background: var(--canary-yellow);
+		}
+		.work-card-history {
+			border-color: var(--deep-space-blue);
+			color: var(--white);
+			background: var(--deep-space-blue);
+		}
+		.work-card-join {
+			border-color: var(--sky-surge);
+			color: var(--deep-space-blue);
+			background: var(--sky-surge);
+		}
+		.work-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 6px 20px rgba(1, 47, 64, 0.35);
+		}
 		.work-card-mission:hover {
-			background: rgba(220, 38, 38, 0.05);
+			background: #FFFF7F;
 		}
 		.work-card-history:hover {
-			background: rgba(22, 163, 74, 0.05);
+			background: #012530;
 		}
 		.work-card-join:hover {
-			background: rgba(37, 99, 235, 0.05);
+			background: #15A5CC;
 		}
 		.work-card-content {
 			display: flex;
@@ -219,13 +224,13 @@ import Header from '../components/Header.astro';
 			color: inherit;
 		}
 		.work-card-mission .work-card-content h3 {
-			color: #DC2626;
+			color: var(--deep-space-blue);
 		}
 		.work-card-history .work-card-content h3 {
-			color: #16A34A;
+			color: var(--white);
 		}
 		.work-card-join .work-card-content h3 {
-			color: #2563EB;
+			color: var(--deep-space-blue);
 		}
 		.our-work-section {
 			margin: 3em 0;
@@ -360,13 +365,13 @@ import Header from '../components/Header.astro';
 				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.2);
 			}
 			.work-card-mission {
-				background: rgba(220, 38, 38, 0.05);
+				background: var(--canary-yellow);
 			}
 			.work-card-history {
-				background: rgba(22, 163, 74, 0.05);
+				background: var(--deep-space-blue);
 			}
 			.work-card-join {
-				background: rgba(37, 99, 235, 0.05);
+				background: var(--sky-surge);
 			}
 			.work-card-content h3 {
 				font-size: 1.3em;
@@ -471,10 +476,12 @@ import Header from '../components/Header.astro';
 			min-height: 40px;
 			min-width: 0;
 			box-sizing: border-box;
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 		}
 			.cta-button:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+				transform: translateY(-4px);
+				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
 			}
 			.cta-button.secondary {
 				background: transparent;

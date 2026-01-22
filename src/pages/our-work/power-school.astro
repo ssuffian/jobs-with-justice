@@ -1,6 +1,7 @@
 ---
 import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
+import ExpandableSection from '../../components/ExpandableSection.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
@@ -11,6 +12,7 @@ import afscmeLogo from '../../assets/members/afscme-district-council-47.png';
 import littleSisLogo from '../../assets/members/LittleSis_logo_color.png';
 import nationalJwjLogo from '../../assets/members/national_jobs_with_justice.png';
 import aflcioLogo from '../../assets/members/philadelphia-council-afl-cio.png';
+import federalUnionistsNetworkLogo from '../../assets/other_orgs/federal_unionists_network.png';
 import laborNetworkLogo from '../../assets/other_orgs/labornetwork_logo.png';
 import phillyUniteHereLogo from '../../assets/other_orgs/philly_unite_here.webp';
 import starbucksWorkersUnitedLogo from '../../assets/other_orgs/starbucks_workers_united.png';
@@ -23,7 +25,7 @@ import organizing43 from '../../assets/organizing/43.jpg';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Power School - ${SITE_TITLE}`} description="Learn about Power School" />
+		<BaseHead title={`Power School Philadelphia | Organizer Training Program - ${SITE_TITLE}`} description="Power School is Philadelphia's premier organizer training program building people power and working class power. Advanced training for labor and community organizers committed to worker justice and solidarity." keywords="Power School, Philadelphia organizer training program, worker justice, labor-community coalition, people power, working class power, solidarity, labor organizing training, community organizing Philadelphia" />
 		<style>
 			main {
 				padding-left: 0.5em !important;
@@ -196,55 +198,19 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				padding: 1em;
 				background: var(--white);
 			}
-			.faq-container {
-				margin: 1.5em 0;
+			section h2 {
+				margin-top: 2em;
+				margin-bottom: 0.5em;
+				color: var(--deep-space-blue);
 			}
-			.faq-item {
-				margin-bottom: 0.75em;
-				border: 1px solid var(--silver);
-				border-radius: 4px;
-				overflow: hidden;
-			}
-			.faq-question {
-				padding: 1em;
-				background: #c41e3a;
-				color: var(--white);
-				font-weight: 700;
-				cursor: pointer;
-				list-style: none;
-				user-select: none;
-				transition: background 0.2s;
-			}
-			.faq-question:hover {
-				background: #a0172e;
-			}
-			.faq-question::marker {
-				display: none;
-			}
-			.faq-question::-webkit-details-marker {
-				display: none;
-			}
-			.faq-question::before {
-				content: '+ ';
-				display: inline-block;
-				margin-right: 0.5em;
-				font-weight: 700;
-			}
-			.faq-item[open] .faq-question::before {
-				content: '− ';
-			}
-			.faq-answer {
-				padding: 1em;
-				background: var(--white);
-			}
-			.faq-answer p {
-				margin: 0;
+			section .section-content {
+				margin-bottom: 1em;
 			}
 			.header-with-logos {
 				display: grid;
 				grid-template-columns: auto 1fr auto;
 				grid-template-rows: auto 1fr auto;
-				gap: 0.25em;
+				gap: 0.15em;
 				margin: 1em 0 2em 0;
 				align-items: center;
 				justify-items: center;
@@ -255,7 +221,7 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				gap: 0.5em;
+				gap: 0.25em;
 				flex-wrap: wrap;
 			}
 			.logos-left {
@@ -264,7 +230,7 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				gap: 0.5em;
+				gap: 0.25em;
 			}
 			.logos-right {
 				grid-column: 3;
@@ -272,7 +238,7 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				display: flex;
 				flex-direction: column;
 				align-items: center;
-				gap: 0.5em;
+				gap: 0.25em;
 			}
 			.logos-bottom {
 				grid-column: 1 / -1;
@@ -280,7 +246,7 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				gap: 0.5em;
+				gap: 0.25em;
 				flex-wrap: wrap;
 			}
 			.header-content {
@@ -304,8 +270,8 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				display: flex;
 				align-items: center;
 				justify-content: center;
-				padding: 0.5em;
-				height: 90px;
+				padding: 0.25em;
+				height: 110px;
 				width: auto;
 				flex-shrink: 0;
 				text-decoration: none;
@@ -315,8 +281,8 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				opacity: 0.8;
 			}
 			.partner-logo-item img {
-				max-width: 120px;
-				max-height: 75px;
+				max-width: 150px;
+				max-height: 95px;
 				width: auto;
 				height: auto;
 				object-fit: contain;
@@ -374,11 +340,11 @@ import organizing43 from '../../assets/organizing/43.jpg';
 					grid-row: 5;
 				}
 				.partner-logo-item {
-					height: 70px;
+					height: 85px;
 				}
 				.partner-logo-item img {
-					max-width: 90px;
-					max-height: 60px;
+					max-width: 110px;
+					max-height: 75px;
 				}
 			}
 			.program-outline {
@@ -453,11 +419,14 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				</div>
 				<div class="header-content">
 					<h1>Power School</h1>
-					<p><strong>Organizer Training Program</strong></p>
+					<p><strong>A Free Advanced Organizer Training Program</strong></p>
 				</div>
 				<div class="logos-right">
 					<a href="https://abolitionschool.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
 						<Image src={webDuboisLogo} alt="W.E.B. Du Bois Movement School" />
+					</a>
+					<a href="https://federalunionistsnetwork.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={federalUnionistsNetworkLogo} alt="Federal Unionists Network" />
 					</a>
 				</div>
 				<div class="logos-bottom">
@@ -472,8 +441,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 					</a>
 				</div>
 			</div>
-			<p>People Power School is a visionary advanced training program for community and labor organizers & leaders, who are committed to building lasting working-class power. This program equips participants with the tools, skills, and strategic analysis necessary to build power and resist rising authoritarianism.</p>
-			<p>People Power School creates a rare opportunity to bridge divides between labor and community organizing while deepening the capacity of organizers to take on bigger and bolder fights. It is designed for labor unions and community base-building organizations that are committed to developing skilled organizers—and to building and winning power for everyday Philadelphians by prioritizing people and planet over profit.</p>
+			<p>The Power School is a free, visionary advanced training program for community and labor organizers & leaders, who are committed to building lasting working-class power. This program equips participants with the tools, skills, and strategic analysis necessary to build power and resist rising authoritarianism.</p>
+			<p>The Power School creates a rare opportunity to bridge divides between labor and community organizing while deepening the capacity of organizers to take on bigger and bolder fights. It is designed for labor unions and community base-building organizations that are committed to developing skilled organizers—and to building and winning power for everyday Philadelphians by prioritizing people and planet over profit.</p>
+			<p>This program is offered free of charge to participants. Participants are asked to contribute $50 per day to help cover meals, space rental, and essential materials. No one will be turned away for lack of funds.</p>
 			
 			<div style="text-align: center; margin: 2em 0;">
 				<a href="https://forms.gle/YSFRonFihxgLWvmP7" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.2em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
@@ -576,65 +546,41 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				</tbody>
 			</table>
 			
-			<section>
-				<details>
-					<summary>What We Expect from You</summary>
-					<div class="section-content">
-						<ul>
-							<li><strong>A high level of rigor:</strong> Be present and engaged. Please reserve calls and texts for breaks or after sessions.</li>
-							<li><strong>A full commitment:</strong> Arrange your schedule to attend all sessions in their entirety.</li>
-							<li><strong>An open mind:</strong> Be ready to learn from a range of perspectives, including fellow participants.</li>
-							<li><strong>Principled feedback:</strong> Offer feedback aimed at strengthening the program and one another. Be willing to receive grounded, thoughtful feedback in return.</li>
-							<li><strong>Naming your needs:</strong> We may miss things; we ask participants to proactively communicate needs so we can address them together.</li>
-						</ul>
-					</div>
-				</details>
-			</section>
+			<div style="max-width: 900px; margin: 2em auto;">
+				<ExpandableSection title="What We Expect from You" color="green">
+					<ul>
+						<li><strong>A high level of rigor:</strong> Be present and engaged. Please reserve calls and texts for breaks or after sessions.</li>
+						<li><strong>A full commitment:</strong> Arrange your schedule to attend all sessions in their entirety.</li>
+						<li><strong>An open mind:</strong> Be ready to learn from a range of perspectives, including fellow participants.</li>
+						<li><strong>Principled feedback:</strong> Offer feedback aimed at strengthening the program and one another. Be willing to receive grounded, thoughtful feedback in return.</li>
+						<li><strong>Naming your needs:</strong> We may miss things; we ask participants to proactively communicate needs so we can address them together.</li>
+					</ul>
+				</ExpandableSection>
+
+				<ExpandableSection title="What You Can Expect from Us" color="teal">
+					<ul>
+						<li><strong>High-quality training:</strong> Sessions led by seasoned organizers, practitioners, and campaigners, designed to meet a variety of learning styles.</li>
+						<li><strong>Commitment to equity:</strong> A structured environment that acknowledges and navigates power dynamics across race, age, gender, and experience.</li>
+						<li><strong>Responsiveness:</strong> Openness to feedback and a willingness to make adjustments to support participant success.</li>
+						<li><strong>Care for participants:</strong> Dedicated time for breaks and relationship-building. Breakfast (with coffee and tea) and lunch are provided daily.</li>
+					</ul>
+				</ExpandableSection>
+
+				<ExpandableSection title="What training partners are involved?" color="amber">
+					<p>National JWJ, Little Sis, AFLCIO, The Organizing Center, W.E DU Bois Movement School, Unite Here 274, Starbucks Workers United, Philadelphia Jobs With Justice, Labor Network for Sustainability, and others</p>
+				</ExpandableSection>
+
+				<ExpandableSection title="Can participants choose one or more sessions of the program to attend?" color="rose">
+					<p>We encourage participants to attend all 5 days of training. However, participants are welcome to only attend the days that work for their schedule.</p>
+				</ExpandableSection>
+
+				<ExpandableSection title="What does it cost to attend the Power School?" color="indigo">
+					<p>The program itself is offered at no cost. Participants are asked to contribute $50 per day to help cover meals, space rental, and essential materials. No one will be turned away for lack of funds.</p>
+				</ExpandableSection>
+			</div>
 
 			<section>
-				<details>
-					<summary>What You Can Expect from Us</summary>
-					<div class="section-content">
-						<ul>
-							<li><strong>High-quality training:</strong> Sessions led by seasoned organizers, practitioners, and campaigners, designed to meet a variety of learning styles.</li>
-							<li><strong>Commitment to equity:</strong> A structured environment that acknowledges and navigates power dynamics across race, age, gender, and experience.</li>
-							<li><strong>Responsiveness:</strong> Openness to feedback and a willingness to make adjustments to support participant success.</li>
-							<li><strong>Care for participants:</strong> Dedicated time for breaks and relationship-building. Breakfast (with coffee and tea) and lunch are provided daily.</li>
-						</ul>
-					</div>
-				</details>
-			</section>
-
-			<section>
-				<details>
-					<summary>FAQ</summary>
-					<div class="section-content">
-						<div class="faq-container">
-					<details class="faq-item">
-						<summary class="faq-question">What training partners are involved?</summary>
-						<div class="faq-answer">
-							<p>National JWJ, Little Sis, AFLCIO, The Organizing Center, W.E DU Bois Movement School, Unite Here 274, Starbucks Workers United,Philadelphia Jobs With Justice,  Labor Network for Sustainability, and others</p>
-						</div>
-					</details>
-
-					<details class="faq-item">
-						<summary class="faq-question">Can participants choose one or more  sessions of the program to attend?</summary>
-						<div class="faq-answer">
-							<p>We encourage participants to attend all 5 days of training. However, If participants can only one day they are open to.</p>
-						</div>
-					</details>
-
-					<details class="faq-item">
-						<summary class="faq-question">What does it cost to attend Power School?</summary>
-						<div class="faq-answer">
-							<p>The program itself is offered at no cost. Participants are asked to contribute $50 per day to help cover meals, space rental, and essential materials. No one will be turned away for lack of funds.</p>
-						</div>
-					</details>
-						</div>
-
-						<p>Feel free to reach out to <a href="mailto:Muzammal@phillyjwj.org">Muzammal@phillyjwj.org</a> if you have any questions or thoughts!</p>
-					</div>
-				</details>
+				<p>Feel free to reach out to <a href="mailto:Muzammal@phillyjwj.org">Muzammal@phillyjwj.org</a> if you have any questions or thoughts!</p>
 			</section>
 			
 			<div style="text-align: center; margin: 3em 0;">

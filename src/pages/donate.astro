@@ -1,7 +1,9 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
+import DonateButton from '../components/DonateButton.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
@@ -10,48 +12,37 @@ import { SITE_TITLE } from '../consts';
 	<head>
 		<BaseHead title={`Donate - ${SITE_TITLE}`} description="Support our work with a donation" />
 		<style>
-		main {
-			width: 100%;
-			max-width: 900px;
-			margin: auto;
-			padding: 3em 1em;
-			text-align: center;
-			box-sizing: border-box;
-			overflow-x: hidden;
-		}
+			main {
+				width: 100% !important;
+				max-width: 100% !important;
+				margin: 0;
+				padding: 0 !important;
+				box-sizing: border-box;
+				overflow-x: hidden;
+			}
 			.donate-section {
-				margin: 3em 0;
+				max-width: 900px;
+				margin: 3em auto;
+				padding: 0 1em;
+				text-align: center;
 			}
-			.donate-button {
-				display: inline-block;
-				padding: 1.5em 3em;
-				background: var(--deep-space-blue);
-				color: var(--white);
-				text-decoration: none;
-				border-radius: 6px;
-				font-weight: 700;
+			.donate-section p {
 				font-size: 1.2em;
-				transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-				margin-top: 2em;
-			}
-			.donate-button:hover {
-				background: var(--sky-surge);
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+				line-height: 1.8;
+				margin-bottom: 2em;
+				color: var(--deep-space-blue);
 			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Donate to Philly JWJ</h1>
+			<Hero title="Donate to Philly JWJ" subtitle="Your support allows us to continue to fight and win for working people in Philadelphia" />
 			<div class="donate-section">
-				<p style="font-size: 1.2em; line-height: 1.8; margin-bottom: 1em;">
-					Your support allows us to continue to fight and win for working people in Philadelphia!
+				<p>
+					Every contribution helps us train organizers, support workers, and confront injustice. Together, we build power.
 				</p>
-				<a href="https://actionnetwork.org/fundraising/donate-to-philly-jwj-today?source=direct_link&" target="_blank" rel="noopener noreferrer" class="donate-button">
-					Donate Funds
-				</a>
+				<DonateButton text="Donate Funds" size="large" variant="secondary" />
 			</div>
 		</main>
 		<Footer />

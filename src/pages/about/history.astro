@@ -3,29 +3,31 @@ import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
 import { SITE_TITLE } from '../../consts';
 import fundOurSchools from '../../assets/organizing/fund-our-schools.jpg';
 import ndwaAction from '../../assets/organizing/ndwa-action.jpg';
+import ndwaTimeline from '../../assets/timeline/ndwa.jpg';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`History & Impact - ${SITE_TITLE}`} description="Learn about our history and impact" />
+		<BaseHead title={`History & Impact | Philadelphia Worker Justice - ${SITE_TITLE}`} description="Learn about Philadelphia Jobs with Justice's history of building people power and working class power. Our labor-community coalition has fought for worker justice and solidarity since our founding." keywords="Philadelphia worker justice history, labor-community coalition, people power, working class power, solidarity, jobs with justice history, labor movement Philadelphia" />
 		<style>
 		main {
-			width: 100%;
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 3em 1em;
+			width: 100% !important;
+			max-width: 100% !important;
+			margin: 0;
+			padding: 0 !important;
 			box-sizing: border-box;
 			overflow-x: hidden;
 		}
-			h1 {
-				text-align: center;
-				margin-bottom: 0.5em;
-				color: var(--deep-space-blue);
-			}
+		.timeline-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3em 1em;
+		}
 		.timeline {
 			position: relative;
 			padding: 0 0 2em 0;
@@ -152,7 +154,8 @@ import ndwaAction from '../../assets/organizing/ndwa-action.jpg';
 	<body style="overflow-x: hidden;">
 		<Header />
 		<main>
-			<h1>History & Impact</h1>
+			<Hero title="History & Impact" subtitle="Building power for working people since 1999" />
+			<div class="timeline-container">
 			<div class="timeline">
 				<div class="timeline-item">
 					<div class="timeline-year">1999</div>
@@ -212,6 +215,22 @@ import ndwaAction from '../../assets/organizing/ndwa-action.jpg';
 						<p>In 2025, Philadelphia Jobs with Justice launched the Philly Fair Warehouses Campaign to demand that the City of Philadelphia set standards for working conditions for workers in the logistics industry. Throughout the pandemic, warehouse workers and delivery drivers were called essential, yet they have not seen significant improvements in their working or safety conditions since 2020. The campaign addresses critical safety issues including extreme temperatures, unsustainable productivity quotas, requirements to work through long-term strain and soreness, and the danger of warehouse collapse during natural disasters. By organizing workers and allies, we are building power to ensure that logistics workers receive the fair treatment and safe working conditions they deserve.</p>
 					</div>
 				</div>
+				<div class="timeline-item">
+					<div class="timeline-year">2025</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<Image src={ndwaTimeline} alt="POWER Act passage" />
+						<p>In May 2025, Philadelphia made history by passing the <strong>Protect Our Workers – Enforce Rights (POWER) Act</strong>, a groundbreaking law that expands protections against retaliation for workers and strengthens labor enforcement for over 750,000 workers across the city. This victory was made possible by a powerful, cross-sector coalition of workers, led by domestic workers, restaurant staff, warehouse workers, and more. The POWER Act protects all people who work in Philadelphia, regardless of immigration status, and empowers the city to hold employers accountable through proactive investigations, financial restitution for harmed workers, and a Bad Actors database.</p>
+					</div>
+				</div>
+				<div class="timeline-item">
+					<div class="timeline-year">2026</div>
+					<div class="timeline-dot"></div>
+					<div class="timeline-content">
+						<p>In 2026, Philadelphia Jobs with Justice launched <strong>Power School</strong>, a visionary advanced training program for community and labor organizers committed to building lasting working-class power. This week-long, in-person intensive program equips participants with the tools, skills, and strategic analysis necessary to build power and resist rising authoritarianism, bridging divides between labor and community organizing.</p>
+					</div>
+				</div>
+			</div>
 			</div>
 		</main>
 		<Footer />

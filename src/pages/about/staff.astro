@@ -1,8 +1,11 @@
 ---
+import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
 import { SITE_TITLE } from '../../consts';
+import muzammalBio from '../../assets/muzammal_bio.jpg';
 ---
 
 <!doctype html>
@@ -10,40 +13,31 @@ import { SITE_TITLE } from '../../consts';
 	<head>
 		<BaseHead title={`Staff - ${SITE_TITLE}`} description="Meet our staff" />
 		<style>
+			main {
+				width: 100% !important;
+				max-width: 100% !important;
+				margin: 0;
+				padding: 0 !important;
+				box-sizing: border-box;
+				overflow-x: hidden;
+			}
+			.staff-container {
+				max-width: 900px;
+				margin: 0 auto;
+				padding: 3em 1em;
+			}
 			.staff-member {
-				margin-bottom: 1em;
+				margin-bottom: 2em;
 				border: 1px solid var(--silver);
 				border-radius: 4px;
 				overflow: hidden;
+				background: var(--white);
 			}
-			.staff-member summary {
+			.staff-header {
 				padding: 1em;
-				cursor: pointer;
-				list-style: none;
-				user-select: none;
 				display: flex;
 				justify-content: space-between;
 				align-items: center;
-				background: var(--white);
-				transition: background 0.2s;
-			}
-			.staff-member summary:hover {
-				background: rgba(190, 202, 207, 0.3);
-			}
-			.staff-member summary::marker {
-				display: none;
-			}
-			.staff-member summary::-webkit-details-marker {
-				display: none;
-			}
-			.staff-member summary::before {
-				content: '+ ';
-				display: inline-block;
-				margin-right: 0.5em;
-				font-weight: 700;
-			}
-			.staff-member[open] summary::before {
-				content: '− ';
 			}
 			.staff-name {
 				font-size: 1.2em;
@@ -62,35 +56,46 @@ import { SITE_TITLE } from '../../consts';
 			.staff-content p {
 				margin-bottom: 1em;
 			}
+			.staff-photo {
+				float: right;
+				width: 250px;
+				max-width: 40%;
+				height: auto;
+				border-radius: 4px;
+				margin-left: 1.5em;
+				margin-bottom: 1em;
+			}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Staff</h1>
-			
-			<details class="staff-member">
-				<summary>
+			<Hero title="Our Staff" subtitle="The people powering our movement" />
+			<div class="staff-container">
+			<div class="staff-member">
+				<div class="staff-header">
 					<span class="staff-name">Muzammal Afzal</span>
 					<span class="position">Executive Director</span>
-				</summary>
+				</div>
 				<div class="staff-content">
+					<Image src={muzammalBio} alt="Muzammal Afzal" class="staff-photo" />
 					<p>Muzammal’s work is rooted in a deep commitment to socio-economic justice and development, with a focus on building working class power.</p>
 					<p>Muzammal holds undergraduate degree in Economics, an MPhil in Economics, and a second master's in Labor and Global Workers' Rights—fields that inform both professional work and personal philosophy.</p>
 					<p>With a diverse professional background, Muzammal has recently worked with Asian American Community Fund of PA, and Asian Pacific Islander Political Alliance, where they led initiatives that uplifted Asian American communities across Pennsylvania.</p>
 					<p>Fluent in eight languages and well-versed in the diverse cultures of South Asia, Muzammal brings a rich global perspective to the labor movement. Their extensive experience spans community and labor organizing in both South Asia and the United States.</p>
 				</div>
-			</details>
+			</div>
 
-			<details class="staff-member">
-				<summary>
+			<div class="staff-member">
+				<div class="staff-header">
 					<span class="staff-name">Nate Gosweiler</span>
 					<span class="position">Worker Organizer</span>
-				</summary>
+				</div>
 				<div class="staff-content">
 					<p>Nate is committed to the advancement of worker safety, dignity, and respect on the job. He helps workers build their capacity for collective action around workplace issues, overcome barriers created by employers, and assert their rights on the job. After participating in the Black Lives Matter protests in 2020, Nate turned away from a career in academia to join the labor movement. He believes that grassroots organizing must happen at the nexus of work and community and will change the status quo that is currently harming workers and their communities.</p>
 				</div>
-			</details>
+			</div>
+			</div>
 		</main>
 		<Footer />
 	</body>

@@ -3,6 +3,7 @@ import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
 import { SITE_TITLE } from '../../consts';
 // Import organizing photos
 import organizing24 from '../../assets/organizing/24.jpg';
@@ -12,278 +13,277 @@ import organizing27 from '../../assets/organizing/27.jpg';
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Strike Ready - ${SITE_TITLE}`} description="Co-creating solidarity among unions and community through strategic support and People's Action Fund" />
+		<BaseHead title={`Strike Ready Philadelphia | Solidarity & Mutual Aid - ${SITE_TITLE}`} description="Strike Ready provides strategic support and mutual aid for workers' actions in Philadelphia. Building solidarity, people power, and working class power through rapid-response support for strikes, protests, and community actions." keywords="strike support Philadelphia, solidarity, mutual aid, people power, working class power, worker justice, labor-community coalition, strike fund Philadelphia" />
 		<style>
 		main {
 			width: 100%;
-			max-width: 900px;
+			max-width: 1000px;
 			margin: 0 auto;
-			padding: 3em 1em;
+			padding: 0;
 			box-sizing: border-box;
 			overflow-x: hidden;
 		}
-			h1 {
-				color: var(--deep-space-blue);
-				margin-bottom: 0.5em;
+		.intro-section {
+			background: var(--white);
+			padding: 0 2em 2.5em;
+		}
+		.intro-section p {
+			color: var(--deep-space-blue);
+			line-height: 1.8;
+			font-size: 1.05em;
+			margin-bottom: 1.5em;
+			max-width: 850px;
+			margin-left: auto;
+			margin-right: auto;
+		}
+		.intro-section p:last-child {
+			margin-bottom: 0;
+		}
+		.vision-callout {
+			background: var(--canary-yellow);
+			padding: 1.5em 2em;
+			border-radius: 8px;
+			margin: 2em auto;
+			max-width: 850px;
+			border-left: 5px solid var(--deep-space-blue);
+			text-align: center;
+		}
+		.vision-callout p {
+			margin: 0 !important;
+			font-weight: 600;
+			color: var(--deep-space-blue);
+		}
+		.image-grid {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+			gap: 1.5em;
+			margin: 0 auto;
+			padding: 2em;
+			max-width: 950px;
+			background: var(--white);
+		}
+		.image-grid img {
+			width: 100%;
+			height: 280px;
+			object-fit: cover;
+			border-radius: 8px;
+			box-shadow: 0 4px 15px rgba(1, 47, 64, 0.2);
+		}
+		.committees-section {
+			background: rgba(190, 202, 207, 0.2);
+			padding: 3em 2em;
+		}
+		.committees-section h2 {
+			color: var(--deep-space-blue);
+			text-align: center;
+			font-size: 2em;
+			margin: 0 0 0.5em 0;
+		}
+		.committees-section > p {
+			text-align: center;
+			max-width: 750px;
+			margin: 0 auto 2em;
+			color: var(--deep-space-blue);
+			line-height: 1.7;
+		}
+		.committees-section h3 {
+			color: var(--deep-space-blue);
+			text-align: center;
+			margin: 2em 0 1.5em;
+			font-size: 1.4em;
+		}
+		.role-cards {
+			display: grid;
+			grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+			gap: 1.5em;
+			max-width: 950px;
+			margin: 0 auto;
+		}
+		.role-card {
+			background: var(--white);
+			padding: 1.5em;
+			border-radius: 8px;
+			box-shadow: 0 3px 10px rgba(1, 47, 64, 0.1);
+			border-top: 4px solid var(--sky-surge);
+			transition: transform 0.2s, box-shadow 0.2s;
+		}
+		.role-card:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 6px 20px rgba(1, 47, 64, 0.15);
+		}
+		.role-card strong {
+			color: var(--deep-space-blue);
+			display: block;
+			font-size: 1.1em;
+			margin-bottom: 0.5em;
+		}
+		.role-card p {
+			color: #555;
+			line-height: 1.6;
+			margin: 0;
+			font-size: 0.95em;
+		}
+		.join-section {
+			background: var(--deep-space-blue);
+			color: var(--white);
+			padding: 3em 2em;
+			text-align: center;
+		}
+		.join-section h2 {
+			color: var(--white);
+			margin: 0 0 1em 0;
+			font-size: 2em;
+		}
+		.join-section .btn {
+			display: inline-block;
+			padding: 1em 2.5em;
+			background: var(--canary-yellow);
+			color: var(--deep-space-blue);
+			text-decoration: none;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 1.1em;
+			transition: transform 0.2s, box-shadow 0.2s;
+		}
+		.join-section .btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
+		}
+		.fund-section {
+			background: var(--white);
+			padding: 3em 2em;
+		}
+		.fund-section h2 {
+			color: var(--deep-space-blue);
+			text-align: center;
+			font-size: 2em;
+			margin: 0 0 1em 0;
+		}
+		.fund-section > p {
+			max-width: 800px;
+			margin: 0 auto 2em;
+			color: var(--deep-space-blue);
+			line-height: 1.7;
+			text-align: center;
+		}
+		.fund-list {
+			max-width: 800px;
+			margin: 0 auto 2em;
+			padding-left: 2em;
+		}
+		.fund-list li {
+			color: var(--deep-space-blue);
+			line-height: 1.8;
+			margin-bottom: 0.75em;
+		}
+		.donate-cta {
+			text-align: center;
+			margin-top: 2em;
+		}
+		.donate-cta .btn {
+			display: inline-block;
+			padding: 1.25em 3em;
+			background: var(--deep-space-blue);
+			color: var(--white);
+			text-decoration: none;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 1.4em;
+			transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+		}
+		.donate-cta .btn:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 15px rgba(1, 47, 64, 0.3);
+			background: var(--sky-surge);
+		}
+		@media (max-width: 768px) {
+			.intro-section,
+			.committees-section,
+			.join-section,
+			.fund-section {
+				padding: 2em 1.5em;
 			}
-			.section-outline {
-				background: var(--canary-yellow);
-				padding: 2em;
-				border-radius: 8px;
-				margin: 2em 0;
-				border-left: 4px solid var(--sky-surge);
+			.committees-section h2,
+			.fund-section h2 {
+				font-size: 1.6em;
 			}
-			.section-outline h3 {
-				margin-top: 0;
-				color: var(--deep-space-blue);
+			.role-cards {
+				grid-template-columns: 1fr;
 			}
-			.section-outline ul {
-				list-style: none;
-				padding: 0;
-				margin: 1em 0 0 0;
-			}
-			.section-outline li {
-				margin-bottom: 0.75em;
-				padding-left: 1.5em;
-				position: relative;
-			}
-			.section-outline li::before {
-				content: "→";
-				position: absolute;
-				left: 0;
-				color: var(--sky-surge);
-				font-weight: bold;
-			}
-			.section-outline a {
-				color: var(--sky-surge);
-				text-decoration: none;
-			}
-			.section-outline a:hover {
-				text-decoration: underline;
-			}
-			h2 {
-				color: var(--deep-space-blue);
-				margin-top: 3em;
-				margin-bottom: 1em;
-				border-bottom: 3px solid var(--sky-surge);
-				padding-bottom: 0.5em;
-				position: relative;
-				padding-left: 1em;
-			}
-			h2::before {
-				content: "";
-				position: absolute;
-				left: 0;
-				top: 0;
-				bottom: 0;
-				width: 4px;
-				background: var(--canary-yellow);
-				border-radius: 2px;
-			}
-			h3 {
-				color: var(--dark-teal);
-				margin-top: 1.5em;
-				margin-bottom: 0.75em;
-			}
-			.objective {
-				background: var(--canary-yellow);
-				padding: 1.5em;
-				border-radius: 8px;
-				margin: 2em 0;
-				border-left: 4px solid var(--deep-space-blue);
-			}
-			.objective strong {
-				display: block;
-				margin-bottom: 0.5em;
-				color: var(--deep-space-blue);
-			}
-			ul {
-				line-height: 1.8;
-				margin: 1em 0;
-			}
-			ul li {
-				margin-bottom: 0.75em;
-			}
-			.challenge-list, .solution-list {
-				background: var(--white);
-				padding: 1.5em;
-				border-radius: 8px;
-				box-shadow: 0 2px 8px rgba(1, 47, 64, 0.1);
-				margin: 1em 0;
-			}
-			.pillars {
-				display: grid;
-				grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
-				gap: 1.5em;
-				margin: 2em 0;
-			}
-			.pillar {
-				background: var(--silver);
-				padding: 1.5em;
-				border-radius: 8px;
-				border-top: 4px solid var(--sky-surge);
-			}
-			.pillar strong {
-				color: var(--deep-space-blue);
-				display: block;
-				margin-bottom: 0.5em;
-			}
-			.structure {
-				background: var(--white);
-				padding: 1.5em;
-				border-radius: 8px;
-				box-shadow: 0 2px 8px rgba(1, 47, 64, 0.1);
-				margin: 1em 0;
-			}
-			.next-steps {
-				background: var(--canary-yellow);
-				padding: 2em;
-				border-radius: 8px;
-				margin: 2em 0;
-				border-left: 4px solid var(--deep-space-blue);
-			}
-			.next-steps ul {
-				margin-top: 1em;
-			}
-			.call-to-action {
-				text-align: center;
-				margin: 3em 0;
-				padding: 2em;
-				background: var(--sky-surge);
-				color: var(--white);
-				border-radius: 8px;
-			}
-			.call-to-action strong {
-				display: block;
-				font-size: 1.2em;
-				margin-bottom: 0.5em;
-			}
+		}
 		</style>
 	</head>
 	<body>
 		<Header />
 		<main>
-			<h1>Strategic Support and Mutual Aid for People's Actions in Philadelphia</h1>
-			
-			<div class="objective">
-				<strong>Objective:</strong> Co-creating solidarity among unions and community through strategic support and People's Action Fund
-			</div>
-			
-			<p><strong>Partners:</strong> Philly JWJ, People's Kitchen, SBWU, Unite Here 274, AFL-CIO, Federal Unionist Network, etc.</p>
-			
-			<div style="display: grid; grid-template-columns: repeat(auto-fit, minmax(300px, 1fr)); gap: 1.5em; margin: 2em 0;">
-				<Image src={organizing24} alt="Strategic support and organizing" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(1, 47, 64, 0.15);" />
-				<Image src={organizing27} alt="Community action and solidarity" style="width: 100%; height: 250px; object-fit: cover; border-radius: 8px; box-shadow: 0 2px 8px rgba(1, 47, 64, 0.15);" />
+			<Hero title="Strike Ready: Revolution Ready" subtitle="Building infrastructure for solidarity, mutual aid, and collective action" />
+
+			<div class="image-grid">
+				<Image src={organizing24} alt="Strategic support and organizing" />
+				<Image src={organizing27} alt="Community action and solidarity" />
 			</div>
 
-			<div class="section-outline">
-				<h3>Page Sections</h3>
-				<ul>
-					<li><a href="#context">Context</a> - Understanding the need for strategic support</li>
-					<li><a href="#challenge">The Challenge</a> - Key problems we're addressing</li>
-					<li><a href="#solution">The Solution</a> - Our strategic approach</li>
-					<li><a href="#pillars">Three Pillars</a> - Our core principles</li>
-					<li><a href="#structure">Structure</a> - How we're organized</li>
-					<li><a href="#next-steps">Next Steps</a> - How to get involved</li>
-				</ul>
-			</div>
+			<section class="intro-section">
+				<p>When workers go on strike or communities rise in protest and rallies, there is no ready framework for rapid strategic support—no infrastructure for mobilizing communications, legal aid, safety planning, or public messaging. This leaves actions under-resourced and vulnerable to burnout or repression. From permits and sound systems to legal observers and medics, organizing a protest, a rally or strike often relies on ad-hoc efforts and individual resource-pooling. Without a central hub for materials and logistical support, each action is reinventing the wheel, limiting impact and sustainability.</p>
 
-			<h2 id="context">Context</h2>
-			<p>Philadelphia has a rich legacy of labor organizing, community resistance, and mutual aid. Yet, despite our city's historic resilience, grassroots energy is often fragmented and unsupported in moments of collective action. As we face mounting economic, racial, and social inequality, it's critical to build intentional infrastructure that supports and sustains people's movements.</p>
-
-			<h2 id="challenge">The Challenge</h2>
-			
-			<div class="challenge-list">
-				<h3>Lack of Collaboration Between Unions and Community Organizations</h3>
-				<p>While labor unions and community-based organizations often share overlapping goals—economic justice, racial equity, housing security—they operate in parallel rather than in partnership. The absence of regular dialogue or joint strategy reduces our collective power and weakens our ability to mobilize during crises or opportunities.</p>
-
-				<h3>No Clear Avenues for Strategic Support</h3>
-				<p>When workers go on strike or communities rise in protest and rallies, there is no ready framework for rapid strategic support—no infrastructure for mobilizing communications, legal aid, safety planning, or public messaging. This leaves actions under-resourced and vulnerable to burnout or repression.</p>
-
-				<h3>No Centralized Resources for Protests, Rallies and Strikes</h3>
-				<p>From permits and sound systems to legal observers and medics, organizing a protest, a rally or strike often relies on ad-hoc efforts and individual resource-pooling. Without a central hub for materials and logistical support, each action is reinventing the wheel, limiting impact and sustainability.</p>
-
-				<h3>Immediate Needs Go Unmet: Food, Water, Shelter</h3>
 				<p>Poor and working-class communities—those most likely to organize—often lack access to the most basic resources during people's actions. There are few mechanisms in place to provide food, water, transportation, and shelter to sustain people during prolonged protests, strikes, or occupations.</p>
-			</div>
 
-			<h2 id="solution">The Solution: A Strategy Rooted in Solidarity, Coalition Building, and Action Readiness</h2>
-			<p>We envision a bold new framework that bridges unions and community groups, ensures strategic readiness, and provides real-time mutual aid and infrastructure during moments of action.</p>
+				<div class="vision-callout">
+					<p>We envision a bold new framework that bridges unions and community groups, ensures strategic readiness, and provides real-time mutual aid and infrastructure during moments of action.</p>
+				</div>
+			</section>
 
-			<h2>Our Strategic Approach</h2>
+			<section class="committees-section">
+				<h2>Strike Ready Committees</h2>
+				<p>Strike Ready Committees are local teams organized by Jobs with Justice to prepare communities and workers to stand in powerful solidarity with each other. They build the skills, infrastructure, and leadership needed to fight against billionaires and corporations.</p>
 
-			<div class="solution-list">
-				<h3>Co-Creating Solidarity Between Unions and Communities</h3>
-				<p>We propose creating a <strong>People's Solidarity Roundtable</strong>—a regular space where union organizers, neighborhood groups, advocacy orgs, and independent activists meet to share updates, coordinate strategy, and build trust. This would be a foundation for long-term alignment and rapid response during moments of mobilization.</p>
+				<h3>Role of Strike Ready Committees</h3>
+				<div class="role-cards">
+					<div class="role-card">
+						<strong>Support Peoples' Actions</strong>
+						<p>Provide community solidarity for protests, strikes, walkouts, and direct actions</p>
+					</div>
+					<div class="role-card">
+						<strong>Train & Develop Leaders</strong>
+						<p>Equip members with skills in de-escalation, legal rights, strike support, fundraising, action planning, and power analysis</p>
+					</div>
+					<div class="role-card">
+						<strong>Build Rapid Response Infrastructure</strong>
+						<p>Maintain systems for protests, rallies, and picket-line support, strike/bail funds, rides, and safety coordination</p>
+					</div>
+					<div class="role-card">
+						<strong>Mobilize Working Class Power</strong>
+						<p>Coordinate local solidarity actions, build structures, amplify worker struggles through media and social platforms, and build durable public support networks</p>
+					</div>
+					<div class="role-card">
+						<strong>Grow Long-Term Capacity</strong>
+						<p>Serve as an ongoing on-ramp and training ground for new activists and existing leaders</p>
+					</div>
+				</div>
+			</section>
 
-				<h3>Strategic Support for Protests, Strikes, and Uprisings</h3>
-				<p>We aim to establish a <strong>Strategic Action Support Team (SAST)</strong>—a rapid-response coalition that provides:</p>
-				<ul>
-					<li>Legal support and protest safety training</li>
-					<li>Communications/media assistance</li>
-					<li>Security and de-escalation resources</li>
-					<li>Police liaison</li>
-					<li>Permit navigation and logistical help</li>
-				</ul>
-				<p>This team would be mobilized immediately when workers strike, communities rise, or emergency response is needed.</p>
+			<section class="join-section">
+				<h2>Join Strike Ready Committees</h2>
+				<p style="color: var(--white); margin-bottom: 1.5em; line-height: 1.6;">If you have any questions, please reach out to us, either by email (<a href="mailto:muzammal@phillyjwj.org" style="color: var(--canary-yellow); text-decoration: underline;">muzammal@phillyjwj.org</a>) or <a href="https://calendly.com/muzammal-phillyjwj/30min" target="_blank" rel="noopener noreferrer" style="color: var(--canary-yellow); text-decoration: underline;">by scheduling a meeting</a>!</p>
+				<a href="https://docs.google.com/forms/d/1OQLVSofjHVyG5FDtF6tlruzIfZhlXUChEvo-f8Z0qt8/viewform" target="_blank" rel="noopener noreferrer" class="btn">Sign Up Now</a>
+			</section>
 
-				<h3>People's Action Fund and Mutual Aid Infrastructure</h3>
-				<p>We will launch a <strong>People's Action Fund</strong>, seeded through grassroots fundraising, solidarity contributions from unions, and philanthropy. The Fund will:</p>
-				<ul>
-					<li>Distribute food/water support during actions</li>
+			<section class="fund-section">
+				<h2>People's Action Fund</h2>
+				<p>People's action fund provides sustainable, independent funding that allows communities to organize and advocate for change without relying on corporate or political interests. By being rooted in grassroots fundraising, union solidarity, and philanthropy, it ensures that power and resources stay with the people most affected by the issues they are fighting to address.</p>
+				
+				<ul class="fund-list">
+					<li>Support and fund people's actions i.e. rallies, protests, strikes etc. in Philadelphia</li>
+					<li>Distribute food/water support during direct actions</li>
 					<li>Offer micro-grants for community groups or strike committees</li>
 					<li>Maintain a supply hub for protest materials, safety gear, and medical kits</li>
-					<li>Fund transportation and accommodation for displaced or vulnerable organizers</li>
+					<li>Finance transportation and accommodation for displaced or vulnerable organizers</li>
 				</ul>
-			</div>
 
-			<h2 id="pillars">Our Three Pillars</h2>
-			<div class="pillars">
-				<div class="pillar">
-					<strong>Solidarity</strong>
-					<p>We believe in mutual commitment across differences—labor, racial justice, housing rights, climate justice, and more.</p>
+				<div class="donate-cta">
+					<a href="/donate" class="btn">Donate</a>
 				</div>
-				<div class="pillar">
-					<strong>Coalition Building</strong>
-					<p>Strong networks prevent burnout and enable powerful collective action.</p>
-				</div>
-				<div class="pillar">
-					<strong>Action Readiness</strong>
-					<p>When people rise up, we must be ready—not just in principle, but in practice—with resources, strategy, and unity.</p>
-				</div>
-			</div>
-
-			<h2 id="structure">Structure</h2>
-			<div class="structure">
-				<ul>
-					<li><strong>Coordinator:</strong> Philly JWJ</li>
-					<li><strong>SAST:</strong> PARC</li>
-					<li><strong>Mutual Aid Committee:</strong> FUN, Zakia Elliot, Philly JWJ</li>
-					<li><strong>Solidarity Support Committee:</strong>
-						<ul>
-							<li>Community support (Zakia)</li>
-							<li>Workers support (Jana, Muzammal, John)</li>
-							<li>Volunteers (Muzammal + Zakia)</li>
-						</ul>
-					</li>
-				</ul>
-			</div>
-
-			<h2 id="next-steps">Next Steps</h2>
-			<div class="next-steps">
-				<p>We are seeking:</p>
-				<ul>
-					<li>Partner organizations and unions to co-create this initiative</li>
-					<li>Seed funding and fiscal sponsorship for the People's Action Fund</li>
-					<li>Volunteers and organizers to join our founding Strategic Action Support Team</li>
-					<li>Shared space or infrastructure to house supplies and coordination</li>
-				</ul>
-			</div>
-
-			<div class="call-to-action">
-				<strong>Together, we can ensure that when people act—whether striking, marching, or organizing—they are never alone.</strong>
-				<p style="margin-top: 1em;">Let's co-create solidarity. Let's build the support our movements deserve.</p>
-			</div>
+			</section>
 		</main>
 		<Footer />
 	</body>

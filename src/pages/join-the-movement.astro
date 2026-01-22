@@ -2,26 +2,28 @@
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import Hero from '../components/Hero.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
 <!doctype html>
 <html lang="en">
 	<head>
-		<BaseHead title={`Join The Movement - ${SITE_TITLE}`} description="Join the movement and get involved" />
+		<BaseHead title={`Join The Movement for Worker Justice - ${SITE_TITLE}`} description="Join Philadelphia's movement for worker justice. Be part of a labor-community coalition building people power, working class power, and solidarity. Get involved with organizer training, Power School, and collective action." keywords="join worker justice movement Philadelphia, people power, working class power, solidarity, labor-community coalition, Power School, organizer training program" />
 		<style>
 		main {
-			width: 100%;
-			max-width: 1200px;
-			margin: 0 auto;
-			padding: 3em 1em;
+			width: 100% !important;
+			max-width: 100% !important;
+			margin: 0;
+			padding: 0 !important;
 			box-sizing: border-box;
 			overflow-x: hidden;
 		}
-			h1 {
-				color: var(--deep-space-blue);
-				margin-bottom: 0.5em;
-			}
+		.content-container {
+			max-width: 1200px;
+			margin: 0 auto;
+			padding: 3em 1em;
+		}
 		.calendar-container {
 			margin: 2em 0;
 			background: var(--white);
@@ -104,9 +106,8 @@ import { SITE_TITLE } from '../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>Join The Movement</h1>
-			<p>Stay connected with our events and activities.</p>
-			
+			<Hero title="Join The Movement" subtitle="Stay connected with our events and activities" />
+			<div class="content-container">
 			<div class="join-buttons" style="display: flex; gap: 1em; margin: 2em 0; flex-wrap: wrap;">
 				<a href="https://docs.google.com/forms/d/1OQLVSofjHVyG5FDtF6tlruzIfZhlXUChEvo-f8Z0qt8/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 200px; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1em; text-align: center; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
 					Individuals
@@ -156,6 +157,7 @@ import { SITE_TITLE } from '../consts';
 						title="Events Calendar">
 					</iframe>
 				</div>
+			</div>
 			</div>
 		</main>
 		<Footer />

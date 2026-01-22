@@ -9,6 +9,7 @@ import seiuLogo from '../../assets/members/seiu-healthcare-pa.png';
 import BaseHead from '../../components/BaseHead.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
+import Hero from '../../components/Hero.astro';
 import { SITE_TITLE } from '../../consts';
 ---
 
@@ -18,15 +19,17 @@ import { SITE_TITLE } from '../../consts';
 		<BaseHead title={`Board - ${SITE_TITLE}`} description="Meet our board members" />
 		<style>
 			main {
-				width: 100%;
+				width: 100% !important;
+				max-width: 100% !important;
+				margin: 0;
+				padding: 0 !important;
+				box-sizing: border-box;
+				overflow-x: hidden;
+			}
+			.board-container {
 				max-width: 1200px;
 				margin: 0 auto;
 				padding: 3em 1em;
-				box-sizing: border-box;
-			}
-			h1 {
-				color: var(--deep-space-blue);
-				margin-bottom: 0.5em;
 			}
 			.board-table {
 				width: 100%;
@@ -113,9 +116,8 @@ import { SITE_TITLE } from '../../consts';
 	<body>
 		<Header />
 		<main>
-			<h1>Board</h1>
-			<p>Our board members guide the organization's mission and strategic direction.</p>
-			
+			<Hero title="Our Board" subtitle="Guiding our mission and strategic direction" />
+			<div class="board-container">
 			<table class="board-table">
 				<thead>
 					<tr>
@@ -191,7 +193,7 @@ import { SITE_TITLE } from '../../consts';
 						</td>
 					</tr>
 					<tr>
-						<td class="board-name" data-label="Name">Daniella De Lean</td>
+						<td class="board-name" data-label="Name">Daniella Young</td>
 						<td class="board-position" data-label="Position">At-Large</td>
 						<td data-label="Affiliation"></td>
 					</tr>
@@ -207,6 +209,7 @@ import { SITE_TITLE } from '../../consts';
 					</tr>
 				</tbody>
 			</table>
+			</div>
 		</main>
 		<Footer />
 	</body>

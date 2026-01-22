@@ -10,11 +10,12 @@ interface Props {
 	title: string;
 	description: string;
 	image?: ImageMetadata;
+	keywords?: string;
 }
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site);
 
-const { title, description, image = FallbackImage } = Astro.props;
+const { title, description, image = FallbackImage, keywords = "Philadelphia, worker justice, labor-community coalition, solidarity, people power, working class power, jobs with justice" } = Astro.props;
 ---
 
 <!-- Global Metadata -->
@@ -41,6 +42,7 @@ const { title, description, image = FallbackImage } = Astro.props;
 <title>{title}</title>
 <meta name="title" content={title} />
 <meta name="description" content={description} />
+<meta name="keywords" content={keywords} />
 
 <!-- Open Graph / Facebook -->
 <meta property="og:type" content="website" />
