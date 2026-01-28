@@ -1,9 +1,20 @@
 ---
+import { Image } from 'astro:assets';
+import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
+import FormattedDate from '../components/FormattedDate.astro';
 import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
 import { SITE_TITLE } from '../consts';
+import jwj2026Conference from '../assets/jwj_2026_conference.png';
+
+const posts = (await getCollection('blog')).sort(
+	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
+);
+
+const visiblePosts = posts.slice(0, 5);
+const hiddenPosts = posts.slice(5);
 ---
 
 <!doctype html>
@@ -24,6 +35,184 @@ import { SITE_TITLE } from '../consts';
 			margin: 0 auto;
 			padding: 3em 1em;
 		}
+		.section {
+			margin: 2em 0;
+			padding: 1.5em 0;
+			border-bottom: 2px solid var(--silver);
+		}
+		.section:last-child {
+			border-bottom: none;
+		}
+		.section h2, .section h3 {
+			color: var(--deep-space-blue);
+			margin: 0 0 1em 0;
+			font-size: 1.2em;
+			font-weight: 700;
+		}
+		.join-buttons {
+			display: flex;
+			gap: 1em;
+			margin: 2em 0;
+			flex-wrap: wrap;
+		}
+		.join-buttons a {
+			flex: 1;
+			min-width: 200px;
+			padding: 1em 2em;
+			background: var(--deep-space-blue);
+			color: var(--white);
+			text-decoration: none;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 1.1em;
+			text-align: center;
+			transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+		}
+		.join-buttons a:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			background: var(--sky-surge) !important;
+		}
+		.stay-connected-grid {
+			display: grid;
+			grid-template-columns: 1fr 1fr;
+			gap: 2em;
+			align-items: start;
+		}
+		.email-subscribe {
+			text-align: center;
+			padding: 2em;
+			background: linear-gradient(to bottom, rgba(190, 202, 207, 0.2), transparent);
+			border-radius: 12px;
+			height: 100%;
+			display: flex;
+			flex-direction: column;
+			justify-content: center;
+		}
+		.email-subscribe p {
+			margin-bottom: 1.5em;
+			font-size: 1.1em;
+			color: var(--deep-space-blue);
+		}
+		.email-subscribe a {
+			display: inline-block;
+			padding: 1em 2em;
+			background: var(--deep-space-blue);
+			color: var(--white);
+			text-decoration: none;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 1.1em;
+			transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
+		}
+		.email-subscribe a:hover {
+			transform: translateY(-2px);
+			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			background: var(--sky-surge);
+		}
+		.instagram-section {
+			margin: 0;
+		}
+		.instagram-section h4 {
+			text-align: center;
+			margin-bottom: 0.5em;
+			color: var(--deep-space-blue);
+			font-size: 1.1em;
+			font-weight: 700;
+		}
+		.email-subscribe h4 {
+			color: var(--deep-space-blue);
+			font-size: 1.1em;
+			font-weight: 700;
+			margin-bottom: 1em;
+		}
+		.instagram-section > p {
+			text-align: center;
+			margin-bottom: 1em;
+			color: var(--deep-space-blue);
+		}
+		.instagram-embed {
+			margin: 0 auto;
+			background: var(--white);
+			border-radius: 12px;
+			box-shadow: 0 4px 16px rgba(1, 47, 64, 0.15);
+			border: 2px solid var(--sky-surge);
+			padding: 1em;
+			overflow: hidden;
+		}
+		.instagram-embed iframe {
+			width: 100%;
+			height: 400px;
+			border: none;
+			border-radius: 8px;
+		}
+		.events-grid {
+			display: grid;
+			grid-template-columns: repeat(2, 1fr);
+			gap: 1.5em;
+		}
+		.event-card {
+			border-radius: 12px;
+			overflow: hidden;
+			transition: transform 0.2s, box-shadow 0.2s;
+			text-decoration: none;
+		}
+		.event-card:hover {
+			transform: translateY(-4px);
+			box-shadow: 0 8px 16px rgba(0, 0, 0, 0.2);
+		}
+		.event-card-image {
+			display: block;
+		}
+		.event-card-image img {
+			display: block;
+			width: 100%;
+			height: 100%;
+			object-fit: cover;
+			border-radius: 12px;
+		}
+		.event-card-text {
+			display: flex;
+			flex-direction: column;
+			align-items: center;
+			justify-content: center;
+			background: var(--deep-space-blue);
+			color: var(--white);
+			padding: 2em;
+			text-align: center;
+			min-height: 200px;
+		}
+		.event-card-text:hover {
+			background: var(--sky-surge);
+		}
+		.event-card-text .event-title {
+			font-size: 1.5em;
+			font-weight: 700;
+			margin-bottom: 0.5em;
+		}
+		.event-card-text .event-subtitle {
+			font-size: 1em;
+			opacity: 0.9;
+		}
+		.event-card-calendar {
+			border: 2px solid var(--sky-surge);
+			border-radius: 12px;
+			overflow: hidden;
+		}
+		.event-card-calendar .calendar-container {
+			margin: 0;
+			border: none;
+			box-shadow: none;
+			border-radius: 0;
+		}
+		@media (max-width: 768px) {
+			.events-grid {
+				grid-template-columns: 1fr;
+			}
+			.event-card-text {
+				min-height: 150px;
+			}
+		}
 		.calendar-container {
 			margin: 2em 0;
 			background: var(--white);
@@ -35,70 +224,122 @@ import { SITE_TITLE } from '../consts';
 			max-width: 100%;
 			box-sizing: border-box;
 		}
-			.calendar-wrapper {
-				position: relative;
-				padding-bottom: 75%;
-				height: 0;
-				overflow: hidden;
-			}
-			.calendar-wrapper iframe {
-				position: absolute;
-				top: 0;
-				left: 0;
-				width: 100%;
-				height: 100%;
-				border: none;
-			}
-			@media (max-width: 768px) {
-				.calendar-wrapper {
-					padding-bottom: 100%;
-				}
-			}
-		.instagram-section {
-			margin: 3em 0;
-		}
-		.instagram-section h2 {
-			text-align: center;
-			margin-bottom: 0.5em;
-		}
-		.instagram-section > p {
-			text-align: center;
-			margin-bottom: 2em;
-			color: var(--deep-space-blue);
-		}
-		.instagram-embed {
-			margin: 0 auto;
-			max-width: 600px;
-			background: var(--white);
-			border-radius: 12px;
-			box-shadow: 0 4px 16px rgba(1, 47, 64, 0.15);
-			border: 2px solid var(--sky-surge);
-			padding: 1em;
+		.calendar-wrapper {
+			position: relative;
+			padding-bottom: 75%;
+			height: 0;
 			overflow: hidden;
 		}
-		.instagram-embed iframe {
+		.calendar-wrapper iframe {
+			position: absolute;
+			top: 0;
+			left: 0;
 			width: 100%;
-			height: 600px;
+			height: 100%;
 			border: none;
-			border-radius: 8px;
 		}
-		@media (max-width: 768px) {
-			.instagram-embed {
-				padding: 0.5em;
-			}
-			.instagram-embed iframe {
-				height: 500px;
-			}
+		.blog-posts ul {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1.5rem;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
 		}
-		.join-buttons a:hover {
+		.blog-posts ul li {
+			width: calc(33.333% - 1rem);
+		}
+		.blog-posts ul li * {
+			text-decoration: none;
+			transition: 0.2s ease;
+		}
+		.blog-posts ul li img {
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+			width: 100%;
+		}
+		.blog-posts ul li a {
+			display: block;
+		}
+		.blog-posts .title {
+			margin: 0;
+			color: var(--deep-space-blue);
+			line-height: 1.2;
+			font-size: 1rem;
+		}
+		.blog-posts .date {
+			margin: 0;
+			color: var(--sky-surge);
+			font-size: 0.9em;
+		}
+		.blog-posts ul li a:hover h4,
+		.blog-posts ul li a:hover .date {
+			color: #7DD3F0;
+		}
+		.blog-posts ul a:hover img {
+			box-shadow: var(--box-shadow);
+		}
+		.blog-posts .hidden-posts {
+			display: none !important;
+			gap: 1.5rem;
+			margin-top: 1.5rem;
+		}
+		.blog-posts .hidden-posts.expanded {
+			display: flex !important;
+			flex-wrap: wrap;
+		}
+		.blog-posts .hidden-posts li {
+			width: calc(33.333% - 1rem);
+		}
+		.expand-button {
+			display: block;
+			width: auto;
+			margin: 2rem auto;
+			padding: 1em 2em;
+			background: var(--deep-space-blue);
+			color: var(--white);
+			border: none;
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 1em;
+			cursor: pointer;
+			transition: background 0.2s, transform 0.2s, box-shadow 0.2s;
+			text-align: center;
+		}
+		.expand-button:hover {
+			background: var(--sky-surge);
 			transform: translateY(-2px);
 			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-			background: var(--sky-surge) !important;
+		}
+		.expand-button.hidden {
+			display: none;
+		}
+		@media (max-width: 1024px) {
+			.blog-posts ul li,
+			.blog-posts .hidden-posts li {
+				width: calc(50% - 0.75rem);
+			}
 		}
 		@media (max-width: 768px) {
 			.join-buttons a {
 				transform: translateY(-2px);
 				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			}
+			.stay-connected-grid {
+				grid-template-columns: 1fr;
+			}
+			.calendar-wrapper {
+				padding-bottom: 100%;
+			}
+			.instagram-embed {
+				padding: 0.5em;
+			}
+			.instagram-embed iframe {
+				height: 400px;
+			}
+			.blog-posts ul li,
+			.blog-posts .hidden-posts li {
+				width: 100%;
 			}
 		}
 		</style>
@@ -108,58 +349,143 @@ import { SITE_TITLE } from '../consts';
 		<main>
 			<Hero title="Join The Movement" subtitle="Stay connected with our events and activities" />
 			<div class="content-container">
-			<div class="join-buttons" style="display: flex; gap: 1em; margin: 2em 0; flex-wrap: wrap;">
-				<a href="https://docs.google.com/forms/d/1OQLVSofjHVyG5FDtF6tlruzIfZhlXUChEvo-f8Z0qt8/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" style="flex: 1; min-width: 200px; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1em; text-align: center; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
-					Individuals
-				</a>
-				<a href="/coming-soon" style="flex: 1; min-width: 200px; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1em; text-align: center; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
-					Organizations
-				</a>
-			</div>
-			
-			<div style="text-align: center; margin: 2em 0; padding: 2em; background: linear-gradient(to bottom, rgba(190, 202, 207, 0.2), transparent); border-radius: 12px;">
-				<h2 style="color: var(--deep-space-blue); margin-bottom: 1em;">Subscribe to Our Emails</h2>
-				<p style="margin-bottom: 1.5em; font-size: 1.1em;">
-					Stay informed about our campaigns, events, and ways to take action.
-				</p>
-				<a href="https://actionnetwork.org/forms/subscribe-to-emails-from-philly-jwj?source=direct_link&" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.1em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
-					Subscribe to Emails
-				</a>
-			</div>
-			
-			<section class="instagram-section">
-				<h2 style="color: var(--deep-space-blue);">Follow Us on Instagram</h2>
-				<p>See our latest updates and organizing work</p>
-				<div class="instagram-embed">
-					<iframe 
-						src="https://www.instagram.com/phillyjobswithjustice/embed" 
-						width="100%" 
-						height="600" 
-						frameborder="0" 
-						scrolling="no" 
-						allowtransparency="true"
-						title="Philadelphia Jobs with Justice Instagram Feed">
-					</iframe>
-				</div>
-			</section>
-			
-			<h2 style="color: var(--deep-space-blue); margin-top: 2em;">Upcoming Events</h2>
-			<p>View our calendar below:</p>
-			<div class="calendar-container">
-				<div class="calendar-wrapper">
-					<iframe 
-						src="https://calendar.google.com/calendar/embed?src=Y19lMDgzYWFmNDU3MDgzMDVjYjdhNDcxNzRmNWFiOGZjMGU0MjVjZDdhMzM1YWNmNDUxYmVkMjZjMzFjMzYwOTUzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&ctz=America%2FNew_York" 
-						style="border: 0" 
-						width="800" 
-						height="600" 
-						frameborder="0" 
-						scrolling="no"
-						title="Events Calendar">
-					</iframe>
-				</div>
-			</div>
+				<!-- Become a Member Section -->
+				<section class="section">
+					<h3>Become a Member</h3>
+					<div class="join-buttons">
+						<a href="https://docs.google.com/forms/d/1OQLVSofjHVyG5FDtF6tlruzIfZhlXUChEvo-f8Z0qt8/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer">
+							Individuals
+						</a>
+						<a href="/our-work/our-coalition">
+							Organizations
+						</a>
+					</div>
+				</section>
+
+				<!-- Events Section -->
+				<section class="section">
+					<h3>Events</h3>
+					<div class="events-grid">
+						<a href="https://www.jwj.org/2026-national-conference-registration-now-open" target="_blank" rel="noopener noreferrer" class="event-card event-card-image">
+							<Image src={jwj2026Conference} alt="JWJ 2026 National Conference - Registration Now Open" />
+						</a>
+						<a href="https://www.lranetwork.org/news/lran-2026-conference-call-for-proposals/" target="_blank" rel="noopener noreferrer" class="event-card event-card-text">
+							<span class="event-title">Labor Research & Action Network 2026 Conference</span>
+							<span class="event-subtitle">Call for Proposals</span>
+						</a>
+						<a href="/our-work/power-school" class="event-card event-card-text">
+							<span class="event-title">Power School</span>
+							<span class="event-subtitle">Organizer Training Program</span>
+						</a>
+						<div class="event-card event-card-calendar">
+							<div class="calendar-container">
+								<div class="calendar-wrapper">
+									<iframe 
+										src="https://calendar.google.com/calendar/embed?src=Y19lMDgzYWFmNDU3MDgzMDVjYjdhNDcxNzRmNWFiOGZjMGU0MjVjZDdhMzM1YWNmNDUxYmVkMjZjMzFjMzYwOTUzQGdyb3VwLmNhbGVuZGFyLmdvb2dsZS5jb20&ctz=America%2FNew_York" 
+										style="border: 0" 
+										width="800" 
+										height="600" 
+										frameborder="0" 
+										scrolling="no"
+										title="Events Calendar">
+									</iframe>
+								</div>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Stay Connected Section -->
+				<section class="section">
+					<h3>Connect with Us</h3>
+					<div class="stay-connected-grid">
+						<div class="email-subscribe">
+							<h4>Subscribe to Our Emails</h4>
+							<p>
+								Stay informed about our campaigns, events, and ways to take action.
+							</p>
+							<a href="https://actionnetwork.org/forms/subscribe-to-emails-from-philly-jwj?source=direct_link&" target="_blank" rel="noopener noreferrer">
+								Subscribe to Emails
+							</a>
+						</div>
+						
+						<div class="instagram-section">
+							<h4>Follow Us on Instagram</h4>
+							<p>See our latest updates and organizing work</p>
+							<div class="instagram-embed">
+								<iframe 
+									src="https://www.instagram.com/phillyjobswithjustice/embed" 
+									width="100%" 
+									height="400" 
+									frameborder="0" 
+									scrolling="no" 
+									allowtransparency="true"
+									title="Philadelphia Jobs with Justice Instagram Feed">
+								</iframe>
+							</div>
+						</div>
+					</div>
+				</section>
+
+				<!-- Blog Section -->
+				<section class="section blog-posts">
+					<h2>Blog</h2>
+					<ul>
+						{
+							visiblePosts.map((post) => (
+								<li>
+									<a href={`/blog/${post.id}/`}>
+										{post.data.heroImage && (
+											<Image width={720} height={360} src={post.data.heroImage} alt="" />
+										)}
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+					
+					{hiddenPosts.length > 0 && (
+						<button id="expand-button" class="expand-button">
+							Show More Posts ({hiddenPosts.length})
+						</button>
+					)}
+					
+					<ul id="hidden-posts" class="hidden-posts">
+						{
+							hiddenPosts.map((post) => (
+								<li>
+									<a href={`/blog/${post.id}/`}>
+										{post.data.heroImage && (
+											<Image width={720} height={360} src={post.data.heroImage} alt="" />
+										)}
+										<h4 class="title">{post.data.title}</h4>
+										<p class="date">
+											<FormattedDate date={post.data.pubDate} />
+										</p>
+									</a>
+								</li>
+							))
+						}
+					</ul>
+				</section>
 			</div>
 		</main>
+		
+		<script>
+			const expandButton = document.getElementById('expand-button');
+			const hiddenPosts = document.getElementById('hidden-posts');
+			
+			if (expandButton && hiddenPosts) {
+				expandButton.addEventListener('click', () => {
+					hiddenPosts.classList.add('expanded');
+					expandButton.classList.add('hidden');
+				});
+			}
+		</script>
 		<Footer />
 	</body>
 </html>

@@ -13,6 +13,7 @@ import oldPhillyJwjLogo from '../assets/old_philly_jwj.png';
 import BaseHead from '../components/BaseHead.astro';
 import Footer from '../components/Footer.astro';
 import Header from '../components/Header.astro';
+import LogoCarousel from '../components/LogoCarousel.astro';
 ---
 
 <!doctype html>
@@ -770,17 +771,17 @@ import Header from '../components/Header.astro';
 						<p>Building power through Power School, developing the next generation of labor and community organizers with advanced training and strategic analysis.</p>
 						<span class="learn-more-button">Learn more →</span>
 					</a>
-					<a href="/coming-soon" class="our-work-card">
+					<a href="/our-work/organizing" class="our-work-card">
 						<h3>Organizing</h3>
 						<p>Supporting workers and communities through strategic organizing and capacity building for collective bargaining and action.</p>
 						<span class="learn-more-button">Learn more →</span>
 					</a>
-					<a href="/coming-soon" class="our-work-card">
-						<h3>Mutual Aid</h3>
+					<a href="/our-work/strike-ready" class="our-work-card">
+						<h3>Strike Ready: Revolution Ready</h3>
 						<p>Providing rapid-response support for people's actions, such as strikes, protests, and community actions.</p>
 						<span class="learn-more-button">Learn more →</span>
 					</a>
-					<a href="/coming-soon" class="our-work-card">
+					<a href="/our-work/our-coalition" class="our-work-card">
 						<h3>Coalition</h3>
 						<p>Bringing together unions, community groups, faith organizations, and students to build lasting solidarity and win victories for working people.</p>
 						<span class="learn-more-button">Learn more →</span>
@@ -829,6 +830,7 @@ import Header from '../components/Header.astro';
 				</section>
 			</div>
 		</main>
+		<LogoCarousel />
 		<Footer />
 		<script is:inline>
 			document.addEventListener('DOMContentLoaded', () => {

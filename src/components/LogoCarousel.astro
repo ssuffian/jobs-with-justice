@@ -1,0 +1,167 @@
+---
+import { Image } from 'astro:assets';
+
+// Import logos
+import aaupPennLogo from '../assets/members/aaup-penn.png';
+import afscmeLogo from '../assets/members/afscme-district-council-47.png';
+import apalaLogo from '../assets/members/apala-philly.png';
+import apfaLogo from '../assets/members/apfa-phl.png';
+import apipaLogo from '../assets/members/apipa.png';
+import debtCollectiveLogo from '../assets/members/debtcollective.png';
+import facultyStaffLogo from '../assets/members/faculty-and-staff-federation-of-the-community-college-of-philadelphia.png';
+import iupatLogo from '../assets/members/iupat-district-council-21.png';
+import juntosLogo from '../assets/members/juntos.webp';
+import mapLogo from '../assets/members/map.png';
+import ndwaLogo from '../assets/members/national-domestic-workers-alliance---pa-chapter.png';
+import onepaLogo from '../assets/members/onepa.png';
+import paStandsUpLogo from '../assets/members/pa-stands-up.png';
+import pcfacLogo from '../assets/members/pcfac.jpg';
+import pennPilotsLogo from '../assets/members/penn-for-pilots.png';
+import pennGetUpLogo from '../assets/members/penn-get-up.png';
+import aflcioLogo from '../assets/members/philadelphia-council-afl-cio.png';
+import workersUnitedLogo from '../assets/members/philadelphia-joint-board-workers-united.png';
+import philaposhLogo from '../assets/members/philaposh.jpg';
+import powerLogo from '../assets/members/power.png';
+import rocLogo from '../assets/members/roc.jpg';
+import sagaftraLogo from '../assets/members/sag-aftra-philadelphia.png';
+import seiuHealthcareLogo from '../assets/members/seiu-healthcare-pa.png';
+import seiuLocal668Logo from '../assets/members/seiu-local-668.png';
+import taupLogo from '../assets/members/taup-aft-local-4531.png';
+import teamsters623Logo from '../assets/members/teamsters-local-623.png';
+import teamsters773Logo from '../assets/members/teamsters-local-773.png';
+import tugsaLogo from '../assets/members/tugsa-aft-local-6290.png';
+import uapLogo from '../assets/members/uap-aft-local-9608.png';
+import wgaLogo from '../assets/members/wga-philly.png';
+
+const logos = [
+	{ src: aaupPennLogo, alt: 'AAUP Penn', website: 'https://www.aaup.org' },
+	{ src: afscmeLogo, alt: 'AFSCME District Council 47', website: 'https://www.afscme.org' },
+	{ src: apalaLogo, alt: 'APALA Philly', website: 'https://www.apalanet.org' },
+	{ src: apfaLogo, alt: 'APFA PHL', website: 'https://www.apfa.org' },
+	{ src: apipaLogo, alt: 'API PA', website: 'https://www.apipennsylvania.org' },
+	{ src: debtCollectiveLogo, alt: 'PA Debt Collective', website: 'https://debtcollective.org' },
+	{ src: facultyStaffLogo, alt: 'Faculty and Staff Federation of CCP', website: 'https://www.ccp.edu' },
+	{ src: iupatLogo, alt: 'IUPAT District Council 21', website: 'https://www.iupat.org' },
+	{ src: juntosLogo, alt: 'Juntos', website: 'https://www.juntos.org' },
+	{ src: mapLogo, alt: 'Movement Alliance Project', website: 'https://movementalliance.org' },
+	{ src: ndwaLogo, alt: 'National Domestic Workers Alliance – PA', website: 'https://www.domesticworkers.org' },
+	{ src: onepaLogo, alt: 'OnePA', website: 'https://www.onepa.org' },
+	{ src: paStandsUpLogo, alt: 'PA Stands Up', website: 'https://www.pastandsup.org' },
+	{ src: pcfacLogo, alt: 'Philadelphia Coalition for Affordable Communities', website: 'https://www.phillyaffordablecommunities.org' },
+	{ src: pennPilotsLogo, alt: 'Penn for PILOTs', website: 'https://www.upenn.edu' },
+	{ src: pennGetUpLogo, alt: 'Penn GET-UP', website: 'https://www.upenn.edu' },
+	{ src: aflcioLogo, alt: 'Philadelphia Council AFL-CIO', website: 'https://www.aflcio.org' },
+	{ src: workersUnitedLogo, alt: 'Philadelphia Joint Board Workers United', website: 'https://www.workersunited.org' },
+	{ src: philaposhLogo, alt: 'PhilaPOSH', website: 'https://www.philaposh.org' },
+	{ src: powerLogo, alt: 'POWER', website: 'https://www.powerinterfaith.org' },
+	{ src: rocLogo, alt: 'Restaurant Opportunities Center PA', website: 'https://www.rocunited.org' },
+	{ src: sagaftraLogo, alt: 'SAG-AFTRA Philadelphia', website: 'https://www.sagaftra.org' },
+	{ src: seiuHealthcareLogo, alt: 'SEIU Healthcare PA', website: 'https://www.seiu.org' },
+	{ src: seiuLocal668Logo, alt: 'SEIU Local 668', website: 'https://www.seiu.org' },
+	{ src: taupLogo, alt: 'TAUP AFT Local 4531', website: 'https://www.aft.org' },
+	{ src: teamsters623Logo, alt: 'Teamsters Local 623', website: 'https://www.teamster.org' },
+	{ src: teamsters773Logo, alt: 'Teamsters Local 773', website: 'https://www.teamster.org' },
+	{ src: tugsaLogo, alt: 'TUGSA AFT Local 6290', website: 'https://www.aft.org' },
+	{ src: uapLogo, alt: 'UAP AFT Local 9608', website: 'https://www.aft.org' },
+	{ src: wgaLogo, alt: 'WGA Philly', website: 'https://www.wga.org' },
+];
+---
+
+<div class="logo-carousel">
+	<h2>Our Partners</h2>
+	<div class="logo-scroll-container">
+		<div class="logo-scroll-wrapper" id="logoScrollWrapper">
+			{logos.map((logo) => (
+				<a href={logo.website} target="_blank" rel="noopener noreferrer" class="logo-slide">
+					<Image src={logo.src} alt={logo.alt} />
+					<span class="logo-name">{logo.alt}</span>
+				</a>
+			))}
+			{/* Duplicate for seamless loop */}
+			{logos.map((logo) => (
+				<a href={logo.website} target="_blank" rel="noopener noreferrer" class="logo-slide">
+					<Image src={logo.src} alt={logo.alt} />
+					<span class="logo-name">{logo.alt}</span>
+				</a>
+			))}
+		</div>
+	</div>
+</div>
+
+<style>
+	.logo-carousel {
+		background: var(--white);
+		padding: 2em 0;
+		text-align: center;
+		overflow: hidden;
+	}
+	.logo-carousel h2 {
+		color: var(--deep-space-blue);
+		margin: 0 0 1em 0;
+		font-size: 1.5em;
+	}
+	.logo-scroll-container {
+		position: relative;
+		width: 100%;
+		overflow: hidden;
+	}
+	.logo-scroll-wrapper {
+		display: flex;
+		width: fit-content;
+		animation: logoScroll 160s linear infinite;
+	}
+	.logo-scroll-wrapper:hover {
+		animation-play-state: paused;
+	}
+	@keyframes logoScroll {
+		0% {
+			transform: translateX(0);
+		}
+		100% {
+			transform: translateX(-50%);
+		}
+	}
+	.logo-slide {
+		flex-shrink: 0;
+		width: 120px;
+		display: flex;
+		flex-direction: column;
+		align-items: center;
+		justify-content: flex-start;
+		margin: 0 1.5em;
+		text-decoration: none;
+	}
+	.logo-slide img {
+		max-width: 100%;
+		max-height: 70px;
+		object-fit: contain;
+		filter: grayscale(0%);
+		opacity: 1;
+		transition: filter 0.3s, opacity 0.3s;
+	}
+	.logo-slide:hover img {
+		filter: grayscale(100%);
+		opacity: 0.7;
+	}
+	.logo-name {
+		color: var(--deep-space-blue);
+		font-size: 0.7em;
+		font-weight: 600;
+		margin-top: 0.5em;
+		text-align: center;
+		line-height: 1.2;
+		max-width: 100%;
+	}
+	@media (max-width: 768px) {
+		.logo-slide {
+			width: 100px;
+			margin: 0 1em;
+		}
+		.logo-slide img {
+			max-height: 50px;
+		}
+		.logo-name {
+			font-size: 0.6em;
+		}
+	}
+</style>

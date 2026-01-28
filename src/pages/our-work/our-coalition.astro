@@ -6,7 +6,6 @@ import ExpandableSection from '../../components/ExpandableSection.astro';
 import Footer from '../../components/Footer.astro';
 import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
-import LinkCard from '../../components/LinkCard.astro';
 import { SITE_TITLE } from '../../consts';
 
 // Import logos
@@ -94,7 +93,7 @@ const members = [
 				margin: 2em auto;
 				padding: 0 1em;
 				color: var(--deep-space-blue);
-				font-size: 1.1em;
+				font-size: 1em;
 				line-height: 1.8;
 				text-align: center;
 			}
@@ -161,26 +160,9 @@ const members = [
 				margin: 0.75em 0;
 				line-height: 1.8;
 			}
-			.donate-button {
-				display: inline-block;
-				padding: 1em 2em;
-				background: var(--canary-yellow);
-				color: var(--deep-space-blue);
-				text-decoration: none;
-				border-radius: 6px;
-				font-weight: 700;
-				font-size: 1.1em;
-				text-align: center;
-				transition: transform 0.2s, box-shadow 0.2s;
-				margin-top: 1em;
-			}
-			.donate-button:hover {
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
-			}
 			.members-grid {
 				display: grid;
-				grid-template-columns: repeat(4, 1fr);
+				grid-template-columns: repeat(8, 1fr);
 				gap: 1em;
 				margin-top: 2em;
 				width: 100%;
@@ -232,14 +214,14 @@ const members = [
 			.member-name {
 				color: var(--deep-space-blue);
 				font-weight: 600;
-				font-size: 0.85em;
+				font-size: 0.75em;
 				line-height: 1.2;
 				margin: 0;
 			}
 			.member-name-only {
 				color: var(--deep-space-blue);
 				font-weight: 600;
-				font-size: 0.85em;
+				font-size: 0.75em;
 				line-height: 1.2;
 				margin: 0;
 			}
@@ -248,9 +230,15 @@ const members = [
 				font-size: 0.85em;
 				margin-top: 0.5em;
 			}
+			@media (max-width: 1400px) {
+				.members-grid {
+					grid-template-columns: repeat(6, 1fr);
+					gap: 1em;
+				}
+			}
 			@media (max-width: 1024px) {
 				.members-grid {
-					grid-template-columns: repeat(3, 1fr);
+					grid-template-columns: repeat(4, 1fr);
 					gap: 1em;
 				}
 			}
@@ -263,7 +251,7 @@ const members = [
 					padding: 0 1em 2em 1em;
 				}
 				.members-grid {
-					grid-template-columns: repeat(2, 1fr);
+					grid-template-columns: repeat(3, 1fr);
 					gap: 0.75em;
 				}
 				.member-card {
@@ -286,6 +274,12 @@ const members = [
 					min-width: auto;
 				}
 			}
+			@media (max-width: 480px) {
+				.members-grid {
+					grid-template-columns: repeat(2, 1fr);
+					gap: 0.5em;
+				}
+			}
 		</style>
 	</head>
 	<body style="overflow-x: hidden;">
@@ -293,11 +287,10 @@ const members = [
 		<main>
 			<Hero title="Our Coalition" subtitle="Building power together for working people and economic justice" />
 
-			<p class="intro-text">Philadelphia Area Jobs with Justice brings together a diverse coalition of labor unions, community organizations, student groups, and faith-based organizations working to build power for working people and fight for economic justice in Philadelphia and beyond.</p>
+			<p class="intro-text">Philadelphia Area Jobs with Justice brings together a diverse coalition of labor unions, community organizations, student groups, and faith-based organizations working to build power for working people and fight for economic justice in Philadelphia and beyond. We are a coalition of 35+ unions, faith groups, youth and community orgs fighting and organizing for working class power.</p>
+			<p class="intro-text">Read more about our mission and values <a href="/about/mission_and_values">here</a>.</p>
 
 			<section class="expandable-sections" style="max-width: 900px; margin: 2em auto; padding: 0 1em;">
-				<LinkCard title="Our Mission and Values" href="/about/mission_and_values" />
-
 				<ExpandableSection title="Our Services to Our Coalition Members">
 					<p>Our services to our coalition members include:</p>
 					<ul>
