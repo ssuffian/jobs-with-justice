@@ -107,6 +107,23 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				margin-bottom: 0.3em;
 				font-size: 0.9em;
 			}
+			.program-outline td.date-cell {
+				font-weight: 700;
+				vertical-align: top;
+				white-space: normal;
+			}
+			.program-outline td.date-cell .date-label {
+				display: block;
+				white-space: nowrap;
+			}
+			.program-outline td.date-cell .facilitated-by {
+				display: block;
+				font-weight: 700;
+				font-size: 0.8em;
+				margin-top: 0.4em;
+				color: var(--deep-space-blue);
+				opacity: 0.95;
+			}
 			section {
 				margin-bottom: 1em;
 			}
@@ -381,8 +398,17 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				color: var(--white);
 				background: #c41e3a;
 				padding: 0.75em;
-				margin: -1em -1em 0.75em -1em;
+				margin: -1em -1em 0 -1em;
 				text-align: center;
+			}
+			.program-outline td .facilitator-line {
+				display: block;
+				font-size: 0.85em;
+				font-weight: 700;
+				color: var(--deep-space-blue);
+				padding: 0.5em 0 0.75em 0;
+				text-align: center;
+				font-style: italic;
 			}
 			.program-outline td:first-child {
 				display: none;
@@ -419,6 +445,7 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				</div>
 				<div class="header-content">
 					<h1>Power School</h1>
+					<p>Monday–Friday, March 2nd-6th 2026</p>
 					<p><strong>A Free Advanced Organizer Training Program</strong></p>
 				</div>
 				<div class="logos-right">
@@ -445,6 +472,12 @@ import organizing43 from '../../assets/organizing/43.jpg';
 			<p>The Power School creates a rare opportunity to bridge divides between labor and community organizing while deepening the capacity of organizers to take on bigger and bolder fights. It is designed for labor unions and community base-building organizations that are committed to developing skilled organizers—and to building and winning power for everyday Philadelphians by prioritizing people and planet over profit.</p>
 			<p>This program is offered free of charge to participants. Participants are asked to contribute $50 per day to help cover meals, space rental, and essential materials. No one will be turned away for lack of funds.</p>
 			
+			<div style="margin: 2em 0;">
+				<p><strong>Dates:</strong> Monday–Friday, March 2nd-6th 2026</p>
+				<p><strong>Times:</strong> 9:30 AM–5:30 PM</p>
+				<p><strong>Location:</strong> Philadelphia</p>
+			</div>
+			
 			<div style="text-align: center; margin: 2em 0;">
 				<a href="https://forms.gle/YSFRonFihxgLWvmP7" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.2em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
 					Apply Here!
@@ -457,9 +490,6 @@ import organizing43 from '../../assets/organizing/43.jpg';
 			</div>
 			
 			<div style="margin: 2em 0;">
-				<p><strong>Dates:</strong> Monday–Friday, March 2nd-6th 2026</p>
-				<p><strong>Times:</strong> 9:30 AM–5:30 PM</p>
-				<p><strong>Location:</strong> Philadelphia</p>
 				<p><strong>Format:</strong></p>
 				<ul style="list-style: disc; padding-left: 2em; margin: 0.5em 0;">
 					<li>Week-long, in-person intensive</li>
@@ -467,7 +497,8 @@ import organizing43 from '../../assets/organizing/43.jpg';
 					<li>Advanced skill-building for organizers</li>
 					<li>Strategic research and campaign development</li>
 				</ul>
-				<p><strong>Training Partners:</strong> National JWJ, LittleSis, AFL-CIO, The Organizing Center, W.E.B. Du Bois Movement School, UNITE HERE Local 274, Starbucks Workers United, Labor Network for Sustainability, Reclaim Philadelphia, and others</p>
+				<p><strong>Training Partners:</strong>National JWJ, Little Sis, AFLCIO, The Organizing Center, W.E DU Bois Movement School, Unite Here 274, Starbucks Workers United, Philadelphia Jobs With Justice, Labor Network for Sustainability, and others</p>
+
 			</div>
 			
 			<table class="program-outline" style="margin: 2em 0;">
@@ -479,8 +510,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				</thead>
 				<tbody>
 					<tr>
-						<td style="font-weight: 700; vertical-align: top; white-space: nowrap;">Monday Mar 2</td>
+						<td class="date-cell"><span class="date-label">Monday Mar 2</span><span class="facilitated-by">Facilitated by: Little Sis, Philly Jobs With Justice, Embodied Accountable Practice</span></td>
 						<td data-day="Monday Mar 2">
+							<span class="facilitator-line">Facilitated by: Little Sis, Philly Jobs With Justice, Embodied Accountable Practice</span>
 							<ul style="list-style: disc; padding-left: 1.5em; margin: 0;">
 								<li>Labor & Community Solidarity: where it works and where it falls short</li>
 								<li>Philadelphia/PA Power Analysis</li>
@@ -489,8 +521,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 						</td>
 					</tr>
 					<tr>
-						<td style="font-weight: 700; vertical-align: top; white-space: nowrap;">Tuesday Mar 3</td>
+						<td class="date-cell"><span class="date-label">Tuesday Mar 3</span><span class="facilitated-by">Facilitated by: W.E.B Du Bois Movement School, Labor Network for Sustainability</span></td>
 						<td data-day="Tuesday Mar 3">
+							<span class="facilitator-line">Facilitated by: W.E.B Du Bois Movement School, Labor Network for Sustainability</span>
 							<ul style="list-style: disc; padding-left: 1.5em; margin: 0;">
 								<li>Political Education: Understanding the Roots of the Crisis</li>
 								<li>Organizing Against Authoritarianism: lessons for the fight ahead</li>
@@ -499,8 +532,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 						</td>
 					</tr>
 					<tr>
-						<td style="font-weight: 700; vertical-align: top; white-space: nowrap;">Wednesday Mar 4</td>
+						<td class="date-cell"><span class="date-label">Wednesday Mar 4</span><span class="facilitated-by">Facilitated by: The Organizing Center, Philly AFL-CIO</span></td>
 						<td data-day="Wednesday Mar 4">
+							<span class="facilitator-line">Facilitated by: The Organizing Center, Philly AFL-CIO</span>
 							<ul style="list-style: disc; padding-left: 1.5em; margin: 0;">
 								<li>Troubleshooting Advanced Organizing Challenges</li>
 								<li>Finding Leaders Who Can Meet the Moment</li>
@@ -511,8 +545,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 						</td>
 					</tr>
 					<tr>
-						<td style="font-weight: 700; vertical-align: top; white-space: nowrap;">Thursday Mar 5</td>
+						<td class="date-cell"><span class="date-label">Thursday Mar 5</span><span class="facilitated-by">Facilitated by: Little Sis, Philly Jobs With Justice</span></td>
 						<td data-day="Thursday Mar 5">
+							<span class="facilitator-line">Facilitated by: Little Sis, Philly Jobs With Justice</span>
 							<ul style="list-style: disc; padding-left: 1.5em; margin: 0;">
 								<li>Campaigning for Power: understanding leverage and pillars of support</li>
 								<li>Strategic Research for Effective Campaigns, focused on:
@@ -528,8 +563,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 						</td>
 					</tr>
 					<tr>
-						<td style="font-weight: 700; vertical-align: top; white-space: nowrap;">Friday Mar 6</td>
+						<td class="date-cell"><span class="date-label">Friday Mar 6</span><span class="facilitated-by">Facilitated by: Philly Jobs With Justice, UNITE HERE 274, Starbucks Workers United</span></td>
 						<td data-day="Friday Mar 6">
+							<span class="facilitator-line">Facilitated by: Philly Jobs With Justice, UNITE HERE 274, Starbucks Workers United</span>
 							<ul style="list-style: disc; padding-left: 1.5em; margin: 0;">
 								<li>Introduction to Salting: key components and how to use it as an organizing tactic</li>
 								<li>Case Studies (Starbucks, Amazon, UNITE HERE)</li>
@@ -537,8 +573,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 						</td>
 					</tr>
 					<tr>
-						<td style="font-weight: 700; vertical-align: top; white-space: nowrap;">Saturday Mar 7</td>
+						<td class="date-cell"><span class="date-label">Saturday Mar 7</span><span class="facilitated-by">Facilitated by: DJ Jamz</span></td>
 						<td data-day="Saturday Mar 7">
+							<span class="facilitator-line">Facilitated by: DJ Jamz</span>
 							<ul style="list-style: disc; padding-left: 1.5em; margin: 0;">
 								<li>Closing Celebration: Dance with Comrades @ Dahlak in West Philly at 9pm
 									<ul style="list-style: circle; padding-left: 1.5em; margin: 0.5em 0;">
