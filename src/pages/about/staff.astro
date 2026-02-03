@@ -2,15 +2,13 @@
 import { Image } from 'astro:assets';
 import muzammalBio from '../../assets/muzammal_bio.jpg';
 import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Staff - ${SITE_TITLE}`} description="Meet our staff" />
 		<style>
 			main {
@@ -66,11 +64,9 @@ import { SITE_TITLE } from '../../consts';
 				margin-bottom: 1em;
 			}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Hero title="Our Staff" subtitle="The people powering our movement" />
+	</Fragment>
+	<main>
+		<Hero title="Our Staff" subtitle="The people powering our movement" />
 			<div class="staff-container">
 			<div class="staff-member">
 				<div class="staff-header">
@@ -97,7 +93,5 @@ import { SITE_TITLE } from '../../consts';
 			</div>
 			</div>
 		</main>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>
 

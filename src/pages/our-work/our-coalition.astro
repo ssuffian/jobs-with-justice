@@ -3,9 +3,8 @@ import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import DonateButton from '../../components/DonateButton.astro';
 import ExpandableSection from '../../components/ExpandableSection.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
 
 // Import logos
@@ -75,9 +74,8 @@ const members = [
 ];
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Our Coalition - ${SITE_TITLE}`} description="Philadelphia Area Jobs with Justice coalition members - labor unions, community organizations, and student groups working together for economic justice." />
 		<style>
 			main {
@@ -281,11 +279,9 @@ const members = [
 				}
 			}
 		</style>
-	</head>
-	<body style="overflow-x: hidden;">
-		<Header />
-		<main>
-			<Hero title="Our Coalition" subtitle="Building power together for working people and economic justice" />
+	</Fragment>
+	<main>
+		<Hero title="Our Coalition" subtitle="Building power together for working people and economic justice" />
 
 			<p class="intro-text">Philadelphia Area Jobs with Justice brings together a diverse coalition of labor unions, community organizations, student groups, and faith-based organizations working to build power for working people and fight for economic justice in Philadelphia and beyond. We are a coalition of 35+ unions, faith groups, youth and community orgs fighting and organizing for working class power.</p>
 			<p class="intro-text">Read more about our mission and values <a href="/about/mission_and_values">here</a>.</p>
@@ -379,7 +375,5 @@ const members = [
 				</div>
 			</section>
 		</main>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>
 

@@ -1,15 +1,13 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
 import DonateButton from '../components/DonateButton.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Donate - ${SITE_TITLE}`} description="Support our work with a donation" />
 		<style>
 			main {
@@ -33,10 +31,8 @@ import { SITE_TITLE } from '../consts';
 				color: var(--deep-space-blue);
 			}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
+	</Fragment>
+	<main>
 			<Hero title="Donate to Philly JWJ" subtitle="Your support allows us to continue to fight and win for working people in Philadelphia" />
 			<div class="donate-section">
 				<p>
@@ -45,7 +41,5 @@ import { SITE_TITLE } from '../consts';
 				<DonateButton text="Donate Funds" size="large" variant="secondary" />
 			</div>
 		</main>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>
 

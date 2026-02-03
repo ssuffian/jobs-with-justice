@@ -1,18 +1,16 @@
 ---
 import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
 // Import organizing photos
 import organizing11 from '../../assets/organizing/11.jpg';
 import organizing30 from '../../assets/organizing/30.jpg';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Our Organizing Work - ${SITE_TITLE}`} description="We build power from the ground up. Supporting workers and community members who are ready to organize their workplace, community, or issue campaign." />
 		<style>
 		main {
@@ -217,11 +215,9 @@ import organizing30 from '../../assets/organizing/30.jpg';
 			}
 		}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Hero title="New Organizing" subtitle="We Build Power From the Ground Up" />
+	</Fragment>
+	<main>
+		<Hero title="New Organizing" subtitle="We Build Power From the Ground Up" />
 
 			<section class="power-section" id="we-build-power">
 				<div class="vision-callout">
@@ -299,6 +295,4 @@ import organizing30 from '../../assets/organizing/30.jpg';
 				</div>
 			</section>
 		</main>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>

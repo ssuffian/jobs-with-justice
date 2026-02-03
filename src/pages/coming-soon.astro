@@ -1,13 +1,11 @@
 ---
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Coming Soon - ${SITE_TITLE}`} description="This page is coming soon" />
 		<style>
 			main {
@@ -29,13 +27,9 @@ import { SITE_TITLE } from '../consts';
 				line-height: 1.6;
 			}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<h1>Coming Soon</h1>
-			<p>This page is under construction. Please check back soon!</p>
-		</main>
-		<Footer />
-	</body>
-</html>
+	</Fragment>
+	<main>
+		<h1>Coming Soon</h1>
+		<p>This page is under construction. Please check back soon!</p>
+	</main>
+</BaseLayout>

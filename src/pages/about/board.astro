@@ -7,15 +7,13 @@ import aflcioLogo from '../../assets/members/philadelphia-council-afl-cio.png';
 import philaposhLogo from '../../assets/members/philaposh.jpg';
 import seiuLogo from '../../assets/members/seiu-healthcare-pa.png';
 import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Board - ${SITE_TITLE}`} description="Meet our board members" />
 		<style>
 			main {
@@ -112,11 +110,9 @@ import { SITE_TITLE } from '../../consts';
 				}
 			}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Hero title="Our Board" subtitle="Guiding our mission and strategic direction" />
+	</Fragment>
+	<main>
+		<Hero title="Our Board" subtitle="Guiding our mission and strategic direction" />
 			<div class="board-container">
 			<table class="board-table">
 				<thead>
@@ -211,7 +207,5 @@ import { SITE_TITLE } from '../../consts';
 			</table>
 			</div>
 		</main>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>
 

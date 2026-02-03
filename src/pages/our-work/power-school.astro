@@ -2,9 +2,8 @@
 import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
 import ExpandableSection from '../../components/ExpandableSection.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
 import { SITE_TITLE } from '../../consts';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 
 // Import available logos
 import phillyJwjLogo from '../../assets/logo-transparent.png';
@@ -12,19 +11,20 @@ import afscmeLogo from '../../assets/members/afscme-district-council-47.png';
 import littleSisLogo from '../../assets/members/LittleSis_logo_color.png';
 import nationalJwjLogo from '../../assets/members/national_jobs_with_justice.png';
 import aflcioLogo from '../../assets/members/philadelphia-council-afl-cio.png';
+import elComiteLogo from '../../assets/other_orgs/el_comite.png';
 import federalUnionistsNetworkLogo from '../../assets/other_orgs/federal_unionists_network.png';
 import laborNetworkLogo from '../../assets/other_orgs/labornetwork_logo.png';
 import phillyUniteHereLogo from '../../assets/other_orgs/philly_unite_here.webp';
 import starbucksWorkersUnitedLogo from '../../assets/other_orgs/starbucks_workers_united.png';
+import theOrganizingCenterLogo from '../../assets/other_orgs/the_organizing_center.png';
 import webDuboisLogo from '../../assets/other_orgs/web_dubois_movement_school.png';
 // Import organizing photos
 import organizing35 from '../../assets/organizing/35.jpg';
 import organizing43 from '../../assets/organizing/43.jpg';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Power School Philadelphia | Organizer Training Program - ${SITE_TITLE}`} description="Power School is Philadelphia's premier organizer training program building people power and working class power. Advanced training for labor and community organizers committed to worker justice and solidarity." keywords="Power School, Philadelphia organizer training program, worker justice, labor-community coalition, people power, working class power, solidarity, labor organizing training, community organizing Philadelphia" />
 		<style>
 			main {
@@ -419,10 +419,8 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				background: var(--sky-surge) !important;
 			}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
+	</Fragment>
+	<main>
 			<div class="header-with-logos">
 				<div class="logos-top">
 					<a href="https://www.afscme.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
@@ -442,6 +440,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 					<a href="/" class="partner-logo-item">
 						<Image src={phillyJwjLogo} alt="Philadelphia Jobs With Justice" />
 					</a>
+					<a href="https://elcomite.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={elComiteLogo} alt="El Comite" />
+					</a>
 				</div>
 				<div class="header-content">
 					<h1>Power School</h1>
@@ -454,6 +455,9 @@ import organizing43 from '../../assets/organizing/43.jpg';
 					</a>
 					<a href="https://federalunionistsnetwork.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
 						<Image src={federalUnionistsNetworkLogo} alt="Federal Unionists Network" />
+					</a>
+					<a href="https://theorganizingcenter.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={theOrganizingCenterLogo} alt="The Organizing Center" />
 					</a>
 				</div>
 				<div class="logos-bottom">
@@ -476,11 +480,15 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				<p><strong>Dates:</strong> Monday–Friday, March 2nd-6th 2026</p>
 				<p><strong>Times:</strong> 9:30 AM–5:30 PM</p>
 				<p><strong>Location:</strong> Philadelphia</p>
+				<p><strong>Spanish interpretation will be available.</strong></p>
 			</div>
 			
-			<div style="text-align: center; margin: 2em 0;">
+			<div style="text-align: center; margin: 2em 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
 				<a href="https://forms.gle/YSFRonFihxgLWvmP7" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.2em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
 					Apply Here!
+				</a>
+				<a href="https://docs.google.com/forms/d/1gEV_dcPGt80AZ1BOuLWgFt5yZkNy0Xu2fC6uBDsWIos/viewform" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.2em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
+					¡Solicitar aquí!
 				</a>
 			</div>
 			
@@ -627,14 +635,15 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				<p>Feel free to reach out to <a href="mailto:Muzammal@phillyjwj.org">Muzammal@phillyjwj.org</a> if you have any questions or thoughts!</p>
 			</section>
 			
-			<div style="text-align: center; margin: 3em 0;">
+			<div style="text-align: center; margin: 3em 0; display: flex; flex-wrap: wrap; justify-content: center; gap: 1em;">
 				<a href="https://forms.gle/YSFRonFihxgLWvmP7" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.2em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
 					Apply Here!
 				</a>
+				<a href="https://docs.google.com/forms/d/1gEV_dcPGt80AZ1BOuLWgFt5yZkNy0Xu2fC6uBDsWIos/viewform" target="_blank" rel="noopener noreferrer" style="display: inline-block; padding: 1em 2em; background: var(--deep-space-blue); color: var(--white); text-decoration: none; border-radius: 6px; font-weight: 700; font-size: 1.2em; transition: transform 0.2s, box-shadow 0.2s, background 0.2s;">
+					¡Solicitar aquí!
+				</a>
 			</div>
 		</main>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>
 
 

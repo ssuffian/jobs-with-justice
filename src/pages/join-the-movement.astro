@@ -2,10 +2,9 @@
 import { Image } from 'astro:assets';
 import { getCollection } from 'astro:content';
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
 import FormattedDate from '../components/FormattedDate.astro';
-import Header from '../components/Header.astro';
 import Hero from '../components/Hero.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../consts';
 import jwj2026Conference from '../assets/jwj_2026_conference.png';
 
@@ -13,13 +12,11 @@ const posts = (await getCollection('blog')).sort(
 	(a, b) => b.data.pubDate.valueOf() - a.data.pubDate.valueOf(),
 );
 
-const visiblePosts = posts.slice(0, 5);
-const hiddenPosts = posts.slice(5);
+const hiddenPosts = posts;
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Join The Movement for Worker Justice - ${SITE_TITLE}`} description="Join Philadelphia's movement for worker justice. Be part of a labor-community coalition building people power, working class power, and solidarity. Get involved with organizer training, Power School, and collective action." keywords="join worker justice movement Philadelphia, people power, working class power, solidarity, labor-community coalition, Power School, organizer training program" />
 		<style>
 		main {
@@ -281,15 +278,46 @@ const hiddenPosts = posts.slice(5);
 		}
 		.blog-posts .hidden-posts {
 			display: none !important;
-			gap: 1.5rem;
 			margin-top: 1.5rem;
 		}
 		.blog-posts .hidden-posts.expanded {
-			display: flex !important;
-			flex-wrap: wrap;
+			display: block !important;
 		}
-		.blog-posts .hidden-posts li {
+		.blog-posts .hidden-posts h2 {
+			color: var(--deep-space-blue);
+			margin: 0 0 1em 0;
+			font-size: 1.2em;
+			font-weight: 700;
+		}
+		.blog-posts .blog-posts-list {
+			display: flex;
+			flex-wrap: wrap;
+			gap: 1.5rem;
+			list-style-type: none;
+			margin: 0;
+			padding: 0;
+		}
+		.blog-posts .blog-posts-list li {
 			width: calc(33.333% - 1rem);
+		}
+		.blog-posts .blog-posts-list li * {
+			text-decoration: none;
+			transition: 0.2s ease;
+		}
+		.blog-posts .blog-posts-list li img {
+			margin-bottom: 0.5rem;
+			border-radius: 12px;
+			width: 100%;
+		}
+		.blog-posts .blog-posts-list li a {
+			display: block;
+		}
+		.blog-posts .blog-posts-list li a:hover h4,
+		.blog-posts .blog-posts-list li a:hover .date {
+			color: #7DD3F0;
+		}
+		.blog-posts .blog-posts-list a:hover img {
+			box-shadow: var(--box-shadow);
 		}
 		.expand-button {
 			display: block;
@@ -316,7 +344,7 @@ const hiddenPosts = posts.slice(5);
 		}
 		@media (max-width: 1024px) {
 			.blog-posts ul li,
-			.blog-posts .hidden-posts li {
+			.blog-posts .blog-posts-list li {
 				width: calc(50% - 0.75rem);
 			}
 		}
@@ -338,16 +366,14 @@ const hiddenPosts = posts.slice(5);
 				height: 400px;
 			}
 			.blog-posts ul li,
-			.blog-posts .hidden-posts li {
+			.blog-posts .blog-posts-list li {
 				width: 100%;
 			}
 		}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
-			<Hero title="Join The Movement" subtitle="Stay connected with our events and activities" />
+	</Fragment>
+	<main>
+		<Hero title="Join The Movement" subtitle="Stay connected with our events and activities" />
 			<div class="content-container">
 				<!-- Become a Member Section -->
 				<section class="section">
@@ -429,32 +455,14 @@ const hiddenPosts = posts.slice(5);
 
 				<!-- Blog Section -->
 				<section class="section blog-posts">
-					<h2>Blog</h2>
-					<ul>
-						{
-							visiblePosts.map((post) => (
-								<li>
-									<a href={`/blog/${post.id}/`}>
-										{post.data.heroImage && (
-											<Image width={720} height={360} src={post.data.heroImage} alt="" />
-										)}
-										<h4 class="title">{post.data.title}</h4>
-										<p class="date">
-											<FormattedDate date={post.data.pubDate} />
-										</p>
-									</a>
-								</li>
-							))
-						}
-					</ul>
-					
-					{hiddenPosts.length > 0 && (
+					{posts.length > 0 && (
 						<button id="expand-button" class="expand-button">
-							Show More Posts ({hiddenPosts.length})
+							Show Blog Posts
 						</button>
 					)}
-					
-					<ul id="hidden-posts" class="hidden-posts">
+					<div id="hidden-posts" class="hidden-posts">
+						<h2>Blog</h2>
+						<ul class="blog-posts-list">
 						{
 							hiddenPosts.map((post) => (
 								<li>
@@ -470,7 +478,8 @@ const hiddenPosts = posts.slice(5);
 								</li>
 							))
 						}
-					</ul>
+						</ul>
+					</div>
 				</section>
 			</div>
 		</main>
@@ -486,6 +495,4 @@ const hiddenPosts = posts.slice(5);
 				});
 			}
 		</script>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>

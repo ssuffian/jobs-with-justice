@@ -11,14 +11,12 @@ import payUpAction from '../assets/organizing/pay-up-action.jpg';
 import fundOurSchools from '../assets/organizing/fund-our-schools.jpg';
 import oldPhillyJwjLogo from '../assets/old_philly_jwj.png';
 import BaseHead from '../components/BaseHead.astro';
-import Footer from '../components/Footer.astro';
-import Header from '../components/Header.astro';
 import LogoCarousel from '../components/LogoCarousel.astro';
+import BaseLayout from '../layouts/BaseLayout.astro';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title="Philadelphia Jobs with Justice | Worker Justice & Labor-Community Coalition" description="Philadelphia Area Jobs with Justice builds people power and working class power through solidarity. A labor-community coalition of unions, students, community and faith groups fighting for worker justice in Philadelphia." keywords="Philadelphia, worker justice, labor-community coalition, solidarity, people power, working class power, jobs with justice, Power School, organizer training program, labor organizing Philadelphia" />
 		<style>
 		.banner {
@@ -666,9 +664,8 @@ import LogoCarousel from '../components/LogoCarousel.astro';
 			background: rgba(255, 255, 255, 0.4);
 		}
 		</style>
-	</head>
-	<body style="overflow-x: hidden;">
-		<Header />
+	</Fragment>
+	<div style="overflow-x: hidden;">
 		<div class="banner">
 			<div class="scroll-container">
 				<div class="scroll-wrapper" id="scrollWrapper">
@@ -831,7 +828,6 @@ import LogoCarousel from '../components/LogoCarousel.astro';
 			</div>
 		</main>
 		<LogoCarousel />
-		<Footer />
 		<script is:inline>
 			document.addEventListener('DOMContentLoaded', () => {
 				const scrollWrapper = document.querySelector('#scrollWrapper');
@@ -860,5 +856,5 @@ import LogoCarousel from '../components/LogoCarousel.astro';
 				
 			});
 		</script>
-	</body>
-</html>
+	</div>
+</BaseLayout>

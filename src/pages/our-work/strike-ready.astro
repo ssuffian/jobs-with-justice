@@ -1,18 +1,16 @@
 ---
 import { Image } from 'astro:assets';
 import BaseHead from '../../components/BaseHead.astro';
-import Footer from '../../components/Footer.astro';
-import Header from '../../components/Header.astro';
 import Hero from '../../components/Hero.astro';
+import BaseLayout from '../../layouts/BaseLayout.astro';
 import { SITE_TITLE } from '../../consts';
 // Import organizing photos
 import organizing24 from '../../assets/organizing/24.jpg';
 import organizing27 from '../../assets/organizing/27.jpg';
 ---
 
-<!doctype html>
-<html lang="en">
-	<head>
+<BaseLayout>
+	<Fragment slot="head">
 		<BaseHead title={`Strike Ready Philadelphia | Solidarity & Mutual Aid - ${SITE_TITLE}`} description="Strike Ready provides strategic support and mutual aid for workers' actions in Philadelphia. Building solidarity, people power, and working class power through rapid-response support for strikes, protests, and community actions." keywords="strike support Philadelphia, solidarity, mutual aid, people power, working class power, worker justice, labor-community coalition, strike fund Philadelphia" />
 		<style>
 		main {
@@ -212,10 +210,8 @@ import organizing27 from '../../assets/organizing/27.jpg';
 			}
 		}
 		</style>
-	</head>
-	<body>
-		<Header />
-		<main>
+	</Fragment>
+	<main>
 			<Hero title="Strike Ready: Revolution Ready" subtitle="Building infrastructure for solidarity, mutual aid, and collective action" />
 
 			<div class="image-grid">
@@ -285,7 +281,5 @@ import organizing27 from '../../assets/organizing/27.jpg';
 				</div>
 			</section>
 		</main>
-		<Footer />
-	</body>
-</html>
+</BaseLayout>
 
