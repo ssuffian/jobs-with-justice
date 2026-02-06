@@ -11,8 +11,10 @@ import afscmeLogo from '../../assets/members/afscme-district-council-47.png';
 import littleSisLogo from '../../assets/members/LittleSis_logo_color.png';
 import nationalJwjLogo from '../../assets/members/national_jobs_with_justice.png';
 import aflcioLogo from '../../assets/members/philadelphia-council-afl-cio.png';
+import cairLogo from '../../assets/other_orgs/CAIR .png';
 import elComiteLogo from '../../assets/other_orgs/el_comite.png';
 import federalUnionistsNetworkLogo from '../../assets/other_orgs/federal_unionists_network.png';
+import gljLogo from '../../assets/other_orgs/GLJ.png';
 import laborNetworkLogo from '../../assets/other_orgs/labornetwork_logo.png';
 import phillyUniteHereLogo from '../../assets/other_orgs/philly_unite_here.webp';
 import starbucksWorkersUnitedLogo from '../../assets/other_orgs/starbucks_workers_united.png';
@@ -266,6 +268,19 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				gap: 0.25em;
 				flex-wrap: wrap;
 			}
+			.logo-below-circle {
+				display: flex;
+				justify-content: center;
+				margin-top: 1em;
+				margin-bottom: 1em;
+			}
+			.logo-below-circle .partner-logo-item {
+				height: 110px;
+			}
+			.logo-below-circle .partner-logo-item img {
+				max-width: 150px;
+				max-height: 95px;
+			}
 			.header-content {
 				grid-column: 2;
 				grid-row: 2;
@@ -437,11 +452,11 @@ import organizing43 from '../../assets/organizing/43.jpg';
 					<a href="https://littlesis.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
 						<Image src={littleSisLogo} alt="Little Sis" />
 					</a>
-					<a href="/" class="partner-logo-item">
-						<Image src={phillyJwjLogo} alt="Philadelphia Jobs With Justice" />
-					</a>
 					<a href="https://elcomite.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
 						<Image src={elComiteLogo} alt="El Comite" />
+					</a>
+					<a href="https://www.glj.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={gljLogo} alt="Global Labor for Justice" />
 					</a>
 				</div>
 				<div class="header-content">
@@ -470,7 +485,15 @@ import organizing43 from '../../assets/organizing/43.jpg';
 					<a href="https://labor4sustainability.org/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
 						<Image src={laborNetworkLogo} alt="Labor Network for Sustainability" />
 					</a>
+					<a href="https://www.cair.com/" target="_blank" rel="noopener noreferrer" class="partner-logo-item">
+						<Image src={cairLogo} alt="CAIR" />
+					</a>
 				</div>
+			</div>
+			<div class="logo-below-circle">
+				<a href="/" class="partner-logo-item">
+					<Image src={phillyJwjLogo} alt="Philadelphia Jobs With Justice" />
+				</a>
 			</div>
 			<p>The Power School is a free, visionary advanced training program for community and labor organizers & leaders, who are committed to building lasting working-class power. This program equips participants with the tools, skills, and strategic analysis necessary to build power and resist rising authoritarianism.</p>
 			<p>The Power School creates a rare opportunity to bridge divides between labor and community organizing while deepening the capacity of organizers to take on bigger and bolder fights. It is designed for labor unions and community base-building organizations that are committed to developing skilled organizers—and to building and winning power for everyday Philadelphians by prioritizing people and planet over profit.</p>
@@ -505,7 +528,7 @@ import organizing43 from '../../assets/organizing/43.jpg';
 					<li>Advanced skill-building for organizers</li>
 					<li>Strategic research and campaign development</li>
 				</ul>
-				<p><strong>Training Partners:</strong> National JWJ, Little Sis, CAIR Philadelphia,El Comite de Trabajadorxs de Restaurantes, Global Labor Justice, Philly AFLCIO, The Organizing Center, W.E DU Bois Movement School, Unite Here 274, Starbucks Workers United, Philadelphia Jobs With Justice, Labor Network for Sustainability, and others</p>
+				<p><strong>Training Partners:</strong> National JWJ, Little Sis, CAIR Philadelphia, El Comite de Trabajadorxs de Restaurantes, Global Labor for Justice, Philly AFL-CIO, The Organizing Center, W.E.B. Du Bois Movement School, Unite Here 274, Starbucks Workers United, Philadelphia Jobs With Justice, Labor Network for Sustainability, and others.</p>
 
 			</div>
 			
@@ -578,6 +601,8 @@ import organizing43 from '../../assets/organizing/43.jpg';
 							<ul style="list-style: disc; padding-left: 1.5em; margin: 0;">
 								<li>Introduction to Salting: key components and how to use it as an organizing tactic</li>
 								<li>Case Studies (Starbucks, Amazon, UNITE HERE)</li>
+								<li>CAIR Philadelphia: session on Organizing through faith</li>
+								<li>Iftar</li>
 							</ul>
 						</td>
 					</tr>
@@ -620,7 +645,7 @@ import organizing43 from '../../assets/organizing/43.jpg';
 				</ExpandableSection>
 
 				<ExpandableSection title="What training partners are involved?" color="amber">
-					<p> National JWJ, Little Sis, CAIR Philadelphia,El Comite de Trabajadorxs de Restaurantes, Global Labor Justice,  AFLCIO, The Organizing Center, W.E DU Bois Movement School, Unite Here 274, Starbucks Workers United, Philadelphia Jobs With Justice, Labor Network for Sustainability, and others</p>
+					<p>National JWJ, Little Sis, CAIR Philadelphia, El Comite de Trabajadorxs de Restaurantes, Global Labor for Justice, Philly AFL-CIO, The Organizing Center, W.E.B. Du Bois Movement School, Unite Here 274, Starbucks Workers United, Philadelphia Jobs With Justice, Labor Network for Sustainability, and others.</p>
 				</ExpandableSection>
 
 				<ExpandableSection title="Can participants choose one or more sessions of the program to attend?" color="rose">
