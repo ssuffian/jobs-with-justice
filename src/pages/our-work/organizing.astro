@@ -134,6 +134,14 @@ import organizing30 from '../../assets/organizing/30.jpg';
 			max-width: 950px;
 			margin: 0 auto;
 		}
+		.role-cards--2col {
+			grid-template-columns: 1fr 1fr;
+		}
+		@media (max-width: 600px) {
+			.role-cards--2col {
+				grid-template-columns: 1fr;
+			}
+		}
 		.role-card {
 			background: var(--white);
 			padding: 1.5em;
@@ -188,19 +196,7 @@ import organizing30 from '../../assets/organizing/30.jpg';
 			font-size: 1.1em;
 		}
 		.cta-box .btn {
-			display: inline-block;
-			padding: 1em 2.5em;
-			background: var(--canary-yellow);
-			color: var(--deep-space-blue);
-			text-decoration: none;
-			border-radius: 6px;
-			font-weight: 700;
 			font-size: 1.2em;
-			transition: transform 0.2s, box-shadow 0.2s;
-		}
-		.cta-box .btn:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 4px 15px rgba(0, 0, 0, 0.3);
 		}
 		@media (max-width: 768px) {
 			.organizing-work-section,
@@ -228,7 +224,7 @@ import organizing30 from '../../assets/organizing/30.jpg';
 
 				<div class="subsection">
 					<h3>Our Organizing Principles</h3>
-					<div class="role-cards">
+					<div class="role-cards role-cards--2col">
 						<div class="role-card">
 							<strong>Interconnected Justice</strong>
 							<p>Economic justice, racial justice, gender justice, and liberation are interconnected</p>
@@ -291,7 +287,7 @@ import organizing30 from '../../assets/organizing/30.jpg';
 				<div class="cta-box">
 					<h3>Together, we build working class power. Together, We Win!</h3>
 					<p>Schedule a meeting with us</p>
-					<a href="https://calendly.com/muzammal-phillyjwj/30min" target="_blank" rel="noopener noreferrer" class="btn">Schedule Meeting</a>
+					<a href="https://calendly.com/muzammal-phillyjwj/30min" target="_blank" rel="noopener noreferrer" class="site-btn site-btn--yellow">Schedule Meeting</a>
 				</div>
 			</section>
 		</main>

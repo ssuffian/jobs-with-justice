@@ -64,23 +64,7 @@ const positionContent = await Promise.all(
 				margin-top: 1.25em;
 				margin-bottom: 2em;
 			}
-			.apply-button {
-				display: inline-block;
-				padding: 0.7em 2em;
-				background: #c0392b;
-				color: var(--white);
-				text-decoration: none;
-				border-radius: 6px;
-				font-weight: 700;
-				font-size: 1em;
-				transition: transform 0.2s, box-shadow 0.2s, background 0.2s;
-			}
-			.apply-button:hover {
-				background: var(--sky-surge);
-				color: var(--deep-space-blue);
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.2);
-			}
+			.apply-cta { margin-bottom: 2em; }
 			.equal-opp {
 				background: rgba(190, 202, 207, 0.15);
 				border-left: 3px solid var(--sky-surge);
@@ -115,7 +99,7 @@ const positionContent = await Promise.all(
 		</div>
 
 		<div class="apply-cta">
-			<a href="https://forms.gle/1UaGYCEYTTy96YEZ7" target="_blank" rel="noopener noreferrer" class="apply-button">Apply Now!</a>
+			<a href="https://forms.gle/1UaGYCEYTTy96YEZ7" target="_blank" rel="noopener noreferrer" class="site-btn site-btn--yellow">Apply Now!</a>
 		</div>
 
 		{positionContent.map((p) => (

@@ -117,7 +117,7 @@ b {
 a {
 	color: var(--sky-surge);
 }
-a:hover {
+a:not(.site-btn):hover {
 	color: var(--deep-space-blue);
 }
 p {
@@ -198,6 +198,39 @@ hr {
 		font-size: 0.9em;
 	}
 }
+
+/* ── Button utilities ───────────────────────────────────────────── */
+.site-btn {
+	display: inline-block;
+	padding: 0.85em 1.8em;
+	text-decoration: none;
+	border-radius: 6px;
+	font-weight: 700;
+	font-size: 1em;
+	background: var(--deep-space-blue);
+	color: var(--white);
+	border: 2px solid var(--sky-surge);
+	box-shadow: 0 4px 0 var(--sky-surge);
+	transition: transform 0.2s, box-shadow 0.2s;
+	cursor: pointer;
+	text-align: center;
+}
+.site-btn:hover {
+	color: var(--white);
+	transform: translateY(-2px);
+	box-shadow: 0 6px 0 var(--sky-surge);
+}
+.site-btn--yellow {
+	background: var(--canary-yellow);
+	color: var(--deep-space-blue);
+	border-color: var(--deep-space-blue);
+	box-shadow: 0 4px 0 var(--deep-space-blue);
+}
+.site-btn--yellow:hover {
+	color: var(--deep-space-blue);
+	box-shadow: 0 6px 0 var(--deep-space-blue);
+}
+/* ─────────────────────────────────────────────────────────────── */
 
 .sr-only {
 	border: 0;

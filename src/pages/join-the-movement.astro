@@ -59,46 +59,15 @@ const posts = (await getCollection('blog')).sort(
 		.buttons.top-cta {
 			margin: 1em 0 1.5em;
 		}
-		.buttons.full-width .btn {
+		.buttons.full-width .site-btn {
 			display: block;
 			width: 100%;
-			text-align: center;
 			box-sizing: border-box;
 		}
 		.buttons.split-2 {
 			display: grid;
 			grid-template-columns: 1fr 1fr;
 			gap: 1em;
-		}
-		.buttons.split-2 .btn {
-			text-align: center;
-		}
-		.btn {
-			display: inline-block;
-			padding: 0.9em 2em;
-			background: var(--deep-space-blue);
-			color: var(--white);
-			text-decoration: none;
-			border-radius: 6px;
-			font-weight: 700;
-			font-size: 1em;
-			border: 2px solid var(--sky-surge);
-			box-shadow: 0 4px 0 var(--sky-surge);
-			transition: transform 0.2s, box-shadow 0.2s, background 0.2s, color 0.2s;
-		}
-		.btn:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 6px 0 var(--sky-surge);
-		}
-		.btn-yellow {
-			background: var(--canary-yellow);
-			color: var(--deep-space-blue);
-			border: 2px solid var(--deep-space-blue);
-			box-shadow: 0 4px 0 var(--deep-space-blue);
-		}
-		.btn-yellow:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 6px 0 var(--deep-space-blue) !important;
 		}
 		/* Events */
 		.events-grid {
@@ -214,21 +183,7 @@ const posts = (await getCollection('blog')).sort(
 		.expand-button {
 			display: block;
 			width: 100%;
-			padding: 0.9em 1.8em;
-			background: var(--deep-space-blue);
-			color: var(--white);
-			border: 2px solid var(--sky-surge);
-			border-radius: 6px;
-			font-weight: 700;
-			font-size: 1em;
-			cursor: pointer;
-			box-shadow: 0 4px 0 var(--sky-surge);
-			transition: background 0.2s, box-shadow 0.2s, color 0.2s;
 			margin: 0.5em 0;
-		}
-		.expand-button:hover {
-			transform: translateY(-2px);
-			box-shadow: 0 6px 0 var(--sky-surge);
 		}
 		.hidden-posts { display: none; }
 		.hidden-posts.expanded { display: block; }
@@ -259,21 +214,21 @@ const posts = (await getCollection('blog')).sort(
 		<div class="content">
 
 			<div class="buttons top-cta full-width">
-				<a href="https://actionnetwork.org/forms/subscribe-to-emails-from-philly-jwj?source=direct_link&" target="_blank" rel="noopener noreferrer" class="btn">
+				<a href="https://actionnetwork.org/forms/subscribe-to-emails-from-philly-jwj?source=direct_link&" target="_blank" rel="noopener noreferrer" class="site-btn">
 					Subscribe to Emails
 				</a>
 			</div>
 
 			<div class="buttons full-width" style="margin-bottom: 2em;">
-				<a href="/hiring" class="btn btn-yellow">Get Paid to Build Working Class Power</a>
+				<a href="/hiring" class="site-btn site-btn--yellow">Get Paid to Build Working Class Power</a>
 			</div>
 
 			<h2>Become a Member</h2>
 			<div class="buttons split-2">
-				<a href="https://docs.google.com/forms/d/1OQLVSofjHVyG5FDtF6tlruzIfZhlXUChEvo-f8Z0qt8/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" class="btn">
+				<a href="https://docs.google.com/forms/d/1OQLVSofjHVyG5FDtF6tlruzIfZhlXUChEvo-f8Z0qt8/viewform?edit_requested=true" target="_blank" rel="noopener noreferrer" class="site-btn">
 					Individuals
 				</a>
-				<a href="/our-work/our-coalition" class="btn">
+				<a href="/our-work/our-coalition" class="site-btn">
 					Organizations
 				</a>
 			</div>
@@ -318,7 +273,7 @@ const posts = (await getCollection('blog')).sort(
 
 			{posts.length > 0 && (
 				<div class="blog-section">
-					<button id="expand-button" class="expand-button">Show Blog Posts</button>
+					<button id="expand-button" class="expand-button site-btn">Show Blog Posts</button>
 					<div id="hidden-posts" class="hidden-posts">
 						<ul class="blog-list">
 							{posts.map((post) => (
