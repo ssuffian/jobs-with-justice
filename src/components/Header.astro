@@ -3,6 +3,8 @@ import { Image } from 'astro:assets';
 import logoImage from '../assets/logo-transparent.png';
 import { SITE_TITLE } from '../consts';
 import HeaderLink from './HeaderLink.astro';
+
+const isHiringPage = Astro.url.pathname === '/hiring' || Astro.url.pathname === '/hiring/';
 ---
 
 <header>
@@ -56,8 +58,30 @@ import HeaderLink from './HeaderLink.astro';
 			</a>
 		</div>
 	</nav>
+	{!isHiringPage && <a href="/hiring" class="hiring-banner">We're hiring! Click here to learn more.</a>}
 </header>
 <style>
+	.hiring-banner {
+		display: block;
+		position: relative;
+		left: -1em;
+		width: 100vw;
+		background: white;
+		color: #D32F2F;
+		text-align: center;
+		padding: 0.35em 1em;
+		font-weight: 700;
+		font-size: 0.8em;
+		text-decoration: none;
+		letter-spacing: 0.02em;
+		transition: background 0.2s;
+		box-sizing: border-box;
+	}
+	.hiring-banner:hover {
+		background: #f5f5f5;
+		color: #B71C1C;
+		border-bottom: none !important;
+	}
 	header {
 		margin: 0;
 		padding: 0 1em;

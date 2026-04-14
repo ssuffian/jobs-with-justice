@@ -19,7 +19,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 	<Fragment slot="head">
 		<BaseHead title="Philadelphia Jobs with Justice | Worker Justice & Labor-Community Coalition" description="Philadelphia Area Jobs with Justice builds people power and working class power through solidarity. A labor-community coalition of unions, students, community and faith groups fighting for worker justice in Philadelphia." keywords="Philadelphia, worker justice, labor-community coalition, solidarity, people power, working class power, jobs with justice, Power School, organizer training program, labor organizing Philadelphia" />
 		<style>
-		.banner {
+.banner {
 			width: 100%;
 			height: 350px;
 			overflow: hidden;
@@ -230,6 +230,87 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		}
 		.work-card-join .work-card-content h3 {
 			color: var(--deep-space-blue);
+		}
+		.power-school-banner {
+			display: block;
+			text-decoration: none;
+			background: linear-gradient(135deg, #012F40 0%, #0a5e7e 40%, #19BCE6 100%);
+			border-radius: 10px;
+			margin: 1.5em 0;
+			transition: transform 0.2s, box-shadow 0.2s;
+			box-shadow: 0 6px 20px rgba(1, 47, 64, 0.4);
+			border: 2px solid rgba(25, 188, 230, 0.5);
+			overflow: hidden;
+			position: relative;
+		}
+		.power-school-banner::before {
+			content: '';
+			position: absolute;
+			top: -40%;
+			right: -10%;
+			width: 300px;
+			height: 300px;
+			background: radial-gradient(circle, rgba(254, 254, 95, 0.12) 0%, transparent 70%);
+			pointer-events: none;
+		}
+		.power-school-banner:hover {
+			transform: translateY(-3px);
+			box-shadow: 0 8px 28px rgba(1, 47, 64, 0.45);
+		}
+		.power-school-banner-inner {
+			display: flex;
+			flex-direction: row;
+			align-items: center;
+			justify-content: space-between;
+			padding: 2em 1.5em;
+			gap: 1em;
+			position: relative;
+		}
+		.power-school-banner-text {
+			display: flex;
+			flex-direction: column;
+			gap: 0.15em;
+		}
+		.power-school-eyebrow {
+			font-size: 0.75em;
+			font-weight: 800;
+			text-transform: uppercase;
+			letter-spacing: 0.15em;
+			color: #e74c3c;
+		}
+		.power-school-title {
+			font-size: 1.6em;
+			font-weight: 900;
+			color: var(--white);
+			line-height: 1.1;
+			text-transform: uppercase;
+			letter-spacing: 0.03em;
+		}
+		.power-school-sub {
+			font-size: 0.8em;
+			color: var(--white);
+			font-weight: 600;
+		}
+		.power-school-cta {
+			display: inline-block;
+			padding: 0.55em 1.5em;
+			background: var(--canary-yellow);
+			color: var(--deep-space-blue);
+			border-radius: 6px;
+			font-weight: 700;
+			font-size: 0.9em;
+			white-space: nowrap;
+			flex-shrink: 0;
+			transition: background 0.15s;
+		}
+		.power-school-banner:hover .power-school-cta {
+			background: #ffff80;
+		}
+		@media (max-width: 600px) {
+			.power-school-banner-inner {
+				flex-direction: column;
+				align-items: flex-start;
+			}
 		}
 		.our-work-section {
 			margin: 3em 0;
@@ -750,6 +831,17 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				</div>
 			</section>
 
+			<a href="/our-work/power-school" class="power-school-banner">
+				<div class="power-school-banner-inner">
+					<div class="power-school-banner-text">
+						<span class="power-school-eyebrow">Now Enrolling</span>
+						<span class="power-school-title">Power School</span>
+						<span class="power-school-sub">Free advanced organizer training · Philadelphia · May 4–9, 2026</span>
+					</div>
+					<span class="power-school-cta">Learn More →</span>
+				</div>
+			</a>
+
 			<section class="our-work-section">
 				<div class="our-work-header">
 					<h2 class="our-work-title">What We're Building</h2>
@@ -812,6 +904,7 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 					<div class="cta-buttons">
 						<a href="/join-the-movement" class="cta-button">Join The Movement</a>
 						<a href="/donate" class="cta-button secondary">Contribute</a>
+						<a href="/join-the-movement#events" class="cta-button secondary">Events</a>
 					</div>
 					<div class="contact-section">
 						<h3>Contact Us</h3>

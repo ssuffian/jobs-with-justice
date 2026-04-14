@@ -1,11 +1,12 @@
 ---
 interface Props {
 	title: string;
+	subtitle?: string;
 	open?: boolean;
 	color?: 'teal' | 'purple' | 'orange' | 'green' | 'indigo' | 'rose' | 'amber' | 'blue' | 'grey';
 }
 
-const { title, open = false, color = 'grey' } = Astro.props;
+const { title, subtitle, open = false, color = 'grey' } = Astro.props;
 
 const colorMap = {
 	teal: { bg: '#5eead4', hover: '#2dd4bf' },
@@ -23,7 +24,10 @@ const selectedColor = colorMap[color] || colorMap.grey;
 ---
 
 <details class="expandable-section" open={open} style={`--summary-bg: ${selectedColor.bg}; --summary-hover: ${selectedColor.hover};`}>
-	<summary><span class="plus-icon"></span>{title}</summary>
+	<summary>
+		<span class="plus-icon"></span>
+		{title}{subtitle && <span class="summary-subtitle">{subtitle}</span>}
+	</summary>
 	<div class="section-content">
 		<slot />
 	</div>
@@ -62,6 +66,13 @@ const selectedColor = colorMap[color] || colorMap.grey;
 		display: inline-block;
 		margin-right: 0.5em;
 		font-weight: 700;
+		flex-shrink: 0;
+	}
+	.summary-subtitle {
+		font-size: 0.75em;
+		font-weight: 400;
+		opacity: 0.75;
+		margin-left: 0.6em;
 	}
 	.plus-icon::before {
 		content: '+';
