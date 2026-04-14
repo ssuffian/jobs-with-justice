@@ -213,16 +213,21 @@ const isHiringPage = Astro.url.pathname === '/hiring' || Astro.url.pathname === 
 		opacity: 1;
 	}
 	.donate-link {
-		background: var(--deep-space-blue);
-		color: var(--white) !important;
+		background: var(--sky-surge);
+		color: var(--deep-space-blue) !important;
 		padding: 0.75em 1.5em !important;
-		border-radius: 4px;
-		border-bottom: none !important;
+		border-radius: 6px;
+		border: 2px solid var(--deep-space-blue) !important;
+		border-bottom: 2px solid var(--deep-space-blue) !important;
+		box-shadow: 0 4px 0 var(--deep-space-blue);
 		font-weight: 700;
+		transition: transform 0.2s, box-shadow 0.2s;
 	}
 	.donate-link:hover {
-		background: var(--sky-surge);
-		color: var(--white) !important;
+		background: var(--sky-surge) !important;
+		color: var(--deep-space-blue) !important;
+		transform: translateY(-2px);
+		box-shadow: 0 6px 0 var(--deep-space-blue);
 	}
 	.social-links,
 	.social-links a {

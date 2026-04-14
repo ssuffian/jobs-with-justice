@@ -172,41 +172,42 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			border: 2px solid;
 			border-radius: 8px;
 			padding: 2em 1.5em;
-			transition: all 0.2s ease;
+			transition: transform 0.2s, box-shadow 0.2s;
 			box-sizing: border-box;
 			text-decoration: none;
 			background: var(--white);
 			text-align: center;
-			transform: translateY(-2px);
-			box-shadow: 0 4px 12px rgba(1, 47, 64, 0.2);
+			box-shadow: 0 4px 0 rgba(1, 47, 64, 0.5);
 		}
 		.work-card-mission {
-			border-color: var(--canary-yellow);
+			border-color: var(--deep-space-blue);
 			color: var(--deep-space-blue);
 			background: var(--canary-yellow);
+			box-shadow: 0 4px 0 var(--deep-space-blue);
 		}
 		.work-card-history {
-			border-color: var(--deep-space-blue);
+			border-color: var(--sky-surge);
 			color: var(--white);
 			background: var(--deep-space-blue);
+			box-shadow: 0 4px 0 var(--sky-surge);
 		}
 		.work-card-join {
-			border-color: var(--sky-surge);
+			border-color: var(--deep-space-blue);
 			color: var(--deep-space-blue);
 			background: var(--sky-surge);
+			box-shadow: 0 4px 0 var(--deep-space-blue);
 		}
 		.work-card:hover {
-			transform: translateY(-4px);
-			box-shadow: 0 6px 20px rgba(1, 47, 64, 0.35);
+			transform: translateY(-2px);
 		}
 		.work-card-mission:hover {
-			background: #FFFF7F;
+			box-shadow: 0 6px 0 var(--deep-space-blue);
 		}
 		.work-card-history:hover {
-			background: #012530;
+			box-shadow: 0 6px 0 var(--sky-surge);
 		}
 		.work-card-join:hover {
-			background: #15A5CC;
+			box-shadow: 0 6px 0 var(--deep-space-blue);
 		}
 		.work-card-content {
 			display: flex;
@@ -294,17 +295,20 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		.power-school-cta {
 			display: inline-block;
 			padding: 0.55em 1.5em;
-			background: var(--canary-yellow);
+			background: var(--sky-surge);
 			color: var(--deep-space-blue);
 			border-radius: 6px;
+			border: 2px solid var(--deep-space-blue);
+			box-shadow: 0 4px 0 var(--deep-space-blue);
 			font-weight: 700;
 			font-size: 0.9em;
 			white-space: nowrap;
 			flex-shrink: 0;
-			transition: background 0.15s;
+			transition: transform 0.2s, box-shadow 0.2s;
 		}
 		.power-school-banner:hover .power-school-cta {
-			background: #ffff80;
+			transform: translateY(-2px);
+			box-shadow: 0 6px 0 var(--deep-space-blue);
 		}
 		@media (max-width: 600px) {
 			.power-school-banner-inner {
@@ -359,21 +363,21 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 		}
 		.our-work-card {
 			background: var(--white);
-			border: 2px solid #7DD3F0;
+			border: 2px solid var(--deep-space-blue);
 			border-radius: 8px;
 			padding: 1.5em 1.25em;
 			text-decoration: none;
 			color: inherit;
 			display: flex;
 			flex-direction: column;
-			transition: all 0.2s ease;
+			transition: transform 0.2s, box-shadow 0.2s;
 			box-sizing: border-box;
 			min-height: 280px;
+			box-shadow: 0 4px 0 var(--deep-space-blue);
 		}
 		.our-work-card:hover {
-			border-color: #7DD3F0;
 			transform: translateY(-2px);
-			box-shadow: 0 4px 12px rgba(1, 47, 64, 0.1);
+			box-shadow: 0 6px 0 var(--deep-space-blue);
 		}
 		.our-work-card h3 {
 			color: var(--deep-space-blue);
@@ -430,8 +434,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			.our-work-card {
 				min-height: auto;
 				padding: 1.25em 1em;
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.15);
 			}
 		}
 		@media (max-width: 768px) {
@@ -441,8 +443,6 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			}
 			.work-card {
 				padding: 1.5em 1em;
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(1, 47, 64, 0.2);
 			}
 			.work-card-mission {
 				background: var(--canary-yellow);
@@ -556,21 +556,23 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 			min-height: 40px;
 			min-width: 0;
 			box-sizing: border-box;
-			transform: translateY(-2px);
-			box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
+			border: 2px solid var(--deep-space-blue);
+			box-shadow: 0 4px 0 var(--deep-space-blue);
 		}
 			.cta-button:hover {
-				transform: translateY(-4px);
-				box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
+				transform: translateY(-2px);
+				box-shadow: 0 6px 0 var(--deep-space-blue);
 			}
 			.cta-button.secondary {
 				background: transparent;
 				border: 2px solid var(--white);
 				color: var(--white);
+				box-shadow: 0 4px 0 rgba(255, 255, 255, 0.4);
 			}
 			.cta-button.secondary:hover {
 				background: var(--white);
 				color: var(--deep-space-blue);
+				box-shadow: 0 6px 0 rgba(255, 255, 255, 0.4);
 			}
 		@media (max-width: 768px) {
 			.hero-section {
@@ -592,12 +594,9 @@ import BaseLayout from '../layouts/BaseLayout.astro';
 				width: 100%;
 				padding: 0.875em 1.5em;
 				font-size: 1em;
-				transform: translateY(-2px);
-				box-shadow: 0 4px 12px rgba(0, 0, 0, 0.3);
 			}
 			.cta-button.secondary {
-				background: var(--white);
-				color: var(--deep-space-blue);
+				background: transparent;
 			}
 		}
 		@media (max-width: 480px) {
